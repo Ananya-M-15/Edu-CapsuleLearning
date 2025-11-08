@@ -1,5 +1,3 @@
-# educaps_project/settings.py
-
 import os
 from pathlib import Path
 
@@ -62,7 +60,22 @@ WSGI_APPLICATION = 'educaps_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# educaps_project/settings.py
 
+# SECURITY WARNING: don't run with debug turned on in production!
+# The .get('DEBUG', 'False') part defaults to 'False' if the env var isn't set
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# folder where collectstatic will gather all static files.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Simplified storage setting for Render
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
