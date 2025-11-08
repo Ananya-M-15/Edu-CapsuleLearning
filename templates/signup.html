@@ -1,0 +1,73 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Join EduCaps{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+    <h1 class="auth-logo">EduCaps</h1>
+    <h2>Create Your Account</h2>
+    <p class="auth-subtitle">Start your daily learning habit today!</p>
+    
+    <form method="post" class="auth-form">
+        {% csrf_token %}
+        
+        {% for field in form.visible_fields %}
+        <div class="form-field-wrapper"> 
+            <div class="form-field">
+                {% if field.name == 'username' %}
+                    <i class="fas fa-user"></i>
+                {% else %}
+                    <i class="fas fa-lock"></i>
+                {% endif %}
+                
+                {{ field }}
+            </div>
+
+            {% if field.name == 'password' %}
+                <div id="password-help" class="password-help-text" style="display: none;">
+                    <ul>
+                        <li>Must contain at least 8 characters.</li>
+                        <li>Can't be too similar to your username.</li>
+                        <li>Can't be a commonly used password.</li>
+                        <li>Can't be entirely numeric.</li>
+                    </ul>
+                </div>
+            {% elif field.name == 'password2' %}
+                <small class="form-text-help">Enter the same password for verification.</small>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+        
+        {% if form.errors %}
+            <div class="form-errors">
+                {% for field, error_list in form.errors.items %}
+                    {% for error in error_list %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <button type="submit">Sign Up</button>
+    </form>
+    
+    <div class="auth-switch">
+        <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const passwordField = document.getElementById('id_password'); 
+        const passwordHelp = document.getElementById('password-help');
+
+        if (passwordField && passwordHelp) {
+            passwordField.addEventListener('focus', function() {
+                // Show the help text when the user clicks into the password field
+                passwordHelp.style.display = 'block';
+            });
+        }
+    });
+</script>
+{% endblock %}

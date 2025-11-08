@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}My Learning Paths{% endblock %}
+
+{% block content %}
+<div class="library-header">
+    <h1>My Learning</h1>
+    <p>Choose the subjects you want to focus on.</p>
+</div>
+
+<div class="subject-selection-grid">
+    {% for subject in all_subjects %}
+    <div class="subject-card">
+        <i class="{{ subject.icon_class }} subject-card__icon"></i>
+        <h3 class="subject-card__title">{{ subject.name }}</h3>
+        <p class="subject-card__description">{{ subject.description }}</p>
+
+        <form action="{% url 'toggle_subscription' subject.id %}" method="post">
+            {% csrf_token %}
+            {% if subject.id in subscribed_subject_ids %}
+                <button type="submit" class="btn-unsubscribe">
+                    <i class="fas fa-minus-circle"></i> Remove from My Learning
+                </button>
+            {% else %}
+                <button type="submit" class="btn-subscribe">
+                    <i class="fas fa-plus-circle"></i> Add to My Learning
+                </button>
+            {% endif %}
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

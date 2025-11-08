@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Learn - {{ capsule.title }}{% endblock %}
+{% block content %}
+<div class="learn-container">
+    <!-- Show the learning path -->
+    <div class="breadcrumb">
+        <i class="{{ topic.subject.icon_class }}"></i> {{ topic.subject.name }} &raquo; {{ topic.title }}
+    </div>
+    
+    <div class="flip-card" onclick="this.classList.toggle('flipped');">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <!-- Shows the capsule title now -->
+                <h3>{{ capsule.title }}</h3>
+                <p>{{ capsule.front_content }}</p>
+                <small>Click to reveal</small>
+            </div>
+            <div class="flip-card-back">
+                <h3>Answer / Explanation</h3>
+                <p>{{ capsule.back_content }}</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="complete-btn" data-capsule-id="{{ capsule.id }}" data-csrf-token="{{ csrf_token }}">
+        <i class="fas fa-check"></i> Mark as Complete & Continue
+    </button>
+</div>
+{% endblock %}

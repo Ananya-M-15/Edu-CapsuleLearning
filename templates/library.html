@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+
+{% block title %}Subject Library{% endblock %}
+
+{% block content %}
+<div class="library-header">
+    <h1>Subject Library</h1>
+    <p>Explore all topics and track your progress.</p>
+</div>
+
+<div class="accordion">
+    {% for subject in subjects %}
+    <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">
+            <div class="subject-info">
+                <i class="{{ subject.icon_class }}"></i>
+                <span>{{ subject.name }}</span>
+            </div>
+            <div class="subject-progress">
+                <span>{{ subject.completed_capsules_in_subject }} / {{ subject.total_capsules_in_subject }} Completed</span>
+                <i class="fas fa-chevron-down expand-icon"></i>
+            </div>
+        </button>
+
+        <div class="accordion-content">
+            {% for topic in subject.topics.all %}
+            <div class="topic-container">
+                {% with topic_progress=topics_with_progress|get_item:topic.id %}
+                <div class="topic-header">
+                    <span class="topic-title">{{ topic.title }}</span>
+                    <span class="topic-status">
+                        {% if topic_progress.completed_capsules == topic_progress.total_capsules and topic_progress.total_capsules > 0 %}
+                            <i class="fas fa-check-circle" style="color: #2ecc71;"></i> Completed
+                        {% else %}
+                            {{ topic_progress.completed_capsules }} / {{ topic_progress.total_capsules }} Capsules
+                        {% endif %}
+                    </span>
+                </div>
+                <ul class="capsule-list">
+                    {% for capsule in topic.capsules.all %}
+                        <li class="capsule-item {% if capsule.id in completed_capsule_ids %}completed{% endif %}">
+                            <span class="capsule-status-icon">
+                                {% if capsule.id in completed_capsule_ids %}
+                                    <i class="fas fa-check-circle"></i>
+                                {% else %}
+                                    <i class="far fa-circle"></i>
+                                {% endif %}
+                            </span>
+                            {{ capsule.title }}
+                        </li>
+                    {% empty %}
+                        <li class="capsule-item">No capsules in this topic yet.</li>
+                    {% endfor %}
+                </ul>
+                {% endwith %}
+            </div>
+            {% empty %}
+            <div class="topic-container">
+                <p>No topics available in this subject yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

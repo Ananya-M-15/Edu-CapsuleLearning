@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Choose Your Subjects{% endblock %}
+{% block content %}
+<div class="learn-container" style="text-align: center;">
+    <i class="fas fa-map-signs" style="font-size: 4rem; color: #3498db; margin-bottom: 1rem;"></i>
+    <h1>Let's Get Started!</h1>
+    <p>You haven't selected any learning paths yet.</p>
+    <p>Go to "My Learning" to choose the subjects you're interested in.</p>
+    <br>
+    <a href="{% url 'my_learning' %}" class="btn-start" style="background-color: #3498db;">
+        Choose My Subjects
+    </a>
+</div>
+{% endblock %}

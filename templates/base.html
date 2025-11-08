@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- The title will be filled in by child templates -->
+    <title>{% block title %}EduCaps{% endblock %}</title>
+
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- links to CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="cloud-container">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    <nav>
+        <a href="{% url 'dashboard' %}" class="logo">EduCaps</a>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'my_learning' %}">My Learning</a></li>
+                <li><a href="{% url 'library' %}">Browse</a></li>
+                <li><a href="{% url 'learn' %}">Learn</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li>
+                    <form id="logout-form" action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- The main content will be filled in by child templates -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- links to JavaScript file -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Login to EduCaps{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+    <h1 class="auth-logo">EduCaps</h1>
+    <h2>Welcome Back!</h2>
+    <p class="auth-subtitle">Log in to continue your learning journey.</p>
+    
+    {% if form.errors %}
+        <p class="auth-error">Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    <form method="post" class="auth-form">
+        {% csrf_token %}
+        <div class="form-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    
+    <div class="auth-switch">
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+</div>
+{% endblock %}

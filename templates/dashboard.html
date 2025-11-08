@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Your Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Welcome back, {{ user.username }}!</h1>
+    <p>Ready for your next learning capsule? Let's do this!</p>
+</div>
+
+<!-- Main Dashboard Grid Layout -->
+<div class="dashboard-grid">
+
+    <!-- Overall Progress Card -->
+    <div class="card">
+        <div class="card__title">Your Overall Progress</div>
+        <div class="card__content">
+            <p>You've completed {{ completed_count }} of {{ total_capsules }} capsules.</p>
+            <div class="progress-bar">
+                <div class="progress-bar__inner" style="width: {{ progress_percentage }}%;">
+                    {{ progress_percentage }}%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stat-card">
+        <i class="fas fa-check-circle stat-card__icon--completed"></i>
+        <div class="stat-card__text">
+            <h3>{{ completed_count }}</h3>
+            <p>Capsules Completed</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <i class="fas fa-rocket stat-card__icon--remaining"></i>
+        <div class="stat-card__text">
+            <h3>{{ remaining_count }}</h3>
+            <p>Capsules to Go</p>
+        </div>
+    </div>
+
+    <!-- Call to Action Card -->
+    <div class="card card--cta">
+        <div class="card__title">What's Next?</div>
+        <div class="card__content">
+            <p>Your next challenge awaits. Keep the momentum going!</p>
+            <a href="{% url 'learn' %}" class="btn-start">
+                <i class="fas fa-play-circle"></i> Start Next Capsule
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
