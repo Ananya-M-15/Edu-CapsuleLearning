@@ -7,6 +7,3 @@ pip install -r requirements.txt
 
 # 2. Run Django's collectstatic to gather all static files into STATIC_ROOT
 python manage.py collectstatic --no-input
-
-# 3. Apply any database migrations
-python manage.py migrate

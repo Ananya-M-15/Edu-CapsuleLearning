@@ -23,16 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- BUTTON DEBUGGING ---
-    console.log('Script is now looking for the complete button...');
+    // Completion button handler for the learn page
     const completeBtn = document.getElementById('complete-btn');
 
     if (completeBtn) {
-        // If you see this message, it means the script found the button!
-        console.log('SUCCESS: Button found! Attaching click listener.');
-        
         completeBtn.addEventListener('click', function() {
-            console.log('Button clicked! Starting fetch request...');
             const capsuleId = this.dataset.capsuleId;
             const csrfToken = this.dataset.csrfToken;
             
@@ -45,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Fetch response received:', data);
                 if (data.status === 'success') {
                     window.location.href = '/learn/';
                 } else {
@@ -57,8 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('A critical error occurred. Check the console for details.');
             });
         });
-    } else {
-        // If you see this message, the script could NOT find the button.
-        console.error('FAILURE: Could not find element with id="complete-btn" on this page.');
     }
 });

@@ -1,26 +1,52 @@
 import os
 from pathlib import Path
 
+import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+def get_bool_env(var_name, default=False):
+    val = os.environ.get(var_name)
+    if val is None:
+        return default
+    return val.strip().lower() in ('true', '1', 'yes', 't', 'y')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-your-secret-key-will-be-here'
+
+# Detect if running in a known production environment (e.g. Render)
+IS_RENDER = bool(os.environ.get('RENDER_EXTERNAL_HOSTNAME') or os.environ.get('RENDER'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Defaults to safe production behavior (False) in production; defaults to True locally to keep dev workflow frictionless.
+DEBUG = get_bool_env('DEBUG', default=not IS_RENDER)
 
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    if DEBUG:
+        # Development-only fallback to avoid breaking local workflows
+        SECRET_KEY = 'django-insecure-dev-only-local-secret-key-change-in-production'
+    else:
+        raise ImproperlyConfigured(
+            "The SECRET_KEY environment variable must be set in production (when DEBUG=False)."
+        )
 
+# ALLOWED_HOSTS: local loopback addresses are always permitted for local development
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '[::1]']
 
-ALLOWED_HOSTS = []
-
-# Get the external hostname from an environment variable that Render sets automatically
+# Automatically append Render external hostname if provided by the platform
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
+if RENDER_EXTERNAL_HOSTNAME and RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+# Support additional comma-separated hosts from environment (e.g. custom domains)
+ENV_ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
+if ENV_ALLOWED_HOSTS:
+    for host in ENV_ALLOWED_HOSTS.split(','):
+        cleaned_host = host.strip()
+        if cleaned_host and cleaned_host not in ALLOWED_HOSTS:
+            ALLOWED_HOSTS.append(cleaned_host)
 
 
 # Application definition
@@ -67,12 +93,30 @@ WSGI_APPLICATION = 'educaps_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if DATABASE_URL:
+    try:
+        db_config = dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=not DEBUG)
+        if not db_config:
+            raise ValueError("Parsed database configuration is empty.")
+        DATABASES = {
+            'default': db_config
+        }
+    except Exception as e:
+        raise ImproperlyConfigured(f"Invalid or unsupported DATABASE_URL configuration: {e}")
+else:
+    # Fail fast if running in production on Render without a persistent database
+    if not DEBUG and IS_RENDER:
+        raise ImproperlyConfigured(
+            "DATABASE_URL is required for production on Render. Ephemeral SQLite is not supported."
+        )
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 
 # Password validation

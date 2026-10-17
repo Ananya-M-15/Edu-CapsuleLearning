@@ -1,0 +1,657 @@
+﻿[
+    {
+        "pk":  1,
+        "model":  "learning.subject",
+        "fields":  {
+                       "name":  "Money Psychology — Master Your Financial Mindset",
+                       "description":  "Learn how your emotions, habits and hidden biases shape your money decisions — and how you can outsmart them.",
+                       "icon_class":  "fas fa-brain",
+                       "subscribers":  [
+
+                                       ]
+                   }
+    },
+    {
+        "pk":  2,
+        "model":  "learning.subject",
+        "fields":  {
+                       "name":  "Digital Habits \u0026 Focus in the Smartphone Age",
+                       "description":  "Learn how to master your attention, avoid distraction and reclaim your time in a connected world.",
+                       "icon_class":  "fas fa-mobile-alt",
+                       "subscribers":  [
+
+                                       ]
+                   }
+    },
+    {
+        "pk":  3,
+        "model":  "learning.subject",
+        "fields":  {
+                       "name":  "Emotional Intelligence \u0026 Human Behaviour",
+                       "description":  "Understand yourself and others better — communicate, lead and connect with more ease.",
+                       "icon_class":  "fas fa-users",
+                       "subscribers":  [
+
+                                       ]
+                   }
+    },
+    {
+        "pk":  4,
+        "model":  "learning.subject",
+        "fields":  {
+                       "name":  "The Art of Speaking \u0026 Influence",
+                       "description":  "Learn how to speak powerfully, persuade ethically and express your ideas with confidence.",
+                       "icon_class":  "fas fa-microphone",
+                       "subscribers":  [
+
+                                       ]
+                   }
+    },
+    {
+        "pk":  5,
+        "model":  "learning.subject",
+        "fields":  {
+                       "name":  "Sustainable Living in Everyday Life",
+                       "description":  "Simple habits to live greener, save resources and protect our planet — without extremes.",
+                       "icon_class":  "fas fa-leaf",
+                       "subscribers":  [
+
+                                       ]
+                   }
+    },
+    {
+        "pk":  1,
+        "model":  "learning.topic",
+        "fields":  {
+                       "subject":  1,
+                       "title":  "The Hidden Side of Money",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  2,
+        "model":  "learning.topic",
+        "fields":  {
+                       "subject":  2,
+                       "title":  "Reclaiming Your Attention",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  3,
+        "model":  "learning.topic",
+        "fields":  {
+                       "subject":  3,
+                       "title":  "Mastering Emotional Intelligence",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  4,
+        "model":  "learning.topic",
+        "fields":  {
+                       "subject":  4,
+                       "title":  "Speak So Others Listen",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  5,
+        "model":  "learning.topic",
+        "fields":  {
+                       "subject":  5,
+                       "title":  "Everyday Eco Choices",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  1,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "Why Smart People Make Dumb Money Choices",
+                       "front_content":  "If you’re so smart, why are you broke? Discover why logic often fails when it comes to money.",
+                       "back_content":  "Money isn’t just numbers — it’s emotion in disguise. Even the most logical minds fall for “instant gratification”. You buy a ₹3,000 shirt, not because you need it, but because it feels good now. That’s dopamine — your brain’s “reward” chemical — tricking you into thinking spending equals happiness. But the high fades, the regret stays. The secret? Train your brain like a muscle. Before buying anything, ask: Will this make me happy next month, or just right now? Financial intelligence starts when emotional intelligence joins the party.",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  2,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "The Latte Lie",
+                       "front_content":  "Will skipping your daily coffee really make you a millionaire?",
+                       "back_content":  "You’ve heard it: “Stop buying coffee, invest that ₹200 every day.” Sounds smart, right? But here’s the truth — the latte isn’t the problem. It’s the mindset behind it. You could cut coffee and still overspend on gadgets or impulse buys. Real wealth doesn’t come from punishing yourself. It comes from conscious spending — spending on what you love and cutting ruthlessly on what you don’t. Enjoy that latte if it sparks joy. Just don’t let lifestyle creep silently burn your savings.",
+                       "order":  1
+                   }
+    },
+    {
+        "pk":  3,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "The 50/30/20 Rule — Budgeting That Actually Works",
+                       "front_content":  "Tired of boring budgets? Try one that feels like freedom, not restriction.",
+                       "back_content":  "The 50/30/20 rule is simple and smart: 50% for needs (rent, bills, food) · 30% for wants (travel, hobbies) · 20% for savings/investments. But here’s the twist: make it flexible. Some months, your “want” might be a solo weekend trip that recharges your brain — and that’s okay. The goal isn’t perfection; it’s awareness. Money should serve your life, not control it.",
+                       "order":  2
+                   }
+    },
+    {
+        "pk":  4,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "The Dopamine Debt",
+                       "front_content":  "Why do people love shopping sprees, but hate checking their bank balance?",
+                       "back_content":  "Every swipe, tap, or “Buy Now” gives a dopamine hit. The brain feels rewarded — just like winning a small game. But constant dopamine highs create emotional debt: when the pleasure fades, guilt kicks in. Marketers know this cycle — that’s why online sales flash timers and “limited stock” banners exist. Break it by replacing “dopamine shopping” with “dopamine saving.” Set a savings goal, track progress, and celebrate each step — not each purchase.",
+                       "order":  3
+                   }
+    },
+    {
+        "pk":  5,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "Financial FOMO",
+                       "front_content":  "Ever felt poor after scrolling Instagram?",
+                       "back_content":  "Social media isn’t real — but your emotions are. When you see someone’s new car or Europe trip, your brain releases stress hormones — the “comparison trap” kicks in. The worst part? You start chasing their goals, not yours. Remember: nobody posts their credit card bill. Redirect envy into inspiration. Ask: “What did they do to afford it?” and start learning, not longing.",
+                       "order":  4
+                   }
+    },
+    {
+        "pk":  6,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "Invisible Expenses",
+                       "front_content":  "Why do your savings vanish even when you “don’t spend much”?",
+                       "back_content":  "Subscriptions, delivery fees, extra cloud storage — tiny leaks sink big ships. Track every auto-debit for one month. You’ll be shocked. Even ₹300 per week on “harmless” extras adds up to ₹15,000+ a year. Audit your spending once every quarter. Cut the noise, keep the joy. You’ll instantly feel richer — without earning a rupee more.",
+                       "order":  5
+                   }
+    },
+    {
+        "pk":  7,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "Money \u0026 Identity",
+                       "front_content":  "Does how you spend define who you are?",
+                       "back_content":  "Many people buy brands, not because they love them — but because they crave validation. A ₹500 shirt that fits you perfectly boosts confidence more than a ₹5,000 logo. Your money should tell your story, not your status. Financial freedom isn’t just numbers — it’s emotional peace. Once you detach money from ego, you start living richer, not just looking richer.",
+                       "order":  6
+                   }
+    },
+    {
+        "pk":  8,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "The Magic of Pay Yourself First",
+                       "front_content":  "What’s the #1 rule rich people secretly follow?",
+                       "back_content":  "They pay themselves first. Before bills, before rent — 10% of income goes straight into savings/investment. This flips your mindset from “I’ll save what’s left” to “I’ll spend what’s left.” It’s not greed — it’s self-respect. Because the future version of you deserves to be paid too.",
+                       "order":  7
+                   }
+    },
+    {
+        "pk":  9,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "The Fear of Investing",
+                       "front_content":  "Why are people afraid to invest even when they know it’s smart?",
+                       "back_content":  "Because losing money hurts more than earning it feels good. It’s psychology. That fear, called loss aversion, keeps millions from building wealth. But here’s the trick: start tiny. ₹500 in an index fund teaches more than hours of reading. Fear fades with familiarity. Every investor starts scared — but nobody grows by staying still.",
+                       "order":  8
+                   }
+    },
+    {
+        "pk":  10,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  1,
+                       "title":  "Money is a Mirror",
+                       "front_content":  "What if your money habits reflect your life habits?",
+                       "back_content":  "If you procrastinate in life, you procrastinate in savings. If you chase trends, your portfolio looks the same. Money mirrors mindset. Fix the person, and the portfolio follows. Every rupee decision is a reflection of your self-awareness. Master that, and you’ll never need another “get-rich” course again.",
+                       "order":  9
+                   }
+    },
+    {
+        "pk":  11,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "The Attention Economy",
+                       "front_content":  "Who really pays for your time? Discover how your attention became the world’s most valuable currency.",
+                       "back_content":  "In today’s world, attention is currency. Platforms, apps and advertisers all compete for your focus. The longer you stay glued, the more revenue they generate. The question: Who benefits — you or them? Start treating your attention like money. Spend it intentionally. Because time you lose never comes back.",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  12,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Dopamine Traps",
+                       "front_content":  "How did your phone become a slot machine in your pocket?",
+                       "back_content":  "Every notification, ding, and banner is engineered for one thing: the dopamine hit. You swipe, you scroll, you feel momentarily rewarded — then you do it again. This “feedback loop” hijacks your brain’s reward system. The fix? Build friction: turn off non-essential alerts, set screen-free zones, and reclaim your nervous system.",
+                       "order":  1
+                   }
+    },
+    {
+        "pk":  13,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Deep Work vs Shallow Work",
+                       "front_content":  "Why you feel busy but unproductive — and how to break the cycle.",
+                       "back_content":  "Shallow work: emails, meetings, multitasking. Deep work: uninterrupted focus on a high-value task. You might be busy all day, yet feel you achieved nothing. That’s the shallow trap. Design periods of “no distractions, just focus”. Block time. Protect it. And watch real progress happen.",
+                       "order":  2
+                   }
+    },
+    {
+        "pk":  14,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Single-Tasking Power",
+                       "front_content":  "Can you really focus when everything screams “multitask”?",
+                       "back_content":  "Multitasking is a myth. Your brain can switch between tasks, but not focus on two at once effectively. Each switch costs energy, time and clarity. The next time you open your laptop, close all tabs except the one task. Your brain will thank you — and so will your results.",
+                       "order":  3
+                   }
+    },
+    {
+        "pk":  15,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Digital Minimalism",
+                       "front_content":  "What if less screen time meant more richness in life?",
+                       "back_content":  "Reducing isn’t deprivation — it’s choosing what matters. Digital minimalism means using tech intentionally, not by default. Audit your apps. Delete ones you don’t need. Use autoplay? Turn it off. Each choice frees your mind, sharpens your presence and deepens your offline life.",
+                       "order":  4
+                   }
+    },
+    {
+        "pk":  16,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "The Power of Boredom",
+                       "front_content":  "Why you should let your mind wander (yes, really).",
+                       "back_content":  "With constant stimulation, boredom feels like a failure. But boredom births creativity. Let your mind idle. No notifications, no stimuli. You’ll be surprised what it comes up with — ideas, clarity, direction. Silence is underrated. Give it a chance.",
+                       "order":  5
+                   }
+    },
+    {
+        "pk":  17,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Attention Rituals",
+                       "front_content":  "How to build a daily habit that guards your focus.",
+                       "back_content":  "Pick one ritual: morning device-check delayed by 30 minutes; no phone during meals; 90-minute blocks of screen free time. Keep it consistent. Your willpower is strongest at the start of the day — use it. Rituals beat willpower every time.",
+                       "order":  6
+                   }
+    },
+    {
+        "pk":  18,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Rest-oriented Productivity",
+                       "front_content":  "What if doing less actually made you more effective?",
+                       "back_content":  "Productivity isn’t endless hustle. It’s smart recovery. Deep work needs rest. Your brain needs breaks. Schedule micro-rests. Step outside. Breathe. Disconnect. You’ll return to tasks with clarity, speed and energy.",
+                       "order":  7
+                   }
+    },
+    {
+        "pk":  19,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "Social Media Diet",
+                       "front_content":  "Are you consuming — or being consumed?",
+                       "back_content":  "Social media feels social, but often it’s structured to keep you scrolling, comparing and acquiring. Treat your feed like your plate: consume what nourishes, cut what drains. Set limits, uninstall apps if needed. Your mind deserves cleaner input.",
+                       "order":  8
+                   }
+    },
+    {
+        "pk":  20,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  2,
+                       "title":  "The Attention Dividend",
+                       "front_content":  "How focus today pays off big tomorrow.",
+                       "back_content":  "The decisions you make when your attention is sharp compound. Whether it’s writing your future self a plan, learning a new skill, or simply finishing what you started — you harvest the attention dividend later. Focus is an asset. Protect it like one.",
+                       "order":  9
+                   }
+    },
+    {
+        "pk":  21,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "What Is Emotional Intelligence?",
+                       "front_content":  "Is IQ enough for success? Meet the hidden factor driving relationships, leadership and well-being.",
+                       "back_content":  "Emotional intelligence (EQ) is your ability to recognise, understand and manage both your own and others’ emotions. It influences how you navigate social interactions, make decisions, and handle stress. High EQ doesn’t mean being nice all the time — it means being self-aware, adaptable and resilient.",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  22,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "Self-Awareness",
+                       "front_content":  "Why many people know what they feel but not why.",
+                       "back_content":  "Self-awareness means recognising your emotions, triggers and patterns. When you snap at someone or feel drained after a meeting — pause. Ask: “What happened? What did I feel? Why did I react?” That moment of reflection builds a stronger you.",
+                       "order":  1
+                   }
+    },
+    {
+        "pk":  23,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "Self-Management",
+                       "front_content":  "Can you stay cool when your world heats up?",
+                       "back_content":  "Emotions don’t always wait for permission. They show up in the middle of your day. Self-management means noticing the emotion, responding consciously, not reacting automatically. Take a breath. Reflect. Choose your move. That separates emotional intelligence from emotional chaos.",
+                       "order":  2
+                   }
+    },
+    {
+        "pk":  24,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "Social Awareness",
+                       "front_content":  "What if you could read the room like a pro?",
+                       "back_content":  "Social awareness means tuning into others’ emotions, cues and dynamics. Notice body language. Listen to tone, not just words. Understand what unsaid feelings might be driving behaviour. That empathy allows you to connect, lead and influence — not just talk.",
+                       "order":  3
+                   }
+    },
+    {
+        "pk":  25,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "Relationship Management",
+                       "front_content":  "Why “getting along” isn’t the same as “growing together”.",
+                       "back_content":  "Healthy relationships aren’t just conflict-free. They’re growth-oriented. They involve trust, feedback, healthy boundaries and authentic connection. Use your EQ to negotiate, to collaborate, to support others — and to express your own needs clearly and kindly.",
+                       "order":  4
+                   }
+    },
+    {
+        "pk":  26,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "Handling Conflict",
+                       "front_content":  "Can disagreement become opportunity?",
+                       "back_content":  "Conflict often scares people. But it’s also information. What’s going wrong? What’s hidden? Use conflict as a signal, not a battle. Listen, ask clarifying questions, stay calm and aim to understand. Often the outcome isn’t a “win” but a better connection and insight.",
+                       "order":  5
+                   }
+    },
+    {
+        "pk":  27,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "Emotional Resilience",
+                       "front_content":  "How do some people bounce back faster?",
+                       "back_content":  "Life throws curveballs. The difference: resilient people don’t ignore pain — they process it. They feel, reflect, adapt and grow. Build rituals (journaling, breathing, check-ins), surround yourself with support, and accept the messy middle. That builds strength.",
+                       "order":  6
+                   }
+    },
+    {
+        "pk":  28,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "The Power of Curiosity",
+                       "front_content":  "What if questions were your superpower?",
+                       "back_content":  "Curious people learn, connect and adapt faster. Next time you’re stuck in reacting mode, ask: “Tell me more. Why do you say that? What led you here?” Curiosity shifts you from judgement to understanding — and that’s a major EQ move.",
+                       "order":  7
+                   }
+    },
+    {
+        "pk":  29,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "The Mirror Effect",
+                       "front_content":  "What if others are just reflecting your state?",
+                       "back_content":  "Emotions are contagious. When you walk into a room anxious, others tune in. Calm yourself first. Notice your posture, tone, clarity. You can’t change others — but you can change how you show up. That often changes the dynamic.",
+                       "order":  8
+                   }
+    },
+    {
+        "pk":  30,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  3,
+                       "title":  "EQ as Leadership",
+                       "front_content":  "Why emotional intelligence is the new ROI.",
+                       "back_content":  "Leaders with high EQ don’t just manage tasks — they inspire, connect and uplift. They create teams where people feel safe, heard and challenged. Whether you lead a team or yourself, EQ remains the foundation of influence and impact.",
+                       "order":  9
+                   }
+    },
+    {
+        "pk":  31,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Why Some Voices Get Heard",
+                       "front_content":  "What makes some people naturally compelling — and others fade away?",
+                       "back_content":  "It’s not just what you say — it’s how you say it. Tone, pace, confidence, clarity: they all matter. Even experts lose the room when they speak like a slide-deck. Voice matters. Before you present — speak out loud. Record. Listen. Improve. Your message is only as good as its delivery.",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  32,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Storytelling Power",
+                       "front_content":  "How a good story trumps facts and figures every time.",
+                       "back_content":  "Facts inform. Stories convince. When you share a personal anecdote, a conflict, a victory — you give your audience a map of emotion. They mirror you. They feel you. Start with “Here’s what happened…” then bridge to “So what it means for you is…” Stories make ideas stick.",
+                       "order":  1
+                   }
+    },
+    {
+        "pk":  33,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "The Rule of Three",
+                       "front_content":  "Why three points hit harder than five.",
+                       "back_content":  "Our brains like patterns. Three is memorable. Five is forgettable. When you speak, structure your core message in three strong parts. Example: “We will explore, decide, act.” Simple. Clean. Powerfully remembered.",
+                       "order":  2
+                   }
+    },
+    {
+        "pk":  34,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Voice \u0026 Body Alignment",
+                       "front_content":  "What if your body is saying what your mouth isn’t?",
+                       "back_content":  "Your message is 7% words, 38% tone, 55% body language (approximation). When your body says “I’m uninterested” but your words say “I care”, the audience senses the mismatch. Stand straight, make eye-contact, match voice to intent. Own your space.",
+                       "order":  3
+                   }
+    },
+    {
+        "pk":  35,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Asking Great Questions",
+                       "front_content":  "Why persuaders ask — they don’t just tell.",
+                       "back_content":  "People feel in control when asked questions — and then they convince themselves. Use open questions: “What would happen if…?” “How might we…?” The answer becomes theirs, the buy-in automatic. Influence isn’t pushing — it’s guiding.",
+                       "order":  4
+                   }
+    },
+    {
+        "pk":  36,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Listening to Lead",
+                       "front_content":  "Why the best speakers are great listeners first.",
+                       "back_content":  "Speaking without listening is broadcasting. Listening without speaking is ignoring. Great communicators alternate: they listen, summarize, then respond. That rhythm builds respect, trust and real influence.",
+                       "order":  5
+                   }
+    },
+    {
+        "pk":  37,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Handling Q\u0026A Like a Pro",
+                       "front_content":  "What to do when the mic turns to you unexpectedly.",
+                       "back_content":  "Take a breath. Acknowledge the question. Repeat it aloud (so others hear and you process). Then answer — briefly. If you don’t know, say “I’ll find out” (and do). You’ll earn trust not by always knowing, but by being honest.",
+                       "order":  6
+                   }
+    },
+    {
+        "pk":  38,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Persuasion with Integrity",
+                       "front_content":  "Can influence be ethical?",
+                       "back_content":  "Yes — and it’s powerful. Use influence to align with others’ values and create win-wins. Avoid manipulation, hype or fear tactics. The result: a reputation of credibility and influence that lasts.",
+                       "order":  7
+                   }
+    },
+    {
+        "pk":  39,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "Handling Nerves",
+                       "front_content":  "Why your body betrays you before you speak—and how to flip it.",
+                       "back_content":  "Butterflies = adrenaline. Use them. Shift them into energy. Stand tall, breathe deep, speak slowly. Remind yourself: You’re sharing, not defending. Your audience wants you to succeed. They’re your allies.",
+                       "order":  8
+                   }
+    },
+    {
+        "pk":  40,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  4,
+                       "title":  "One Sentence Summary",
+                       "front_content":  "What matters so much you can’t skip it?",
+                       "back_content":  "After you speak, someone should walk away saying: “In one sentence, they meant…” If you can’t summarize your core idea in one sentence, go back. The clearer it is in your mind, the clearer it will sound in theirs.",
+                       "order":  9
+                   }
+    },
+    {
+        "pk":  41,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Why Sustainability Matters",
+                       "front_content":  "What does sustainability really mean — and why should you care?",
+                       "back_content":  "Sustainability isn’t just tree-hugging — it’s about choices that ensure our planet thrives and future generations aren’t paying the price. Every time you waste less, reuse more, or choose smarter, you send a ripple effect. Your small act becomes part of a bigger wave.",
+                       "order":  0
+                   }
+    },
+    {
+        "pk":  42,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "The 3 R’s Revisited",
+                       "front_content":  "You’ve heard “Reduce, Reuse, Recycle” — but what does that look like today?",
+                       "back_content":  "Reduce: buy less stuff in the first place. Reuse: give items a second life before discarding. Recycle: yes — but only when the first two don’t apply. The easiest bottle to recycle is the one never bought. Make the 3 R’s your mindset, not just your checkbox.",
+                       "order":  1
+                   }
+    },
+    {
+        "pk":  43,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Plastic Problem … Simplified",
+                       "front_content":  "Why avoid single-use plastic — and what to swap instead?",
+                       "back_content":  "Single-use plastic bags, bottles, straws — they stay in nature for 100+ years. Choosing a cloth bag, reusable bottle or metal straw doesn’t make you perfect — it makes you consistent. Consistency beats perfection every time.",
+                       "order":  2
+                   }
+    },
+    {
+        "pk":  44,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Energy Savers at Home",
+                       "front_content":  "Little changes at home = big impact over time.",
+                       "back_content":  "Turn off lights when you leave a room. Unplug chargers when not in use. Use LED bulbs. A single-family household cutting just ₹ 500/month in wasted energy saves ₹ 6,000 a year — and prevents CO₂. Your home becomes both lighter on bills and on the planet.",
+                       "order":  3
+                   }
+    },
+    {
+        "pk":  45,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Water Wisdom",
+                       "front_content":  "Why saving water feels small — but matters massively.",
+                       "back_content":  "Fix leaks. Turn the tap off while brushing. Use a bucket if the shower runs dry. These feel trivial until you add them up. In a year, small savings amount to thousands of liters — and that’s hundreds of rupees and real conservation.",
+                       "order":  4
+                   }
+    },
+    {
+        "pk":  46,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Sustainable Food Choices",
+                       "front_content":  "You eat every day — so make each meal a statement.",
+                       "back_content":  "Local produce uses less transport. Plants often use fewer resources. Choose whole foods over processed. Avoid food waste (plan meals, store leftovers smartly). Your plate becomes a silent vote for the planet you want.",
+                       "order":  5
+                   }
+    },
+    {
+        "pk":  47,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Conscious Transport",
+                       "front_content":  "Your commute can cost more than time — it can cost the planet.",
+                       "back_content":  "Walk or cycle when you can. Use public transport. Carpool. When you reduce trips or vehicle-miles, you reduce emissions, stress and often money. Sustainable living isn’t extreme — just practical.",
+                       "order":  6
+                   }
+    },
+    {
+        "pk":  48,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Mindful Consumerism",
+                       "front_content":  "How to buy less — and buy better.",
+                       "back_content":  "Before you buy: pause. Ask: “Do I need this? Will I use it often? Is there a better alternative?” Fewer, higher-quality items last longer. The result: less clutter, less stress, better value and a smaller footprint.",
+                       "order":  7
+                   }
+    },
+    {
+        "pk":  49,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Waste Segregation \u0026 Composting",
+                       "front_content":  "Trash doesn’t just vanish. Let’s make it useful.",
+                       "back_content":  "Separate wet waste, dry waste, recyclables. Compost food scraps. This reduces landfill, lowers methane emissions and gives back to your soil if you garden. Your daily waste becomes a resource.",
+                       "order":  8
+                   }
+    },
+    {
+        "pk":  50,
+        "model":  "learning.capsule",
+        "fields":  {
+                       "topic":  5,
+                       "title":  "Green Future Vision",
+                       "front_content":  "What role do you play in the planet’s story?",
+                       "back_content":  "When you act — whether switching off lights, refusing plastic straws or walking more — you become part of a collective. Your small change blends with millions. Together, they shift norms. Together, they make the future.",
+                       "order":  9
+                   }
+    }
+]
