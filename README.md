@@ -1,99 +1,153 @@
-# EduCaps - Daily Micro-Learning App
+# EduCaps 🎓
+### Learn Something New Every Day
 
-EduCaps is a web application designed for daily micro-learning, inspired by Duolingo. It delivers bite-sized lessons ("capsules") and activities every day to help users grasp diverse topics like personal finance, soft skills, and more.
+EduCaps is a micro-learning web application that makes learning simple, engaging, and consistent. It breaks complex topics into bite-sized learning capsules, helping users build knowledge through interactive lessons, quizzes, and personalized progress tracking.
 
-## Features
+**Tech Stack:** Python · Django · HTML · CSS · JavaScript · PostgreSQL · SQLite
 
-- **User Authentication:** Secure signup, login, and logout functionality.
-- **Interactive Dashboard:** A personalized dashboard with a "glassmorphism" design, animated background, and progress tracking.
-- **Subject & Topic Library:** A collapsible accordion view to browse all available learning content and track progress.
-- **Flip-Card Learning:** Daily lessons are presented as interactive flip cards for an engaging experience.
-- **Admin Content Management:** A full-featured Django admin panel for easily adding and managing subjects, topics, and daily capsules.
+**Live Demo:** [EduCaps](https://edu-capsulelearning-1.onrender.com/)
 
-## Tech Stack
+**Repository:** [GitHub](https://github.com/Ananya-M-15/Edu-CapsuleLearning)
 
-- **Backend:** Python, Django
-- **Frontend:** HTML, CSS, JavaScript
-- **Database:** SQLite (for development), PostgreSQL (for production)
-- **Deployment:** Render
+---
 
-## Local Setup
+## ✨ Features
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/educaps.git
-    cd educaps
-    ```
+- **User Authentication** — Secure signup, login, and personalized accounts.
+- **Interactive Dashboard** — Track learning activity, completion progress, and goals.
+- **Learning Library** — Explore subjects, topics, and bite-sized capsules.
+- **Interactive Quizzes** — Test understanding with multiple-choice questions.
+- **Contextual AI Tutor** — Get rule-based explanations and learning hints.
+- **Personalized Learning Modes** — Standard and Kids modes with distinct mentor experiences.
+- **Spaced Repetition** — Revisit concepts using the SM-2 review scheduling algorithm.
+- **Search and Navigation** — Find relevant learning content.
+- **Admin Panel** — Manage subjects, topics, and capsules through Django Admin.
+- **Responsive UI** — A modern interface with pastel visuals and interactive elements.
 
-2.  **Create and activate a virtual environment:**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
+## 🛠️ Tech Stack
 
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+| Category | Technologies |
+|---|---|
+| Backend | Python, Django |
+| Frontend | HTML5, CSS3, JavaScript |
+| Database | SQLite, PostgreSQL |
+| Static Files | WhiteNoise, Django Staticfiles |
+| Web Server | Gunicorn |
+| Deployment | Render |
+| Testing | Django Test Framework |
 
-4.  **Run migrations and create a superuser:**
-    ```bash
-    python manage.py migrate
-    python manage.py createsuperuser
-    ```
+## 🚀 Getting Started
 
-5.  **Run the development server:**
-    ```bash
-    python manage.py runserver
-    ```
+### Prerequisites
 
-## Configuration & Environment Variables
+- Python
+- Git
+- pip
 
-EduCaps supports 12-factor environment variables for production while defaulting to local SQLite for frictionless development.
+### Installation
 
-| Variable | Default (Local) | Production Requirement | Purpose |
-|---|---|---|---|
-| `DEBUG` | `True` (locally) | Set to `False` | Controls Django debug mode. |
-| `SECRET_KEY` | Dev-only fallback | **Required** when `DEBUG=False` | Django cryptographic signing key. |
-| `ALLOWED_HOSTS` | `127.0.0.1,localhost,[::1]` | Auto-set on Render | Comma-separated allowed domains. |
-| `DATABASE_URL` | None (uses `db.sqlite3`) | **Required** on Render | PostgreSQL connection URL. |
+**1. Clone the repository**
 
-### Running with PostgreSQL
-To connect to a PostgreSQL database locally or in staging/production:
 ```bash
-export DATABASE_URL="postgresql://user:password@localhost:5432/educaps"
-# On Windows PowerShell: $env:DATABASE_URL="postgresql://user:password@localhost:5432/educaps"
+git clone https://github.com/Ananya-M-15/Edu-CapsuleLearning.git
+cd Edu-CapsuleLearning
+```
+
+**2. Create and activate a virtual environment**
+
+Windows PowerShell:
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+macOS/Linux:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3. Install dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**4. Apply migrations**
+
+```bash
 python manage.py migrate
 ```
 
-### Initial Content Seeding
-EduCaps includes an idempotent content-seeding command that loads the 5 subjects, 5 topics, and 50 capsules from `learning/fixtures/initial_content.json`:
+**5. Create an administrator account**
 
 ```bash
-python manage.py seed_initial_content
+python manage.py createsuperuser
 ```
 
-- **Idempotent & Safe**: If the target database already contains any learning content, seeding is skipped automatically, preserving all existing and administrator-edited records.
-- **Privacy Preserved**: The fixture and command contain zero user accounts, passwords, progress records, or session data.
-- **Atomic**: Wrapped in a database transaction to ensure all-or-nothing population without partial state.
+**6. Start the application**
 
-## Deployment on Render
+```bash
+python manage.py runserver
+```
 
-### Service Commands Configuration
+Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
 
-When deploying EduCaps as a Web Service on Render, configure the service commands as follows:
+## ⚙️ Environment Configuration
 
-- **Build Command:** `./build.sh`
-- **Pre-Deploy Command:** `python manage.py migrate && python manage.py seed_initial_content`
-- **Start Command:** `gunicorn educaps_project.wsgi:application`
+EduCaps supports environment-based configuration for local development and production deployment.
 
-### Pre-Deploy Command Requirements & Safe Fallback
-Render provides Pre-Deploy Commands to execute database tasks after the container build completes and persistent networking to the PostgreSQL instance is established, but before web traffic is routed to the new deploy.
+| Variable | Purpose |
+|---|---|
+| `DEBUG` | Controls Django debug mode. |
+| `SECRET_KEY` | Django's private cryptographic signing key. |
+| `ALLOWED_HOSTS` | Specifies permitted hostnames. |
+| `DATABASE_URL` | Configures the database connection. |
 
-> **Note on Plan Support**: The Pre-Deploy Command is available on Render instance plans that support release commands (Starter plan and above).
-> 
-> **Safe Alternative for Free/Unsupported Plans**: If your instance type does not support Pre-Deploy Commands, keep database operations strictly separate from `./build.sh` to ensure image builds remain stateless. Instead, initialize the database once after provisioning and linking the PostgreSQL service using the Render Shell (SSH) or a manual one-off task:
-> ```bash
-> python manage.py migrate
-> python manage.py seed_initial_content
-> ```
+For production, use a secure secret key, disable debug mode, configure allowed hosts, and keep credentials out of source control.
+
+## ☁️ Deployment
+
+EduCaps is configured for deployment on Render.
+
+| Setting | Value |
+|---|---|
+| Build Command | `./build.sh` |
+| Start Command | `gunicorn educaps_project.wsgi` |
+| Production Database | PostgreSQL |
+| Static Files | WhiteNoise |
+
+The build script installs dependencies, applies database migrations, and collects static files.
+
+## 🧪 Testing
+
+Run the automated Django test suite:
+
+```bash
+python manage.py test learning.tests
+```
+
+The current test suite contains **77 passing tests**.
+
+## 🔮 Future Improvements
+
+- Expand the course and capsule catalogue.
+- Improve personalized learning recommendations.
+- Add richer progress analytics.
+- Enhance accessibility and mobile usability.
+
+## 👩‍💻 Author
+
+**Ananya Maheshwari**
+
+Computer Science Engineering — Artificial Intelligence and Machine Learning
+
+[GitHub Profile](https://github.com/Ananya-M-15)
+
+---
+
+<p align="center">
+  Made with 💜 to make daily learning easier.
+</p>
