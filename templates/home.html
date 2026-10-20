@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}EduCaps — Big Ideas. Small Capsules. Real Progress.{% endblock %}
+
+{% block content %}
+<div class="homepage-wrapper">
+    
+    <!-- Hero Section (Exact Match to Reference Design) -->
+    <section class="hero-section" aria-labelledby="hero-main-title">
+        <div class="hero-grid">
+            
+            <!-- Left Column: Copy & Actions -->
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    5-MINUTE MICRO-LEARNING
+                </div>
+
+                <h1 class="hero-title" id="hero-main-title">
+                    Big Ideas.<br>
+                    <span class="hero-highlight">Brighter You.</span>
+                </h1>
+
+                <p class="hero-lead">
+                    Learn practical, real-world skills through 5-minute capsules with AI mentors Cappy &amp; Anaya.
+                </p>
+
+                <!-- Dynamic Action Buttons based on Auth State -->
+                <div class="hero-actions-row">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}" class="btn-hero-primary">
+                            <i class="fas fa-th-large" aria-hidden="true"></i> Go to Dashboard
+                        </a>
+                        <a href="{% url 'library' %}" class="btn-hero-secondary">
+                            <i class="fas fa-compass" aria-hidden="true"></i> Explore Courses
+                        </a>
+                    {% else %}
+                        <a href="{% url 'signup' %}" class="btn-hero-primary">
+                            <i class="fas fa-user-plus" aria-hidden="true"></i> Get Started Free
+                        </a>
+                        <a href="#about" class="btn-hero-secondary">
+                            <i class="fas fa-play-circle" aria-hidden="true"></i> Watch Demo
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Right Column: 3D Artwork with Cappy & Anaya -->
+            <div class="hero-visual">
+                <div class="hero-artwork-frame">
+                    <img src="{% static 'images/hero-mentors.png' %}" alt="AI Mentors Cappy and Anaya with interactive micro-learning capsules" class="hero-mentors-img" width="529" height="515">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- What is EduCaps Section -->
+    <section class="info-section" id="about" aria-labelledby="about-title">
+        <div class="section-title-wrap text-center">
+            <span class="section-sub-tag">The EduCaps Method</span>
+            <h2 id="about-title" class="section-heading">What is EduCaps?</h2>
+            <p class="section-caption">A structured alternative to lengthy, unfocused video courses.</p>
+        </div>
+
+        <div class="features-quad-grid">
+            <div class="feature-card">
+                <div class="feature-icon-circle"><i class="fas fa-clock"></i></div>
+                <h3>Bite-Sized Daily Capsules</h3>
+                <p>Learn core concepts in small, focused capsules designed for 5 minutes of focused daily reading.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-circle"><i class="fas fa-check-double"></i></div>
+                <h3>Active Recall Practice</h3>
+                <p>Practise concepts through instant multiple-choice checks with pedagogical explanations and progressive hints.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-circle"><i class="fas fa-chart-line"></i></div>
+                <h3>Progress &amp; Streak Tracking</h3>
+                <p>Track your completed capsules, build daily learning streaks, and review your accuracy over time.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-circle"><i class="fas fa-compass"></i></div>
+                <h3>Practical Everyday Skills</h3>
+                <p>Discover real-world subjects that connect directly to personal finance, digital focus, speaking, and habits.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works" aria-labelledby="how-it-works-title">
+        <div class="section-title-wrap text-center">
+            <span class="section-sub-tag">3 Simple Steps</span>
+            <h2 id="how-it-works-title" class="section-heading">How It Works</h2>
+            <p class="section-caption">Building a sustainable knowledge habit is straightforward.</p>
+        </div>
+
+        <div class="steps-trio-grid">
+            <div class="step-card">
+                <div class="step-badge">1</div>
+                <div class="step-icon"><i class="fas fa-search-plus"></i></div>
+                <h3>1. Explore</h3>
+                <p>Discover courses and topics that match your goals, then enroll with a single click to start your personalized path.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-badge">2</div>
+                <div class="step-icon"><i class="fas fa-book-open"></i></div>
+                <h3>2. Learn &amp; Practise</h3>
+                <p>Read short daily capsules, flip between principles, and test your retention with immediate quiz checks.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-badge">3</div>
+                <div class="step-icon"><i class="fas fa-trophy"></i></div>
+                <h3>3. Track Progress</h3>
+                <p>See your progress bars advance, receive spaced repetition reminders, and reinforce topics needing review.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Why EduCaps Section -->
+    <section class="why-section" id="why-educaps" aria-labelledby="why-title">
+        <div class="section-title-wrap text-center">
+            <span class="section-sub-tag">Proven Pedagogy</span>
+            <h2 id="why-title" class="section-heading">Why EduCaps?</h2>
+            <p class="section-caption">Designed to solve the real problem: unfinished, forgotten courses.</p>
+        </div>
+
+        <div class="why-pillars-grid">
+            <div class="why-card">
+                <i class="fas fa-bolt why-icon"></i>
+                <h4>5-Minute Consistency</h4>
+                <p>Short lessons fit into coffee breaks, commutes, and daily routines without friction.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-sitemap why-icon"></i>
+                <h4>Structured Hierarchy</h4>
+                <p>Every capsule fits into a topic and subject path, so you always know where you are.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-history why-icon"></i>
+                <h4>Spaced Repetition</h4>
+                <p>SuperMemo SM-2 algorithm prompts reviews right before you forget to seal long-term retention.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-user-friends why-icon"></i>
+                <h4>Dual Mentorship Modes</h4>
+                <p>Choose the learning persona that suits your current goals: Standard Mode or Kids Mode.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Modes Showcase (Cappy & Anaya) -->
+    <section class="learning-modes-section" id="modes" aria-labelledby="modes-title">
+        <div class="section-title-wrap text-center">
+            <span class="section-sub-tag">Personalized Experience</span>
+            <h2 id="modes-title" class="section-heading">Two Distinct Learning Modes</h2>
+            <p class="section-caption">Select your preferred mentor during onboarding or switch anytime from your profile.</p>
+        </div>
+
+        <div class="modes-dual-grid">
+            <!-- Kids Mode: Cappy -->
+            <div class="mode-spotlight-card kids-spotlight">
+                <div class="mode-tag-pill kids-pill-tag"><i class="fas fa-robot"></i> Kids Mode</div>
+                <div class="mode-mentor-avatar">
+                    <img src="{% static 'images/mentors/cappy.jpg' %}" alt="Cappy 3D Robot Mentor" class="mentor-spotlight-img">
+                </div>
+                <h3>Cappy the Robot</h3>
+                <p class="mode-mentor-role">3D Robot Mascot &amp; Learning Guide</p>
+                <p class="mode-desc">
+                    Playful, friendly, and energetic. Cappy explains concepts using everyday analogies, provides gentle hints on tricky questions, and celebrates every completed streak with badges.
+                </p>
+                <div class="mode-benefits-list">
+                    <span><i class="fas fa-check"></i> Simple, relatable analogies</span>
+                    <span><i class="fas fa-check"></i> Supportive hints without spoilers</span>
+                    <span><i class="fas fa-check"></i> Cheerful pastel interface</span>
+                </div>
+            </div>
+
+            <!-- Standard Mode: Anaya -->
+            <div class="mode-spotlight-card standard-spotlight">
+                <div class="mode-tag-pill standard-pill-tag"><i class="fas fa-user-tie"></i> Standard Mode</div>
+                <div class="mode-mentor-avatar">
+                    <img src="{% static 'images/mentors/anaya.jpg' %}" alt="Anaya 3D Human Mentor" class="mentor-spotlight-img">
+                </div>
+                <h3>Anaya</h3>
+                <p class="mode-mentor-role">Strategic Career &amp; Learning Mentor</p>
+                <p class="mode-desc">
+                    Structured, analytical, and empowering. Anaya delivers Socratic concept breakdowns, actionable workplace and financial takeaways, and deep active-recall retention.
+                </p>
+                <div class="mode-benefits-list">
+                    <span><i class="fas fa-check"></i> Socratic conceptual breakdowns</span>
+                    <span><i class="fas fa-check"></i> Executive takeaways &amp; career application</span>
+                    <span><i class="fas fa-check"></i> Sleek, focused glassmorphic UI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+{% endblock %}

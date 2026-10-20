@@ -16,11 +16,19 @@ class SignUpForm(forms.ModelForm):
         self.fields['password'].widget.attrs.update({'placeholder': 'Password'})
         self.fields['password2'].widget.attrs.update({'placeholder': 'Confirm Password'})
 
+    def clean_username(self):
+        username = self.cleaned_data.get('username', '').strip()
+        if User.objects.filter(username__iexact=username).exists():
+            raise forms.ValidationError('A user with that username already exists.')
+        return username
+
     def clean_password2(self):
         cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
+        password = cd.get('password')
+        password2 = cd.get('password2')
+        if password and password2 and password != password2:
             raise forms.ValidationError('Passwords don\'t match.')
-        return cd['password2']
+        return password2
 
     def save(self, commit=True):
         user = super().save(commit=False)

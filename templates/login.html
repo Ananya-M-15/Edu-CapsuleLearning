@@ -1,32 +1,52 @@
 {% extends "auth_base.html" %}
+{% load static %}
 
-{% block title %}Login to EduCaps{% endblock %}
+{% block title %}Log In — EduCaps{% endblock %}
 
 {% block content %}
 <div class="auth-card">
-    <h1 class="auth-logo">EduCaps</h1>
-    <h2>Welcome Back!</h2>
-    <p class="auth-subtitle">Log in to continue your learning journey.</p>
+    <div class="auth-brand-badge">
+        <a href="{% url 'home' %}" class="auth-brand-frame" title="Return to EduCaps Home">
+            <img src="{% static 'images/educaps-logo-transparent.png' %}" alt="EduCaps Logo" class="auth-brand-logo-img" width="160" height="96">
+        </a>
+    </div>
+
+    <h1 class="auth-heading">Welcome Back</h1>
+    <p class="auth-subtitle">Log in to continue your daily micro-learning streak.</p>
     
     {% if form.errors %}
-        <p class="auth-error">Your username and password didn't match. Please try again.</p>
+        <div class="auth-error-box" role="alert">
+            <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+            <span>Your username and password didn't match. Please try again.</span>
+        </div>
     {% endif %}
 
-    <form method="post" class="auth-form">
+    <form method="post" class="auth-form" novalidate>
         {% csrf_token %}
-        <div class="form-field">
-            <i class="fas fa-user"></i>
-            <input type="text" name="username" placeholder="Username" required>
+        <div class="form-field-group">
+            <label for="id_username" class="sr-only">Username</label>
+            <div class="form-input-wrap">
+                <i class="fas fa-user input-icon" aria-hidden="true"></i>
+                <input type="text" id="id_username" name="username" class="auth-text-input" placeholder="Username" value="{{ form.username.value|default:'' }}" required autofocus autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false">
+            </div>
         </div>
-        <div class="form-field">
-            <i class="fas fa-lock"></i>
-            <input type="password" name="password" placeholder="Password" required>
+
+        <div class="form-field-group">
+            <label for="id_password" class="sr-only">Password</label>
+            <div class="form-input-wrap">
+                <i class="fas fa-lock input-icon" aria-hidden="true"></i>
+                <input type="password" id="id_password" name="password" class="auth-text-input" placeholder="Password" required autocomplete="current-password">
+            </div>
         </div>
-        <button type="submit">Login</button>
+
+        <button type="submit" class="btn-auth-submit">
+            <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log In
+        </button>
     </form>
     
-    <div class="auth-switch">
-        <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    <div class="auth-footer-nav">
+        <p>Don't have an account yet? <a href="{% url 'signup' %}" class="auth-switch-link">Sign Up Free</a></p>
+        <p class="auth-home-link-wrap"><a href="{% url 'home' %}" class="auth-home-link">&larr; Back to Homepage</a></p>
     </div>
 </div>
 {% endblock %}

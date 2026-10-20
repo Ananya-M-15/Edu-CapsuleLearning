@@ -1,29 +1,179 @@
 {% extends "base.html" %}
-{% block title %}Learn - {{ capsule.title }}{% endblock %}
+{% load static %}
+
+{% block title %}Learn — {{ capsule.title }} | EduCaps{% endblock %}
+
 {% block content %}
-<div class="learn-container">
-    <!-- Show the learning path -->
-    <div class="breadcrumb">
-        <i class="{{ topic.subject.icon_class }}"></i> {{ topic.subject.name }} &raquo; {{ topic.title }}
-    </div>
+<div class="learn-page-container">
     
-    <div class="flip-card" onclick="this.classList.toggle('flipped');">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <!-- Shows the capsule title now -->
-                <h3>{{ capsule.title }}</h3>
-                <p>{{ capsule.front_content }}</p>
-                <small>Click to reveal</small>
-            </div>
-            <div class="flip-card-back">
-                <h3>Answer / Explanation</h3>
-                <p>{{ capsule.back_content }}</p>
+    <!-- Breadcrumb Path -->
+    <div class="breadcrumb-trail" aria-label="Breadcrumb">
+        <a href="{% url 'library' %}"><i class="{{ topic.subject.icon_class|default:'fas fa-book' }}"></i> {{ topic.subject.name }}</a>
+        <span class="sep">&raquo;</span>
+        <span class="current-topic">{{ topic.title }}</span>
+    </div>
+
+    <!-- Active Learning Flip Card -->
+    <div class="flip-card-outer">
+        <div class="flip-card" id="lesson-flip-card" tabindex="0" role="button" aria-label="Interactive Flip Card: Press Enter or Space to reveal the reverse side">
+            <div class="flip-card-inner">
+                <!-- Front Side -->
+                <div class="flip-card-front">
+                    <div class="card-top-strip">
+                        <span class="badge-capsule-order">Day {{ capsule.order|default:1 }}</span>
+                        <span class="flip-prompt-text"><i class="fas fa-hand-pointer"></i> Tap or Click to Flip</span>
+                    </div>
+                    <div class="front-body">
+                        <h2 class="capsule-title">{{ capsule.title }}</h2>
+                        <p class="capsule-front-text">{{ capsule.front_content }}</p>
+                    </div>
+                    <div class="card-bottom-bar">
+                        <span class="hint-small">Active Recall: Test your memory before flipping!</span>
+                    </div>
+                </div>
+
+                <!-- Back Side -->
+                <div class="flip-card-back">
+                    <div class="card-top-strip">
+                        <span class="badge-verified-key"><i class="fas fa-check-double"></i> Verified Explanation</span>
+                        <span class="flip-prompt-text"><i class="fas fa-redo"></i> Tap to flip back</span>
+                    </div>
+                    <div class="back-body">
+                        <h3 class="explanation-title">Core Principle &amp; Answer</h3>
+                        <p class="capsule-back-text">{{ capsule.back_content }}</p>
+                    </div>
+                    <div class="card-bottom-bar">
+                        <span class="hint-small">Review the mentor notes and self-check quiz below.</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <button id="complete-btn" data-capsule-id="{{ capsule.id }}" data-csrf-token="{{ csrf_token }}">
-        <i class="fas fa-check"></i> Mark as Complete & Continue
-    </button>
+    <!-- Completion Control -->
+    <div class="completion-action-bar">
+        <button id="complete-btn" class="btn-complete-capsule {% if is_completed %}completed{% endif %}" data-capsule-id="{{ capsule.id }}" data-csrf-token="{{ csrf_token }}">
+            {% if is_completed %}
+                <i class="fas fa-check-circle"></i> Completed &bull; Practice Again
+            {% else %}
+                <i class="fas fa-check"></i> Mark as Complete &amp; Save Progress
+            {% endif %}
+        </button>
+        <span id="completion-feedback" class="completion-feedback-msg" role="status" aria-live="polite"></span>
+    </div>
+
+    <!-- Mode-Specific AI Mentor Card -->
+    <section class="ai-mentor-lesson-card {% if is_kids_mode %}mentor-card-kids{% else %}mentor-card-standard{% endif %}">
+        <div class="mentor-lesson-header">
+            <div class="mentor-avatar-tiny-wrap">
+                <img src="{% static mentor_persona.avatar %}" alt="{{ mentor_persona.name }}" class="mentor-lesson-avatar">
+            </div>
+            <div>
+                <h3 class="mentor-lesson-name">{{ mentor_persona.name }}'s Deep Dive</h3>
+                <span class="mentor-mode-label">
+                    {% if is_kids_mode %}<i class="fas fa-robot"></i> Kids Mode Guide{% else %}<i class="fas fa-user-tie"></i> Standard Mode Mentor{% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="mentor-lesson-body">
+            <h4 class="mentor-headline">{{ explanation.headline }}</h4>
+            <div class="mentor-concept-box">
+                <p><strong><i class="fas fa-lightbulb"></i> Concept:</strong> {{ explanation.core_concept }}</p>
+                <p><strong><i class="fas fa-key"></i> Key Takeaway:</strong> {{ explanation.takeaway }}</p>
+                {% if is_kids_mode %}
+                    <p class="cappy-cheer-text"><i class="fas fa-star"></i> {{ explanation.cappy_cheer }}</p>
+                {% else %}
+                    <p class="anaya-guidance-text"><i class="fas fa-compass"></i> {{ explanation.anaya_guidance }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Dynamic Question Asking Drawer -->
+            <div class="tutor-ask-drawer">
+                <label for="tutor-question-input" class="tutor-ask-label">
+                    Ask {{ mentor_persona.name }} about this capsule:
+                </label>
+                <div class="tutor-input-row">
+                    <input type="text" id="tutor-question-input" placeholder="e.g. Can you explain this with another example?" class="tutor-query-input">
+                    <button type="button" id="tutor-submit-btn" class="btn-ask-tutor" data-capsule-id="{{ capsule.id }}" data-csrf-token="{{ csrf_token }}">
+                        <i class="fas fa-paper-plane"></i> Ask
+                    </button>
+                </div>
+                <div id="tutor-response-box" class="tutor-response-container" style="display: none;" role="region" aria-live="polite">
+                    <div class="tutor-response-bubble">
+                        <strong id="tutor-responder-name">{{ mentor_persona.name }}:</strong>
+                        <p id="tutor-response-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Active Recall Quiz Section -->
+    {% if quiz_questions %}
+        <section class="lesson-quiz-section" aria-label="Lesson Assessment Quiz">
+            <div class="quiz-section-header">
+                <h2><i class="fas fa-question-circle"></i> Active Recall Check</h2>
+                <p>Cement this concept in memory with this quick check.</p>
+            </div>
+
+            {% for question in quiz_questions %}
+                <div class="quiz-question-card" id="quiz-question-{{ question.id }}">
+                    <p class="quiz-prompt">{{ question.prompt }}</p>
+
+                    <form class="quiz-options-form" data-question-id="{{ question.id }}" data-csrf-token="{{ csrf_token }}">
+                        <div class="quiz-options-grid">
+                            <label class="quiz-option-label" for="opt-{{ question.id }}-A">
+                                <input type="radio" name="selected_option" value="A" id="opt-{{ question.id }}-A">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">{{ question.option_a }}</span>
+                            </label>
+
+                            <label class="quiz-option-label" for="opt-{{ question.id }}-B">
+                                <input type="radio" name="selected_option" value="B" id="opt-{{ question.id }}-B">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">{{ question.option_b }}</span>
+                            </label>
+
+                            <label class="quiz-option-label" for="opt-{{ question.id }}-C">
+                                <input type="radio" name="selected_option" value="C" id="opt-{{ question.id }}-C">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">{{ question.option_c }}</span>
+                            </label>
+
+                            <label class="quiz-option-label" for="opt-{{ question.id }}-D">
+                                <input type="radio" name="selected_option" value="D" id="opt-{{ question.id }}-D">
+                                <span class="option-letter">D</span>
+                                <span class="option-text">{{ question.option_d }}</span>
+                            </label>
+                        </div>
+
+                        <div class="quiz-actions-row">
+                            <button type="submit" class="btn-check-quiz">
+                                <i class="fas fa-check-circle"></i> Check Answer
+                            </button>
+                            <button type="button" class="btn-hint-quiz" data-hint="{% if is_kids_mode %}{{ question.kids_hint|default:'Look back at the card keywords!' }}{% else %}Recall the fundamental rule stated on the reverse card.{% endif %}">
+                                <i class="fas fa-lightbulb"></i> Need a Hint?
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="quiz-hint-box" style="display: none;" role="status"></div>
+                    <div class="quiz-feedback-box" style="display: none;" role="status" aria-live="polite"></div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    <!-- Next Navigation Footer -->
+    <div class="lesson-navigation-footer">
+        <a href="{% url 'dashboard' %}" class="btn-nav-back">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+        <a href="{% url 'learn' %}" class="btn-nav-next">
+            Next Capsule <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
 </div>
 {% endblock %}

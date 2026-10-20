@@ -3,57 +3,258 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- The title will be filled in by child templates -->
-    <title>{% block title %}EduCaps{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="EduCaps — Daily micro-learning platform. Big ideas, small capsules, real progress. Active recall, quizzes, and spaced repetition.">
 
-    <!-- Google Fonts Link -->
+    <title>{% block title %}EduCaps — Daily Micro-Learning{% endblock %}</title>
+
+    <!-- Favicon & Device Icons -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="{% url 'manifest' %}">
+
+    <!-- Fonts: Outfit for sharp modern headings, Poppins for clean body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- links to CSS file -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.2">
+    {% block extra_head %}{% endblock %}
 </head>
-<body>
-    <div id="cloud-container">
-        <div class="cloud"></div>
+<body data-learner-mode="{% if profile %}{{ profile.learner_mode }}{% elif user.is_authenticated and user.profile %}{{ user.profile.learner_mode }}{% else %}standard{% endif %}">
+
+    <!-- Ambient Background Lighting -->
+    <div id="cloud-container" aria-hidden="true">
         <div class="cloud"></div>
         <div class="cloud"></div>
         <div class="cloud"></div>
         <div class="cloud"></div>
     </div>
-    <nav>
-        <a href="{% url 'dashboard' %}" class="logo">EduCaps</a>
-        <ul>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+
+            <!-- Brand Logo -->
+            <a href="{% if user.is_authenticated %}{% url 'dashboard' %}{% else %}{% url 'home' %}{% endif %}" class="brand-logo" title="EduCaps Home">
+                <span class="brand-logo-frame">
+                    <img src="{% static 'images/educaps-logo-transparent.png' %}" alt="EduCaps Logo" class="brand-logo-img" width="130" height="78">
+                </span>
+            </a>
+
             {% if user.is_authenticated %}
-                <li><a href="{% url 'my_learning' %}">My Learning</a></li>
-                <li><a href="{% url 'library' %}">Browse</a></li>
-                <li><a href="{% url 'learn' %}">Learn</a></li>
-                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-                <li>
-                    <form id="logout-form" action="{% url 'logout' %}" method="post">
-                    {% csrf_token %}
-                        <button type="submit">Logout</button>
-                    </form>
-                </li>
+                <!-- ========================================================= -->
+                <!-- AUTHENTICATED COMPACT NAVBAR:                             -->
+                <!-- Logo | Search courses... | Enrolled | Profile Dropdown   -->
+                <!-- ========================================================= -->
+
+                <!-- Prominent Course Search Bar -->
+                <form action="{% url 'search' %}" method="get" class="nav-search-form" role="search">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-prefix-icon" aria-hidden="true"></i>
+                        <input type="search" name="q" class="nav-search-input" placeholder="Search courses, topics, or skills..." aria-label="Search courses" value="{{ query|default:'' }}" required autocomplete="off">
+                    </div>
+                </form>
+
+                <!-- Right Action Cluster -->
+                <div class="nav-auth-actions">
+                    <!-- Enrolled Courses Quick Access -->
+                    <a href="{% url 'my_learning' %}" class="nav-enrolled-btn" title="View your enrolled courses" aria-label="Enrolled Courses">
+                        <i class="fas fa-bookmark" aria-hidden="true"></i>
+                        <span class="enrolled-btn-label">Enrolled</span>
+                    </a>
+
+                    <!-- Profile & Settings Dropdown Control -->
+                    <div class="profile-dropdown-wrapper">
+                        <button type="button" class="profile-trigger-btn" id="profileDropdownBtn" aria-expanded="false" aria-haspopup="true" aria-label="User account and learning mode menu">
+                            <img src="{% if profile %}{% static profile.mentor_image %}{% elif user.profile %}{% static user.profile.mentor_image %}{% else %}{% static 'images/mentors/anaya.jpg' %}{% endif %}" alt="" class="nav-avatar-img">
+                            <span class="nav-username">{{ user.username }}</span>
+                            <i class="fas fa-chevron-down dropdown-caret-icon" aria-hidden="true"></i>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div class="profile-dropdown-menu" id="profileDropdownMenu" role="menu" aria-labelledby="profileDropdownBtn">
+                            <div class="dropdown-user-header">
+                                <span class="dropdown-user-name">{{ user.username }}</span>
+                                <span class="dropdown-mode-indicator {% if profile.is_kids_mode or user.profile.is_kids_mode %}indicator-kids{% else %}indicator-standard{% endif %}">
+                                    {% if profile.is_kids_mode or user.profile.is_kids_mode %}
+                                        <i class="fas fa-robot"></i> Kids Mode (Cappy)
+                                    {% else %}
+                                        <i class="fas fa-user-tie"></i> Standard (Anaya)
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="dropdown-separator" role="separator"></div>
+
+                            <!-- Learner Profile & Dashboard -->
+                            <a href="{% url 'dashboard' %}" class="dropdown-menu-item" role="menuitem">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Profile &amp; Dashboard</span>
+                            </a>
+
+                            <!-- Fast Mode Toggle -->
+                            <form action="{% url 'toggle_mode' %}" method="post" class="dropdown-action-form">
+                                {% csrf_token %}
+                                <button type="submit" class="dropdown-menu-item dropdown-toggle-mode-btn" role="menuitem">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Switch to {% if profile.is_kids_mode or user.profile.is_kids_mode %}Standard Mode{% else %}Kids Mode{% endif %}</span>
+                                </button>
+                            </form>
+
+                            <!-- Mode & Mentor Settings -->
+                            <a href="{% url 'select_mode' %}" class="dropdown-menu-item" role="menuitem">
+                                <i class="fas fa-sliders-h"></i>
+                                <span>Settings &amp; Mentors</span>
+                            </a>
+
+                            <!-- Spaced Reviews Queue -->
+                            <a href="{% url 'reviews' %}" class="dropdown-menu-item" role="menuitem">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Spaced Reviews Queue</span>
+                            </a>
+
+                            <!-- Browse Full Catalog -->
+                            <a href="{% url 'library' %}" class="dropdown-menu-item" role="menuitem">
+                                <i class="fas fa-compass"></i>
+                                <span>Browse Full Catalog</span>
+                            </a>
+
+                            <div class="dropdown-separator" role="separator"></div>
+
+                            <!-- Logout Form with CSRF -->
+                            <form action="{% url 'logout' %}" method="post" class="dropdown-action-form">
+                                {% csrf_token %}
+                                <button type="submit" class="dropdown-menu-item dropdown-logout-btn" role="menuitem">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Log Out</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <!-- ========================================================= -->
+                <!-- PUBLIC NAVBAR FOR ANONYMOUS VISITORS                      -->
+                <!-- Logo | Home | Explore Courses | How It Works | About | Login | Sign Up -->
+                <!-- ========================================================= -->
+                <ul class="nav-public-links" id="publicNavLinks">
+                    <li><a href="{% url 'home' %}" class="nav-public-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                    <li><a href="{% url 'library' %}" class="nav-public-item {% if request.resolver_match.url_name == 'library' %}active{% endif %}">Courses</a></li>
+                    <li><a href="{% url 'home' %}#about" class="nav-public-item">About</a></li>
+                </ul>
+
+                <div class="nav-public-actions">
+                    <a href="{% url 'library' %}" class="nav-icon-search-btn" title="Search courses" aria-label="Search courses">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'login' %}" class="btn-nav-login">Log In</a>
+                    <a href="{% url 'signup' %}" class="btn-nav-signup">Get Started</a>
+                    <!-- Mobile Hamburger Menu Button -->
+                    <button type="button" class="mobile-menu-toggle-btn" id="mobileMenuToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             {% endif %}
-        </ul>
+
+        </div>
+
+        <!-- Mobile Public Menu Drawer (Anonymous Users) -->
+        {% if not user.is_authenticated %}
+            <div class="mobile-drawer-menu" id="mobileDrawerMenu">
+                <a href="{% url 'home' %}" class="drawer-item">Home</a>
+                <a href="{% url 'library' %}" class="drawer-item">Explore Courses</a>
+                <a href="{% url 'home' %}#how-it-works" class="drawer-item">How It Works</a>
+                <a href="{% url 'home' %}#about" class="drawer-item">About</a>
+                <div class="drawer-cta-group">
+                    <a href="{% url 'login' %}" class="btn-nav-login w-100">Log In</a>
+                    <a href="{% url 'signup' %}" class="btn-nav-signup w-100">Start Learning Free</a>
+                </div>
+            </div>
+        {% endif %}
     </nav>
 
-    <main class="container">
-        <!-- The main content will be filled in by child templates -->
+    <!-- Main Viewport Content -->
+    <main class="container" id="main-content">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- links to JavaScript file -->
+    <!-- Mobile Bottom Navigation Bar (Authenticated Only) -->
+    {% if user.is_authenticated %}
+        <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+            <a href="{% url 'dashboard' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                <i class="fas fa-th-large" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="{% url 'learn' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'learn' %}active{% endif %}">
+                <i class="fas fa-play-circle" aria-hidden="true"></i>
+                <span>Learn</span>
+            </a>
+            <a href="{% url 'library' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'library' or request.resolver_match.url_name == 'search' %}active{% endif %}">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <span>Explore</span>
+            </a>
+            <a href="{% url 'my_learning' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'my_learning' %}active{% endif %}">
+                <i class="fas fa-bookmark" aria-hidden="true"></i>
+                <span>Enrolled</span>
+            </a>
+            <a href="{% url 'reviews' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'reviews' %}active{% endif %}">
+                <i class="fas fa-sync-alt" aria-hidden="true"></i>
+                <span>Reviews</span>
+            </a>
+        </nav>
+    {% endif %}
+
+    <!-- Global Footer -->
+    <footer class="app-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand-col">
+                <div class="footer-logo">
+                    <span class="footer-logo-frame">
+                        <img src="{% static 'images/educaps-logo-transparent.png' %}" alt="EduCaps Logo" class="footer-logo-img" width="130" height="78">
+                    </span>
+                </div>
+                <p class="footer-tagline">Big Ideas. Small Capsules. Real Progress.</p>
+            </div>
+
+            <div class="footer-links-col">
+                <h5>Platform</h5>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'library' %}">Course Catalog</a></li>
+                    <li><a href="{% url 'home' %}#how-it-works">How It Works</a></li>
+                    <li><a href="{% url 'home' %}#about">About EduCaps</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h5>Learning Modes</h5>
+                <ul>
+                    <li><a href="{% url 'home' %}#modes">Kids Mode with Cappy</a></li>
+                    <li><a href="{% url 'home' %}#modes">Standard Mode with Anaya</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'select_mode' %}">Switch Mentor</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <p>Made with ❤️ by EduCaps</p>
+        </div>
+    </footer>
+
+    <!-- Client Scripts & Service Worker -->
     <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
 </body>
 </html>

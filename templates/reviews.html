@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Spaced Repetition Reviews — EduCaps{% endblock %}
+
+{% block content %}
+<div class="reviews-page-container">
+    
+    <div class="reviews-header">
+        <span class="badge-sm2"><i class="fas fa-brain"></i> SuperMemo SM-2 Engine</span>
+        <h1>Spaced Repetition Reviews</h1>
+        <p>Reviewing concepts at scientifically spaced intervals beats the forgetting curve and cements knowledge permanently.</p>
+    </div>
+
+    <!-- Due Today Section -->
+    <section class="due-reviews-section">
+        <div class="section-heading-row">
+            <h2><i class="fas fa-clock"></i> Due for Review Today</h2>
+            <span class="badge-due-count">{{ due_reviews|length }} Capsule{{ due_reviews|length|pluralize }}</span>
+        </div>
+
+        {% if due_reviews %}
+            <div class="reviews-grid">
+                {% for schedule in due_reviews %}
+                    <div class="review-capsule-card">
+                        <div class="review-card-top">
+                            <span class="review-subject">
+                                <i class="{{ schedule.capsule.topic.subject.icon_class|default:'fas fa-book' }}"></i>
+                                {{ schedule.capsule.topic.subject.name }}
+                            </span>
+                            <span class="repetition-badge">Repetition #{{ schedule.repetition_number }}</span>
+                        </div>
+
+                        <h3>{{ schedule.capsule.title }}</h3>
+                        <p class="review-prompt-text">{{ schedule.capsule.front_content|truncatechars:95 }}</p>
+
+                        <div class="review-meta-row">
+                            <small><i class="fas fa-hourglass-start"></i> Current Interval: {{ schedule.interval_days }} day{{ schedule.interval_days|pluralize }}</small>
+                            <small><i class="fas fa-calculator"></i> EF: {{ schedule.easiness_factor }}</small>
+                        </div>
+
+                        <a href="{% url 'learn' %}?capsule_id={{ schedule.capsule.id }}" class="btn-review-now">
+                            <i class="fas fa-play"></i> Practice Now
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-reviews-card">
+                <i class="fas fa-check-circle no-reviews-icon"></i>
+                <h3>All Caught Up!</h3>
+                <p>You have zero capsules due for spaced repetition review today. Keep completing new capsules to feed your review queue!</p>
+                <a href="{% url 'learn' %}" class="btn-continue-learning">
+                    <i class="fas fa-rocket"></i> Learn New Capsule
+                </a>
+            </div>
+        {% endif %}
+    </section>
+
+    <!-- Weakness Topics (if any) -->
+    {% if weaknesses %}
+        <section class="review-weaknesses-section">
+            <div class="section-heading-row">
+                <h2><i class="fas fa-bullseye"></i> Topic Accuracy &amp; Weakness Tracking</h2>
+            </div>
+            <div class="weakness-table-container">
+                <table class="weakness-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Topic</th>
+                            <th>Attempts</th>
+                            <th>Accuracy</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in weaknesses %}
+                            <tr>
+                                <td>{{ item.subject.name }}</td>
+                                <td><strong>{{ item.topic.title }}</strong></td>
+                                <td>{{ item.total_attempts }}</td>
+                                <td>{{ item.accuracy }}%</td>
+                                <td>
+                                    {% if item.needs_review %}
+                                        <span class="status-tag status-flagged"><i class="fas fa-exclamation-triangle"></i> Needs Review</span>
+                                    {% else %}
+                                        <span class="status-tag status-mastered"><i class="fas fa-check"></i> Mastered</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- All Scheduled Capsules -->
+    {% if all_schedules %}
+        <section class="all-schedules-section">
+            <div class="section-heading-row">
+                <h2><i class="fas fa-calendar-alt"></i> All Scheduled Reviews</h2>
+            </div>
+            <div class="schedules-list">
+                {% for sched in all_schedules %}
+                    <div class="schedule-item">
+                        <div class="schedule-info">
+                            <strong>{{ sched.capsule.title }}</strong>
+                            <small>{{ sched.capsule.topic.subject.name }} &bull; Next review: {{ sched.next_review_date }}</small>
+                        </div>
+                        <div class="schedule-stats">
+                            <span class="sched-pill">Rep: {{ sched.repetition_number }}</span>
+                            <span class="sched-pill">Interval: {{ sched.interval_days }}d</span>
+                            <span class="sched-pill">EF: {{ sched.easiness_factor }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,1255 @@
+[
+  {
+    "name": "Python Programming Fundamentals",
+    "description": "Master computational thinking, core Python syntax, data structures, and script automation with practical mental models.",
+    "icon_class": "fas fa-code",
+    "topics": [
+      {
+        "title": "Computational Thinking & Core Syntax",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "Variables as Labeled Storage Boxes",
+            "order": 1,
+            "front_content": "When people start coding, they often think variables store values like physical boxes holding items. But what actually happens in Python when you write x = 42, and then y = x? If you change x, does y change too? Understanding Python's true variable model prevents dozens of subtle logic bugs before they ever happen.",
+            "back_content": "In Python, variables are not physical containers—they are sticky name tags attached to objects in computer memory. When you write x = 42, Python creates an integer object 42 in memory and tags it with 'x'. When you set y = x, both tags point to the exact same object. For immutable types like numbers and strings, reassigning x = 100 simply moves the tag 'x' to a new object 100, leaving y pointing to 42. Remember: in Python, names refer to values; values exist independently in memory.",
+            "quiz": {
+              "prompt": "In Python, what happens when you execute: a = [1, 2]; b = a; b.append(3)?",
+              "option_a": "Only 'b' contains [1, 2, 3]; 'a' remains [1, 2]",
+              "option_b": "Both 'a' and 'b' contain [1, 2, 3] because both names reference the same list object",
+              "option_c": "Python throws a TypeError because lists cannot be shared across variables",
+              "option_d": "'a' is deleted from memory when assigned to 'b'",
+              "correct_option": "B",
+              "explanation": "Lists are mutable objects in Python. Since 'b = a' copies the reference (not the list itself), modifying 'b' modifies the single underlying list object that both 'a' and 'b' reference.",
+              "kids_hint": "Imagine 'a' and 'b' are two sticky notes on the exact same lunchbox! If you put a cookie inside, both notes are still on that same box!"
+            }
+          },
+          {
+            "title": "Conditionals & Decision Trees in Code",
+            "order": 2,
+            "front_content": "Imagine a thermostat deciding whether to turn on the heater. It checks: Is the temperature below 18°C? Is anyone home? Is eco-mode active? Code makes decisions using conditional branching (if, elif, else). How does Python evaluate complex conditions efficiently without checking unnecessary rules?",
+            "back_content": "Python uses short-circuit evaluation for logical operators. With 'and', if the first condition is False, Python stops immediately because the entire expression can never be True. With 'or', if the first condition is True, evaluation stops because the outcome is already guaranteed. You can leverage this pattern to guard against crashes: writing 'if user and user.is_active:' safely avoids an AttributeError if user is None. Clean conditionals turn chaotic business logic into predictable decision trees.",
+            "quiz": {
+              "prompt": "What does short-circuit evaluation mean when evaluating 'condition_a or condition_b'?",
+              "option_a": "Both conditions are always evaluated simultaneously on separate CPU threads",
+              "option_b": "If condition_a is True, condition_b is never evaluated because the result is already known to be True",
+              "option_c": "If condition_a is True, Python automatically flips it to False to save memory",
+              "option_d": "Python evaluates condition_b first, then condition_a",
+              "correct_option": "B",
+              "explanation": "With the 'or' operator, only one operand needs to be True. If the left-hand expression is True, Python short-circuits and skips evaluating the right-hand expression entirely.",
+              "kids_hint": "If Mom says 'You can have ice cream if you finish dinner OR if it's your birthday', once she sees it's your birthday, she doesn't even need to check your plate!"
+            }
+          },
+          {
+            "title": "Loops: Automating Repetitive Human Tasks",
+            "order": 3,
+            "front_content": "A human clerk reviewing 5,000 invoices gets tired, makes typos, and needs breaks. A computer loop processes all 5,000 in under a second with 100% precision. Python gives us 'for' loops to iterate over collections and 'while' loops to repeat until a condition changes. When should you choose each?",
+            "back_content": "Use 'for' loops when you know the collection or count in advance—such as iterating over a list of customers, lines in a file, or a fixed range. Use 'while' loops when repeating until an external state changes, such as waiting for user input or polling a server. Always ensure your while loops have a guaranteed exit condition to prevent infinite loops that freeze the application. Loops are the fundamental engine of automation.",
+            "quiz": {
+              "prompt": "Which loop construct is best suited for reading through every row in an existing list of 500 employee records?",
+              "option_a": "A while True loop without any break statement",
+              "option_b": "A for loop: 'for employee in employees:'",
+              "option_c": "A recursive function that re-imports the file on each pass",
+              "option_d": "An infinite loop with a sleep timer",
+              "correct_option": "B",
+              "explanation": "A 'for ... in ...' loop is idiomatic, clean, and safe for iterating over finite, known collections like lists, sets, and querysets in Python.",
+              "kids_hint": "When counting your toy blocks in a box, you pick them up one by one until the box is empty—that's a 'for each block in box' loop!"
+            }
+          },
+          {
+            "title": "Functions: Building Reusable Mental Tools",
+            "order": 4,
+            "front_content": "Have you ever copied and pasted the same five lines of code into four different places in a program? What happens next week when a bug is found in that logic? You have to remember to fix it four times. Functions solve this by wrapping logic into a named, reusable recipe with inputs and outputs.",
+            "back_content": "A function is a contract: it accepts inputs (arguments), executes a focused transformation, and returns a predictable result (return value). Following the Single Responsibility Principle, each function should do one thing exceptionally well. Functions also create a local scope—variables created inside a function vanish when it completes, keeping your global program clean and bug-free. Write small, well-named functions that make your code read like plain English.",
+            "quiz": {
+              "prompt": "Why is it dangerous to use a mutable object (like a list []) as a default argument in a Python function definition?",
+              "option_a": "Python raises a SyntaxError at compile time",
+              "option_b": "The default list is created once when the function is defined, so modifications persist across subsequent calls",
+              "option_c": "The list is deleted after the first call and becomes None",
+              "option_d": "Mutable defaults double the memory consumption on every call",
+              "correct_option": "B",
+              "explanation": "In Python, default parameter expressions are evaluated once when the function is defined, not every time it is called. A mutable default like 'def add_item(val, target=[])' shares the same list across all calls.",
+              "kids_hint": "If everyone shares the same notebook by default, whatever someone scribbled yesterday is still there when you open it today!"
+            }
+          },
+          {
+            "title": "Debugging: Thinking Like a Code Detective",
+            "order": 5,
+            "front_content": "When a Python script crashes with a red traceback error, beginner developers often feel overwhelmed. But an error traceback is not an insult—it is a detailed clue sheet written by the Python interpreter telling you exactly what went wrong and where. How do experienced developers read these clues?",
+            "back_content": "Read tracebacks from the bottom up. The last line states the exception type and reason (e.g., KeyError: 'email' or IndexError: list index out of range). The line directly above reveals the file and line number where the problem triggered. Debugging is applying the scientific method: form a hypothesis, test it by inspecting values (using print or pdb debugger), isolate the faulty assumption, and verify the fix. Great programmers aren't those who never make errors; they are those who debug methodically.",
+            "quiz": {
+              "prompt": "When reading a Python traceback for an unhandled exception, where should you look first for the error description?",
+              "option_a": "At the very first line of the traceback",
+              "option_b": "At the very bottom line of the traceback",
+              "option_c": "In the operating system's kernel logs",
+              "option_d": "In the Python installation directory",
+              "correct_option": "B",
+              "explanation": "Python prints tracebacks chronologically, so the bottom line displays the actual exception name and descriptive message (e.g., ValueError: invalid literal for int()).",
+              "kids_hint": "Look at the very last line of the clue scroll—that's where the detective writes down what broke!"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Working with Data & Automation",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "Lists vs Sets: Choosing the Right Data Tool",
+            "order": 1,
+            "front_content": "Suppose you need to store 100,000 user IDs to check if a specific visitor is banned. If you store them in a Python list and check 'if user_id in banned_list', your app might grind to a crawl. But if you switch that list to a set, the check happens in a fraction of a millisecond. Why does this simple choice matter so much?",
+            "back_content": "Lists maintain ordered sequences where duplicate items are allowed. Checking membership in a list requires inspecting items one by one (O(n) linear search). In contrast, a set uses a hash table: it hashes the value and jumps directly to its memory address in O(1) constant time. Sets enforce uniqueness and enable instant mathematical operations like unions, intersections, and differences. Choose lists when order matters; choose sets when uniqueness and rapid lookup are paramount.",
+            "quiz": {
+              "prompt": "What is the primary computational advantage of using a Python set over a list for membership testing ('item in collection')?",
+              "option_a": "Sets maintain strict alphabetical order automatically",
+              "option_b": "Sets perform lookups in O(1) average time via hash tables, while lists take O(n) linear time",
+              "option_c": "Sets use zero RAM in computer memory",
+              "option_d": "Sets allow duplicate entries with lower storage cost",
+              "correct_option": "B",
+              "explanation": "Python sets calculate a hash of the element to jump immediately to the correct bucket, yielding O(1) average lookup time regardless of collection size.",
+              "kids_hint": "A list is like searching for a book on an unsorted shelf one by one. A set is like looking up the exact shelf number in an index card catalog!"
+            }
+          },
+          {
+            "title": "Dictionaries: Key-Value Real World Modeling",
+            "order": 2,
+            "front_content": "How do you represent a real-world object in code—like a user profile with an email, age, subscription tier, and join date? Using a list of values like ['anaya@example.com', 28, 'premium'] is fragile because you must remember which index corresponds to which property. Enter the dictionary.",
+            "back_content": "A dictionary maps unique keys to values (e.g., {'email': 'anaya@example.com', 'tier': 'pro'}). Keys act as human-readable labels, making your data self-documenting. Use the safe '.get(key, default)' method to look up values without risking a KeyError if a key is missing. Dictionaries form the conceptual backbone of web APIs, JSON interchange formats, and database records across modern software engineering.",
+            "quiz": {
+              "prompt": "What happens when you run 'user_profile['phone']' if the key 'phone' does not exist in the dictionary?",
+              "option_a": "Python returns None quietly",
+              "option_b": "Python raises a KeyError",
+              "option_c": "Python creates the key with an empty string",
+              "option_d": "Python crashes the operating system",
+              "correct_option": "B",
+              "explanation": "Direct bracket access on a missing key raises a KeyError. To avoid this, use 'user_profile.get('phone', None)'.",
+              "kids_hint": "Opening an empty drawer labeled 'phone' by force rings an alarm bell! Using the polite '.get()' key asks the butler if there's any phone inside first."
+            }
+          },
+          {
+            "title": "List Comprehensions: Elegant Data Pipelines",
+            "order": 3,
+            "front_content": "Imagine you have a list of email addresses entered by users, with accidental whitespace and mixed capitalizations. The traditional approach requires creating an empty list, looping over every item, stripping spaces, lowercasing, and appending. Is there a cleaner, more Pythonic way?",
+            "back_content": "List comprehensions let you express transformations and filtering in a single readable line: '[email.strip().lower() for email in raw_emails if \"@\" in email]'. This syntax mirrors mathematical set notation: [output_expression for item in iterable if condition]. Beyond saving lines of code, list comprehensions execute at C-speed inside the Python interpreter, making them both cleaner and faster than manual loop appends.",
+            "quiz": {
+              "prompt": "Which comprehension generates a list of squared numbers for only even numbers between 0 and 9?",
+              "option_a": "[x**2 for x in range(10) if x % 2 == 0]",
+              "option_b": "[x*2 if x % 2 == 0 for x in range(10)]",
+              "option_c": "for x in range(10): x**2 if even",
+              "option_d": "[square(x) while x % 2 == 0 in range(10)]",
+              "correct_option": "A",
+              "explanation": "The standard Python comprehension syntax places the filter 'if condition' after the 'for ... in ...' clause.",
+              "kids_hint": "Say: 'Give me each number squared, for every number from 0 to 9, IF that number is even!'"
+            }
+          },
+          {
+            "title": "File I/O & The 'with' Context Manager",
+            "order": 4,
+            "front_content": "When your program opens a file on your hard drive, the operating system allocates a file handle. If your program crashes or forgets to close the file, that resource stays locked in memory, potentially causing data corruption or out-of-file-descriptor crashes. How does Python guarantee safety?",
+            "back_content": "Python uses context managers via the 'with' keyword: 'with open(\"data.csv\", \"r\") as f:'. The context manager guarantees that the file is cleanly closed the moment execution leaves the block, even if an unhandled error or exception occurs inside. When handling structured data like CSVs or JSON, combine context managers with Python's built-in 'json' and 'csv' modules for safe, crash-proof disk operations.",
+            "quiz": {
+              "prompt": "What is the primary benefit of opening a file using 'with open(filename) as f:'?",
+              "option_a": "It encrypts the file contents automatically",
+              "option_b": "It guarantees the file will be closed automatically even if an exception occurs",
+              "option_c": "It speeds up disk read speeds by 10x",
+              "option_d": "It makes the file read-only forever",
+              "correct_option": "B",
+              "explanation": "The 'with' statement invokes the file object's __enter__ and __exit__ methods, ensuring resources are released and closed under all execution paths.",
+              "kids_hint": "The 'with' block is like a magic door: whenever you leave the room, the door clicks shut behind you automatically so no drafts escape!"
+            }
+          },
+          {
+            "title": "Exception Handling: Writing Crash-Proof Scripts",
+            "order": 5,
+            "front_content": "In real-world computing, unexpected things always happen: users enter letters when asked for numbers, network connections drop, and files get moved. An amateur script crashes abruptly. A professional program handles errors gracefully, informs the user, and recovers. How do try-except blocks work?",
+            "back_content": "Wrap risky operations in a 'try' block and specify expected failure modes in 'except' blocks (e.g., except ValueError:). Never use bare 'except:' clauses without specifying the error type, as this hides critical bugs like typos and interrupts. Use the 'finally' block for cleanup logic that must run regardless of outcome. Graceful error handling is the hallmark of production-ready software.",
+            "quiz": {
+              "prompt": "Why is using a bare 'except:' clause without an exception type considered a bad practice in Python?",
+              "option_a": "It prevents the Python compiler from running",
+              "option_b": "It catches everything, including KeyboardInterrupt (Ctrl+C) and system exit signals, masking genuine bugs",
+              "option_c": "It slows down the CPU clock speed",
+              "option_d": "It deletes variable contents from memory",
+              "correct_option": "B",
+              "explanation": "A bare 'except:' catches BaseException, swallowing user cancellation (Ctrl+C) and system exits. Always catch specific exceptions such as 'except (ValueError, KeyError):'.",
+              "kids_hint": "Don't put a giant blanket over every possible noise in the house! Listen specifically for the doorbell so you know when a friend is actually visiting."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Web Development Fundamentals",
+    "description": "Understand how the modern web works, from semantic HTML5 and responsive CSS to DOM manipulation and browser rendering.",
+    "icon_class": "fas fa-globe",
+    "topics": [
+      {
+        "title": "The Structure & Style of the Web",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "How the Web Works: DNS, HTTP & Servers",
+            "order": 1,
+            "front_content": "You type 'educaps.org' in your browser and press Enter. Less than a second later, a complete interactive application appears on your screen. What invisible sequence of events happened across the global internet in that half-second?",
+            "back_content": "Your browser first queries a DNS server to translate the human domain into an IP address (e.g., 93.184.216.34). Next, it establishes a secure TCP/TLS handshake with the web server and sends an HTTP GET request. The server (such as Django running on Render) processes the request, renders an HTML document, and returns an HTTP 200 OK response with the payload. Your browser parses the HTML, requests linked CSS and JS, builds the DOM tree, and renders pixels onto the screen.",
+            "quiz": {
+              "prompt": "What is the primary role of the Domain Name System (DNS) on the internet?",
+              "option_a": "Encrypting passwords stored in web databases",
+              "option_b": "Translating human-readable domain names into numerical IP addresses",
+              "option_c": "Compressing video streams for faster playback",
+              "option_d": "Rendering CSS animations in the browser",
+              "correct_option": "B",
+              "explanation": "DNS acts as the phonebook of the internet, mapping domain names like google.com to machine-routable IP addresses like 142.250.190.46.",
+              "kids_hint": "DNS is like asking the school librarian: 'Where is Cappy's robot room?' and she gives you the exact room number 204!"
+            }
+          },
+          {
+            "title": "Semantic HTML5: Accessibility & True Meaning",
+            "order": 2,
+            "front_content": "You could build an entire website using only <div> and <span> tags with custom styling. It might look visually identical to visitors. But what happens when a visually impaired person uses a screen reader, or Google's search engine crawls your page?",
+            "back_content": "HTML tags communicate meaning (semantics), not just visual styling. Using <header>, <nav>, <main>, <article>, <section>, and <footer> creates a document outline that assistive screen readers use to jump directly to key landmarks. Proper heading hierarchy (h1 through h6) and accessible form labels (<label for='...'>) ensure every user can navigate and complete forms. Clean semantic HTML is the foundation of digital accessibility and SEO.",
+            "quiz": {
+              "prompt": "Which HTML element provides the proper semantic container for the primary, unique content of a webpage?",
+              "option_a": "<div id='wrapper'>",
+              "option_b": "<main>",
+              "option_c": "<span>",
+              "option_d": "<section class='everything'>",
+              "correct_option": "B",
+              "explanation": "The semantic <main> element represents the dominant content of the <body> of a document, unique to that page and excluding repeated headers, footers, and sidebars.",
+              "kids_hint": "Think of <main> as the big center stage where the main actor speaks, while <nav> is just the hallway leading to the stage!"
+            }
+          },
+          {
+            "title": "The CSS Box Model: Margin, Border, Padding",
+            "order": 3,
+            "front_content": "Why does setting 'width: 300px' on a card sometimes cause it to unexpectedly break into two lines or push adjacent buttons off-screen? The secret lies in the CSS Box Model—the geometric blueprint governing every rectangular element rendered in a browser.",
+            "back_content": "Every element consists of four concentric layers: Content, Padding (space inside the border), Border, and Margin (space outside the border). Under the legacy 'content-box' model, adding 20px padding expands a 300px element to 340px total. Modern CSS fixes this by applying 'box-sizing: border-box;' globally (*, *::before, *::after). With border-box, the declared width includes both padding and border, ensuring layout calculations remain intuitive and rock-solid.",
+            "quiz": {
+              "prompt": "Under 'box-sizing: border-box', if a div has width: 200px, padding: 20px, and border: 2px, what is its total rendered width?",
+              "option_a": "244px",
+              "option_b": "200px",
+              "option_c": "222px",
+              "option_d": "180px",
+              "correct_option": "B",
+              "explanation": "Under 'border-box', padding and border are absorbed inside the declared 200px width; the inner content area shrinks to accommodate them without expanding the element.",
+              "kids_hint": "If your backpack is 200cm wide, putting thick padding inside the walls doesn't make the outside of the backpack any bigger—it stays 200cm!"
+            }
+          },
+          {
+            "title": "Flexbox: Mastering One-Dimensional Layouts",
+            "order": 4,
+            "front_content": "Before CSS Flexbox, vertically centering an element or distributing three navigation links evenly required hacky floats, line-height tricks, or absolute positioning with negative margins. Flexbox revolutionized web layout with a single declaration: 'display: flex'. How does it think?",
+            "back_content": "Flexbox operates along two perpendicular axes: the Main Axis (controlled by justify-content) and the Cross Axis (controlled by align-items). By default, flex-direction is 'row' (horizontal), meaning justify-content: space-between distributes items across the width, and align-items: center aligns them vertically. Changing flex-direction to 'column' instantly flips the axes. Use Flexbox for one-dimensional components like navbars, badge rows, and media lists.",
+            "quiz": {
+              "prompt": "Which CSS rule perfectly centers a flex child along both the horizontal and vertical axes within its parent container?",
+              "option_a": "float: center; margin: auto;",
+              "option_b": "display: flex; justify-content: center; align-items: center;",
+              "option_c": "position: center; display: inline;",
+              "option_d": "text-align: center; vertical-align: middle;",
+              "correct_option": "B",
+              "explanation": "'justify-content: center' centers children along the main axis, and 'align-items: center' centers them along the cross axis in a flex container.",
+              "kids_hint": "Flexbox has two steering wheels: one centers things left-to-right, and the other centers things top-to-bottom!"
+            }
+          },
+          {
+            "title": "CSS Grid: Mastering Two-Dimensional Layouts",
+            "order": 5,
+            "front_content": "While Flexbox excels at positioning items in a single row OR column, a full web application layout has both rows AND columns simultaneously—headers, sidebars, multi-column card galleries, and footers. How does CSS Grid manage two dimensions effortlessly?",
+            "back_content": "CSS Grid establishes a coordinate grid of rows and columns. With 'grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));', Grid creates a fully responsive catalog layout without a single media query: cards automatically wrap into 1, 2, 3, or 4 columns based on screen width. Combine Grid for overarching page structures and card matrices with Flexbox for internal component alignment.",
+            "quiz": {
+              "prompt": "What does 'repeat(auto-fit, minmax(250px, 1fr))' do in CSS Grid?",
+              "option_a": "Creates exactly 250 columns on every screen size",
+              "option_b": "Creates as many columns as will fit, each at least 250px wide and expanding to fill available space equally",
+              "option_c": "Hides elements that are smaller than 250px",
+              "option_d": "Sets the row height to 250px",
+              "correct_option": "B",
+              "explanation": "'auto-fit' creates dynamic tracks, 'minmax(250px, 1fr)' ensures no card is crushed below 250px, and '1fr' distributes leftover space proportionally across columns.",
+              "kids_hint": "It automatically fits as many toy boxes on the shelf as can fit side-by-side, stretching them gently so no space is wasted!"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Interactivity & Web Architecture",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "The DOM & Event Listeners: Bringing Pages to Life",
+            "order": 1,
+            "front_content": "HTML creates the static skeleton of a webpage. When a user clicks a button, types into an input, or scrolls down, how does JavaScript detect and respond to that human action without reloading the entire page?",
+            "back_content": "The browser converts raw HTML into the Document Object Model (DOM)—a live, in-memory tree of JavaScript objects. JavaScript attaches Event Listeners to DOM elements using 'element.addEventListener(\"click\", callbackFunction)'. When the user clicks, the browser dispatches an Event object through the DOM tree. Your callback can read user inputs, add or remove CSS classes (like toggling an active modal), and dynamically update text.",
+            "quiz": {
+              "prompt": "What method is used to attach a click interaction handler to an existing button element in modern JavaScript?",
+              "option_a": "button.attachClick(function)",
+              "option_b": "button.addEventListener('click', function)",
+              "option_c": "button.onclick_event(function)",
+              "option_d": "button.bind('action', function)",
+              "correct_option": "B",
+              "explanation": "'addEventListener' is the standard W3C method for registering event handlers, allowing multiple independent listeners on a single element without overwriting existing handlers.",
+              "kids_hint": "You're attaching a little bell to the button: whenever someone taps the button, the bell rings and tells your code to run!"
+            }
+          },
+          {
+            "title": "Asynchronous JavaScript & The Fetch API",
+            "order": 2,
+            "front_content": "In early websites, submitting a form or checking for new notifications required reloading the entire page, causing a white flash and loss of scroll position. Today, web apps fetch fresh data silently in the background. How does asynchronous JavaScript work without freezing the user interface?",
+            "back_content": "JavaScript is single-threaded; long network requests would freeze the UI if executed synchronously. Modern JavaScript uses Promises and 'async/await' with the Fetch API: 'const res = await fetch(\"/api/progress/\"); const data = await res.json();'. While the browser waits for the server response over the network, the JavaScript event loop continues running smoothly, keeping animations, typing, and clicks 100% responsive.",
+            "quiz": {
+              "prompt": "What is the primary benefit of using async/await with fetch() compared to synchronous XMLHttpRequest?",
+              "option_a": "It bypasses the internet router",
+              "option_b": "It prevents the browser's main UI thread from freezing while waiting for network responses",
+              "option_c": "It automatically generates database passwords",
+              "option_d": "It requires no server response",
+              "correct_option": "B",
+              "explanation": "Asynchronous fetch operations run in the background; the browser's single UI thread remains free to handle user interactions and render smooth animations.",
+              "kids_hint": "Ordering a pizza doesn't mean you have to stand motionless at the front door for 30 minutes! You go play, and when the doorbell rings, you grab the pizza!"
+            }
+          },
+          {
+            "title": "Web Storage: LocalStorage, SessionStorage & Cookies",
+            "order": 3,
+            "front_content": "When a visitor switches your website from Dark Mode to Light Mode, how do you remember their visual preference when they return next week—without forcing them to log in or saving it to an expensive remote database?",
+            "back_content": "Browsers provide client-side storage APIs. 'localStorage' stores key-value text persistently across browser restarts with ~5MB capacity (perfect for theme preferences and UI state). 'sessionStorage' clears automatically when the tab closes. 'Cookies' are smaller (4KB) and sent with every HTTP request to the server, making them ideal for session tokens with HttpOnly security flags. Never store sensitive credentials or unencrypted personal data in localStorage.",
+            "quiz": {
+              "prompt": "Which client-side storage mechanism persists even after the user closes and re-opens the browser window?",
+              "option_a": "sessionStorage",
+              "option_b": "localStorage",
+              "option_c": "RAM variables",
+              "option_d": "Call stack frames",
+              "correct_option": "B",
+              "explanation": "'localStorage' data has no expiration date and persists until cleared explicitly by the user or client application code.",
+              "kids_hint": "localStorage is like writing your name on your backpack with a permanent marker—it's still there tomorrow morning!"
+            }
+          },
+          {
+            "title": "Web Performance: Core Web Vitals & Optimization",
+            "order": 4,
+            "front_content": "Studies show that a 1-second delay in page load time reduces mobile conversions by up to 20%. Google even factors website speed directly into search rankings. What metrics determine whether a website feels blazingly fast or painfully sluggish?",
+            "back_content": "Google measures real-world user experience through Core Web Vitals: LCP (Largest Contentful Paint: how fast main content renders, target <2.5s), INP (Interaction to Next Paint: responsiveness to clicks and taps, target <200ms), and CLS (Cumulative Layout Shift: visual stability without jumping banners, target <0.1). Optimize performance by compressing modern WebP images, deferring non-critical scripts, minifying CSS, and leveraging HTTP caching.",
+            "quiz": {
+              "prompt": "What does Cumulative Layout Shift (CLS) measure on a webpage?",
+              "option_a": "The time it takes to download JavaScript bundles",
+              "option_b": "Unexpected visual shifts and content jumping while the page is loading",
+              "option_c": "The amount of battery consumed by CSS gradients",
+              "option_d": "The number of database queries executed by the server",
+              "correct_option": "B",
+              "explanation": "CLS measures visual stability. A high CLS occurs when images or ads load without reserved height/width dimensions, pushing text unexpectedly under the user's reading cursor.",
+              "kids_hint": "Have you ever tried tapping a button, but right as your finger lands, an image pops in and moves the button away? That annoying jump is layout shift!"
+            }
+          },
+          {
+            "title": "Web Security: Protecting Against XSS & CSRF",
+            "order": 5,
+            "front_content": "If your website accepts comments from users and renders them directly onto the page, an attacker could post '<script>stealCookies()</script>'. When another user views that comment, the attacker's script executes inside their browser. How do modern web frameworks prevent this?",
+            "back_content": "This vulnerability is Cross-Site Scripting (XSS). Django prevents XSS by automatically escaping HTML special characters (converting '<' to '&lt;'). Cross-Site Request Forgery (CSRF) occurs when a malicious third-party site tricks an authenticated user's browser into submitting an unauthorized request (like transferring money). Web apps defend against CSRF using unique, unpredictable CSRF tokens that must accompany every state-changing POST request.",
+            "quiz": {
+              "prompt": "Why does Django require a '{% csrf_token %}' tag inside every HTML form that uses the POST method?",
+              "option_a": "To speed up form transmission over Wi-Fi",
+              "option_b": "To verify that the form submission originated from the user's authentic session on your site, preventing cross-site forgery",
+              "option_c": "To convert form input values to uppercase automatically",
+              "option_d": "To validate email address formats with regular expressions",
+              "correct_option": "B",
+              "explanation": "The CSRF token is a secret, cryptographically random value that an attacker on another website cannot guess or steal, proving the submission was made intentionally by the legitimate user.",
+              "kids_hint": "The CSRF token is a secret handshake! When your form sends a message to the castle, the guard checks for the secret handshake to make sure it's really from you."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "SQL & Relational Database Essentials",
+    "description": "Learn relational data modeling, query optimization, joins, aggregations, and transaction safety for production applications.",
+    "icon_class": "fas fa-database",
+    "topics": [
+      {
+        "title": "Relational Foundations & Queries",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "The Relational Model: Tables, Rows & Primary Keys",
+            "order": 1,
+            "front_content": "Imagine managing a school with 5,000 students using an Excel spreadsheet. If you write the student's name, grade, address, teacher, and emergency contact on every single row for every class they take, what happens when a student moves to a new address? You have to edit 8 different rows, risking errors. How do relational databases solve this?",
+            "back_content": "Relational databases (like PostgreSQL and SQLite) store data in structured tables where each row represents a distinct entity with a unique identifier called a Primary Key (PK). Instead of duplicating customer details across every order, you store customers once in a 'customers' table, and reference customer_id as a Foreign Key in an 'orders' table. This eliminates redundancy, guarantees consistency, and keeps data footprint lean.",
+            "quiz": {
+              "prompt": "What is the defining characteristic of a Primary Key in a relational database table?",
+              "option_a": "It can contain duplicate values across multiple rows",
+              "option_b": "It must be uniquely identifying for each row and cannot be NULL",
+              "option_c": "It must always be an alphabetical string",
+              "option_d": "It changes every time a row is updated",
+              "correct_option": "B",
+              "explanation": "A Primary Key uniquely identifies a single row in a table. By relational definition, it must be unique and cannot contain NULL values.",
+              "kids_hint": "A primary key is like your school student ID badge: every single kid has a completely different number, and nobody has a blank badge!"
+            }
+          },
+          {
+            "title": "Filtering & Sorting: The Power of WHERE & ORDER BY",
+            "order": 2,
+            "front_content": "A bank database holds 50 million transactions. When a customer opens their mobile app to view their past 10 purchases, how does the database find those exact 10 records without scanning all 50 million rows from beginning to end?",
+            "back_content": "The SQL query 'SELECT * FROM transactions WHERE account_id = 4821 ORDER BY created_at DESC LIMIT 10;' tells the database exactly what to filter and how to present it. The WHERE clause filters rows using relational operators (=, !=, <, >, IN, LIKE). Combined with database indexes, the query engine jumps directly to account 4821's records in microseconds, sorts by timestamp, and returns only the requested 10 rows.",
+            "quiz": {
+              "prompt": "Which SQL clause restricts the rows returned based on a specific boolean condition?",
+              "option_a": "ORDER BY",
+              "option_b": "GROUP BY",
+              "option_c": "WHERE",
+              "option_d": "LIMIT",
+              "correct_option": "C",
+              "explanation": "The 'WHERE' clause filters rows before aggregation or sorting, evaluating each row against specified logical conditions.",
+              "kids_hint": "The WHERE clause is like asking the toy box: 'Give me only the toys WHERE color = blue!'"
+            }
+          },
+          {
+            "title": "Aggregations & Summaries: COUNT, SUM & GROUP BY",
+            "order": 3,
+            "front_content": "Business executives rarely want to read every individual sale transaction. They want answers to aggregate questions: What was our total revenue last month? How many active users signed up per country? Which course has the highest average completion rate? How does SQL aggregate data?",
+            "back_content": "SQL provides built-in aggregate functions: COUNT() counts rows, SUM() totals numeric values, AVG() calculates averages, and MIN()/MAX() find extremes. The GROUP BY clause groups rows that share a value (like course_id) so aggregate functions compute metrics per group. Use HAVING (not WHERE) to filter grouped results, such as 'HAVING COUNT(*) > 100'.",
+            "quiz": {
+              "prompt": "What is the difference between the WHERE clause and the HAVING clause in SQL?",
+              "option_a": "WHERE filters rows before aggregation; HAVING filters groups after aggregation",
+              "option_b": "HAVING only works on text columns, while WHERE works on numbers",
+              "option_c": "WHERE is only used in MySQL, while HAVING is used in SQLite",
+              "option_d": "There is no difference; they are interchangeable aliases",
+              "correct_option": "A",
+              "explanation": "WHERE filters individual table rows before any grouping occurs. HAVING evaluates aggregate expressions (like COUNT or SUM) on grouped buckets.",
+              "kids_hint": "WHERE filters the ingredients before you bake the cupcakes; HAVING filters the boxes of cupcakes after they're baked!"
+            }
+          },
+          {
+            "title": "SQL Joins: Connecting Distributed Tables",
+            "order": 4,
+            "front_content": "Because relational databases store customers in one table and orders in another, how do you generate an invoice displaying the customer's name, shipping address, and order items together in a single query?",
+            "back_content": "SQL JOINs connect tables based on related columns. An INNER JOIN returns only records where a match exists in both tables (e.g., customers who have made purchases). A LEFT JOIN returns ALL rows from the left table, along with matching rows from the right table (returning NULL if no match exists—ideal for finding customers who haven't placed an order yet). Joins are the mathematical core of relational algebra.",
+            "quiz": {
+              "prompt": "If you want a list of all enrolled students, including those who have NOT completed any lessons yet, which JOIN should you use between students and completions?",
+              "option_a": "INNER JOIN",
+              "option_b": "LEFT JOIN (with students as the left table)",
+              "option_c": "CROSS JOIN",
+              "option_d": "DELETE JOIN",
+              "correct_option": "B",
+              "explanation": "A LEFT JOIN preserves every row from the primary (left) table, even if the right-hand table has no matching foreign key records.",
+              "kids_hint": "LEFT JOIN keeps every student on the attendance list, even if their homework column on the right is empty!"
+            }
+          },
+          {
+            "title": "Data Integrity & Foreign Key Cascades",
+            "order": 5,
+            "front_content": "What happens if a user account is deleted, but their 50 past forum comments remain in the database pointing to a user_id that no longer exists? These become 'orphan records', leading to broken page links and application crashes. How does SQL enforce data integrity?",
+            "back_content": "Foreign Key constraints enforce referential integrity at the database engine level. You can define what happens on deletion: ON DELETE CASCADE automatically deletes child records when the parent is removed (e.g., deleting a Course removes its Topics). ON DELETE SET NULL keeps child records but clears the reference. ON DELETE PROTECT prevents parent deletion if child records exist. Database-level constraints guard your data even if application code has bugs.",
+            "quiz": {
+              "prompt": "What does 'ON DELETE CASCADE' specify on a Foreign Key relationship?",
+              "option_a": "It prevents the parent record from being deleted",
+              "option_b": "When a parent row is deleted, all associated child rows referencing it are automatically deleted as well",
+              "option_c": "It backs up the deleted row to a CSV file",
+              "option_d": "It sends an email notification to the database administrator",
+              "correct_option": "B",
+              "explanation": "'CASCADE' ensures referential integrity by automatically propagating deletions down through dependent foreign key child records.",
+              "kids_hint": "If a train engine is removed from the tracks, all the little wagons attached to that specific engine follow it off the tracks!"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Database Design & Performance",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "Database Normalization: From 1NF to 3NF",
+            "order": 1,
+            "front_content": "Database design is not guesswork—it follows formal mathematical rules called Normal Forms. Poorly designed schemas suffer from update anomalies, insertion anomalies, and deletion anomalies. How does normalization create clean, robust schemas?",
+            "back_content": "First Normal Form (1NF) requires atomic values (no comma-separated lists in a single cell) and unique rows. Second Normal Form (2NF) ensures all non-key columns depend on the entire primary key. Third Normal Form (3NF) eliminates transitive dependencies (non-key columns must not depend on other non-key columns). In practice: 'Every column must depend on the key, the whole key, and nothing but the key.' 3NF creates lean, maintainable databases.",
+            "quiz": {
+              "prompt": "Which scenario violates First Normal Form (1NF) in a database table?",
+              "option_a": "Having an auto-incrementing integer ID column",
+              "option_b": "Storing multiple comma-separated phone numbers inside a single 'phone_numbers' text column",
+              "option_c": "Having a foreign key referencing another table",
+              "option_d": "Using VARCHAR(100) for a user's name",
+              "correct_option": "B",
+              "explanation": "1NF requires atomicity: each column must hold only single, indivisible values. Storing comma-separated lists violates 1NF.",
+              "kids_hint": "Every toy cubby gets only ONE toy type! Don't cram crayons, blocks, and marbles into the same little slot."
+            }
+          },
+          {
+            "title": "Database Indexes: Why B-Trees Accelerate Queries",
+            "order": 2,
+            "front_content": "If you open a 1,000-page encyclopedia and want to find 'Photosynthesis', you don't read from page 1 to page 1,000. You turn to the index at the back, find the letter 'P', and jump directly to page 642. How does a database index achieve this same speedup in software?",
+            "back_content": "By default, searching a table requires a Sequential Scan (inspecting every row, O(n)). A database Index builds an auxiliary B-Tree (balanced tree) data structure pointing to table rows. Searching an indexed column takes O(log n) time—scanning 1,000,000 rows takes just ~20 comparisons! The trade-off: indexes speed up SELECT reads, but slightly slow down INSERT/UPDATE writes because the index tree must be updated on every modification. Index frequently queried foreign keys and search fields.",
+            "quiz": {
+              "prompt": "What is the primary trade-off of adding database indexes to table columns?",
+              "option_a": "Queries become slower, but disk space is reduced",
+              "option_b": "Read queries (SELECT) become much faster, but write operations (INSERT/UPDATE) carry a slight overhead",
+              "option_c": "The database can no longer store strings",
+              "option_d": "Foreign keys are automatically deleted",
+              "correct_option": "B",
+              "explanation": "Indexes dramatically accelerate read lookups, but every write operation must also update the index's B-Tree structures.",
+              "kids_hint": "Writing an index in a book takes a little extra time when you write the book, but it makes reading and finding things super fast!"
+            }
+          },
+          {
+            "title": "ACID Transactions: Preventing Financial Disasters",
+            "order": 3,
+            "front_content": "Imagine you transfer $500 from Account A to Account B. The database successfully executes step 1 (deduct $500 from Account A). Suddenly, the server loses power before step 2 (credit $500 to Account B). Is the $500 gone forever into thin air? How do ACID transactions prevent this nightmare?",
+            "back_content": "A Transaction bundles multiple SQL statements into an all-or-nothing unit governed by ACID: Atomicity (either all changes succeed, or all are rolled back), Consistency (rules and constraints are never violated), Isolation (concurrent transactions don't interfere with each other), and Durability (committed data survives server crashes). In Django, wrapping logic in 'with transaction.atomic():' guarantees financial-grade reliability.",
+            "quiz": {
+              "prompt": "What does the 'A' (Atomicity) in ACID transactions guarantee?",
+              "option_a": "All columns must contain atomic numbers",
+              "option_b": "All operations within the transaction succeed together, or if any fails, all changes are completely rolled back",
+              "option_c": "Transactions run in alphabetical order",
+              "option_d": "The database uses atomic clock synchronization",
+              "correct_option": "B",
+              "explanation": "Atomicity ensures 'all-or-nothing' execution. If a transaction encounters an error halfway through, the database automatically rolls back all preceding statements.",
+              "kids_hint": "It's an all-or-nothing promise: either the whole team crosses the finish line together, or the race resets to the starting line!"
+            }
+          },
+          {
+            "title": "Preventing SQL Injection: Parameterized Queries",
+            "order": 4,
+            "front_content": "In 2007, an iconic web comic introduced 'Little Bobby Tables', whose full name was 'Robert'); DROP TABLE Students;--'. If a school's website concatenates user input directly into a SQL string, an attacker can delete entire databases with a single form submission. How does parameterization defeat this attack?",
+            "back_content": "SQL Injection occurs when user input is treated as executable code. Never format queries using string concatenation (e.g., f\"SELECT * FROM users WHERE name = '{input}'\"). Instead, use Parameterized Queries (prepared statements). The database compiles the SQL code structure first, then treats user input strictly as inert literal data values—meaning quotation marks and semicolons cannot alter the query structure. Django's ORM parameterizes queries automatically by default.",
+            "quiz": {
+              "prompt": "How do parameterized queries prevent SQL injection attacks?",
+              "option_a": "By running queries only through encrypted HTTPS ports",
+              "option_b": "By separating query structure compilation from user input values, treating inputs strictly as literal data",
+              "option_c": "By limiting user passwords to 8 characters",
+              "option_d": "By disabling the DROP TABLE command across the entire database engine",
+              "correct_option": "B",
+              "explanation": "Parameterized queries send the SQL command structure and user variables separately; the database engine will never interpret variable data as executable SQL commands.",
+              "kids_hint": "Instead of handing the chef a note that might say 'burn down the kitchen', you put your ingredients in a clear plastic bowl so the chef only cooks the food!"
+            }
+          },
+          {
+            "title": "Subqueries & Common Table Expressions (CTEs)",
+            "order": 5,
+            "front_content": "As applications grow, business questions become sophisticated: 'Find all students whose quiz score was higher than the average score of their own specific grade level.' Answering this requires querying the result of another query. How do Subqueries and CTEs structure advanced data analysis?",
+            "back_content": "A Subquery is a query nested inside another SQL statement (e.g., in a WHERE or FROM clause). While subqueries work, deeply nested queries quickly become unreadable. Common Table Expressions (CTEs), declared using the 'WITH' keyword, create temporary, named result sets that act like readable virtual tables. CTEs can even be recursive to query hierarchical data like organizational charts and category trees.",
+            "quiz": {
+              "prompt": "What SQL keyword introduces a Common Table Expression (CTE)?",
+              "option_a": "CREATE TEMPORARY",
+              "option_b": "WITH",
+              "option_c": "SUBQUERY",
+              "option_d": "DECLARE TABLE",
+              "correct_option": "B",
+              "explanation": "The 'WITH' keyword introduces one or more CTEs: 'WITH RegionalSales AS (SELECT ...) SELECT * FROM RegionalSales;'.",
+              "kids_hint": "WITH lets you name a temporary mini-table so you can read your recipe step-by-step instead of cramming everything into one messy bowl!"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AI & Machine Learning Foundations",
+    "description": "Demystify artificial intelligence, supervised vs unsupervised learning, neural networks, and prompt engineering without mathematical overload.",
+    "icon_class": "fas fa-robot",
+    "topics": [
+      {
+        "title": "Machine Learning Intuition & Models",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "Traditional Programming vs Machine Learning",
+            "order": 1,
+            "front_content": "In traditional software, human programmers write explicit rules: 'If temperature > 30, turn on AC.' But how would you write explicit rules to recognize a handwritten digit '8'? People write '8' with different tilts, thicknesses, and loops. Traditional rules fail. How does machine learning flip this paradigm?",
+            "back_content": "In traditional programming, humans supply Rules and Data to produce Answers. In Machine Learning, humans supply Data and Answers (examples), and the computer calculates the statistical Rules! Rather than hand-coding millions of pixel rules, an ML model adjusts internal mathematical parameters (weights) until it accurately maps image pixels to the correct digit. ML excels where patterns are too complex for humans to specify by hand.",
+            "quiz": {
+              "prompt": "How does the machine learning paradigm differ fundamentally from traditional programming?",
+              "option_a": "Traditional programming uses computers; machine learning runs on quantum hardware only",
+              "option_b": "In traditional programming humans write rules; in ML, algorithms infer rules by learning from data and outcomes",
+              "option_c": "Machine learning requires no data whatsoever",
+              "option_d": "Traditional programming cannot execute mathematical calculations",
+              "correct_option": "B",
+              "explanation": "Traditional programming takes Rules + Data -> Answers. Machine learning takes Data + Answers -> Rules (the trained model).",
+              "kids_hint": "Instead of telling a robot 1,000 rules on how to spot a dog, you show the robot 1,000 photos of dogs until it figures out what dogs look like!"
+            }
+          },
+          {
+            "title": "Supervised Learning: Features & Labels",
+            "order": 2,
+            "front_content": "Suppose you want an algorithm to predict the market price of a house. You have historical records of 10,000 house sales. What information does the algorithm need, and how does it organize its learning process?",
+            "back_content": "This is Supervised Learning. The input characteristics (square footage, number of bedrooms, zip code) are called Features (X). The target outcome you want to predict (sale price) is the Label (y). If the label is a continuous number (like price or temperature), it is a Regression problem. If the label is a discrete category (like 'Spam' vs 'Not Spam' or 'Cat' vs 'Dog'), it is a Classification problem.",
+            "quiz": {
+              "prompt": "In a supervised machine learning model predicting whether an email is spam, what is the 'Label'?",
+              "option_a": "The sender's IP address and email length",
+              "option_b": "The classification outcome ('Spam' or 'Not Spam')",
+              "option_c": "The speed of the recipient's internet connection",
+              "option_d": "The database index number",
+              "correct_option": "B",
+              "explanation": "The label is the ground-truth target variable being predicted (here: the binary category 'Spam' or 'Not Spam'). The email words and sender attributes are the features.",
+              "kids_hint": "The features are the clues on the card (whiskers, fur, purrs), and the label is the answer written on the back ('Cat')!"
+            }
+          },
+          {
+            "title": "Training, Testing & The Overfitting Trap",
+            "order": 3,
+            "front_content": "Imagine a student who memorizes the exact answers to last year's practice exam. When given the identical practice test, they score 100%! But when given a new exam with different questions on the same concepts, they fail miserably. In machine learning, this dangerous failure mode is called Overfitting.",
+            "back_content": "To prevent overfitting, data scientists split data into a Training Set (e.g., 80%) and a Test Set (e.g., 20%). The model learns only from the training set; the test set is locked away until evaluation to measure Generalization. If a model scores 99% on training data but only 65% on test data, it has overfit: it memorized noise and idiosyncrasies rather than genuine underlying patterns.",
+            "quiz": {
+              "prompt": "Why must machine learning models always be evaluated on a separate test dataset that was never seen during training?",
+              "option_a": "To reduce the electricity bill during model evaluation",
+              "option_b": "To measure true generalization performance on unseen data and detect overfitting",
+              "option_c": "Because machine learning algorithms erase their training data upon completion",
+              "option_d": "To convert the model into a web application automatically",
+              "correct_option": "B",
+              "explanation": "Testing on unseen data is the only reliable way to verify that a model learned generalizable patterns rather than memorizing training data quirks.",
+              "kids_hint": "You test with new questions the student hasn't seen before to make sure they really understand math, not just memorized page 5!"
+            }
+          },
+          {
+            "title": "Unsupervised Learning & Clustering",
+            "order": 4,
+            "front_content": "What if you have 1,000,000 customer purchase histories, but nobody has pre-labeled them? There are no 'answers' or tags. Can machine learning still uncover actionable insights from unlabeled data?",
+            "back_content": "This is Unsupervised Learning. Instead of predicting a specific label, the algorithm analyzes feature distributions to discover organic structure. Clustering algorithms (like K-Means) group customers into distinct behavioral segments (e.g., budget weekend shoppers vs premium weekday shoppers). Dimensionality reduction (like PCA) compresses hundreds of complex variables into a few dominant trends. Unsupervised learning turns raw data into structured insight.",
+            "quiz": {
+              "prompt": "What distinguishes unsupervised learning from supervised learning?",
+              "option_a": "Unsupervised learning operates on unlabeled data without pre-existing target answers",
+              "option_b": "Unsupervised learning requires humans to supervise every calculation",
+              "option_c": "Unsupervised learning only works on images, not numbers",
+              "option_d": "Unsupervised learning can only run on mobile phones",
+              "correct_option": "A",
+              "explanation": "Unsupervised learning discovers intrinsic patterns, structures, and groupings within data without target label guidance.",
+              "kids_hint": "Giving a kid a big pile of unsorted Lego blocks and asking them to group them by color or shape—without telling them what groups to make!"
+            }
+          },
+          {
+            "title": "Model Evaluation: Precision, Recall & Trade-offs",
+            "order": 5,
+            "front_content": "Suppose an AI diagnostic tool predicts a rare disease that affects 1 in 1,000 patients. If the model simply predicts 'Healthy' for every single patient without even looking at their tests, its accuracy is 99.9%! Yet this model is completely useless. Why is simple accuracy misleading?",
+            "back_content": "On imbalanced datasets, accuracy hides fatal errors. Data scientists use Precision and Recall. Precision measures: 'Of all patients we flagged as sick, what percentage actually was sick?' Recall measures: 'Of all patients who were genuinely sick, what percentage did we catch?' In medical screening, high recall is vital—you cannot afford false negatives (missing a sick patient). Evaluation metrics must align with real-world consequences.",
+            "quiz": {
+              "prompt": "In an airport security baggage scanner, why is high RECALL prioritized over high precision?",
+              "option_a": "To speed up the physical conveyor belt",
+              "option_b": "Because failing to detect a genuine dangerous item (false negative) has catastrophic consequences, even if it causes extra manual bag checks (false alarms)",
+              "option_c": "Because precision uses more battery power",
+              "option_d": "To ensure every single passenger gets delayed equally",
+              "correct_option": "B",
+              "explanation": "High recall ensures you capture almost all true positive threats. A false alarm (lower precision) requires a quick manual check, but a false negative (missed weapon) is unacceptable.",
+              "kids_hint": "It's much better to accidentally check a safe bag twice than to miss a single dangerous firecracker!"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Neural Networks & Generative AI",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "Artificial Neurons: The Perceptron Building Block",
+            "order": 1,
+            "front_content": "Deep learning models can generate photorealistic art and converse in human language. Yet beneath these staggering capabilities lies a network built from millions of simple computational units inspired by biological brain cells: artificial neurons. How does a single neuron calculate?",
+            "back_content": "An artificial neuron takes multiple inputs (x), multiplies each by an adjustable weight (w), sums them up, adds a bias (b), and passes the total through an Activation Function (like ReLU): 'output = f(w1*x1 + w2*x2 + ... + b)'. The weights represent how much importance the neuron gives to each input. The activation function introduces non-linearity, allowing networks to learn complex curves and boundaries instead of simple flat lines.",
+            "quiz": {
+              "prompt": "What is the purpose of an activation function (like ReLU) in an artificial neural network?",
+              "option_a": "To turn the computer's cooling fan on and off",
+              "option_b": "To introduce non-linearity, enabling the network to learn complex non-linear patterns",
+              "option_c": "To delete negative numbers from the hard drive",
+              "option_d": "To encrypt the weights during transmission",
+              "correct_option": "B",
+              "explanation": "Without non-linear activation functions, stacking multiple neural network layers collapses mathematically into a single linear regression, preventing the network from learning complex patterns.",
+              "kids_hint": "An activation function is like a light switch with a dimmer: it decides how brightly the neuron should light up based on how much signal it got!"
+            }
+          },
+          {
+            "title": "How Neural Networks Learn: Backpropagation",
+            "order": 2,
+            "front_content": "When a neural network is first created, its millions of weights are set to random numbers. Its initial guesses are pure garbage. How does the network systematically tune millions of parameters until its predictions become masterfully accurate?",
+            "back_content": "Learning occurs through an iterative cycle: 1. Forward Pass: inputs pass through layers to make a prediction. 2. Loss Function: calculates the error between the prediction and true answer. 3. Backpropagation: calculates the gradient (derivative) of the error with respect to every weight using the calculus chain rule. 4. Gradient Descent: nudges each weight slightly in the direction that reduces error. Over millions of training batches, the network steadily climbs down the error mountain.",
+            "quiz": {
+              "prompt": "What algorithm calculates how much each weight contributed to a neural network's error to guide updates?",
+              "option_a": "Breadth-First Search",
+              "option_b": "Backpropagation",
+              "option_c": "Merge Sort",
+              "option_d": "Quicksort",
+              "correct_option": "B",
+              "explanation": "Backpropagation propagates the prediction error backward through the network's layers using the chain rule, calculating gradients for weight optimization.",
+              "kids_hint": "Backpropagation is like rewinding a game of dominoes to see which domino was tilted in the wrong direction!"
+            }
+          },
+          {
+            "title": "Large Language Models & Next-Token Prediction",
+            "order": 3,
+            "front_content": "When you chat with ChatGPT, Claude, or Gemini, it feels like conversing with an intelligent entity. But mechanically, at the deepest algorithmic level, what is a Large Language Model (LLM) actually doing when it generates an answer?",
+            "back_content": "At its mathematical core, an LLM is a next-token prediction engine. Text is broken into chunks called Tokens (words or word fragments). Trained on trillions of words using the Transformer architecture and Self-Attention mechanisms, the model calculates a probability distribution over vocabulary tokens given the preceding context. By predicting one token at a time, high-level reasoning, fluency, and code generation emerge as computational properties of compressed human knowledge.",
+            "quiz": {
+              "prompt": "What is the fundamental mechanical objective of a standard autoregressive Large Language Model (LLM) during inference?",
+              "option_a": "Searching Google for live website links",
+              "option_b": "Calculating the probability distribution for the next token given preceding context",
+              "option_c": "Executing Python scripts directly on the user's CPU",
+              "option_d": "Translating binary machine code into English nouns",
+              "correct_option": "B",
+              "explanation": "Autoregressive LLMs generate text token-by-token by predicting the most statistically plausible next token based on all prior context in the sequence.",
+              "kids_hint": "It's like the world's most brilliant game of finish-the-sentence: given 'The cat sat on the...', it calculates that 'mat' is far more likely than 'airplane'!"
+            }
+          },
+          {
+            "title": "Prompt Engineering: Crafting High-Fidelity Context",
+            "order": 4,
+            "front_content": "Two people ask the same AI model to write a technical explanation. Person A types: 'Explain Docker.' Person B types: 'You are a senior DevOps engineer explaining Docker to a junior Python developer. Use a shipping container analogy, highlight 3 benefits, and avoid technical jargon.' Why does Person B get a 10x better answer?",
+            "back_content": "Because LLMs predict based on probability distributions, ambiguous prompts yield generic, average responses. Effective Prompt Engineering shapes the model's latent attention: 1. Persona/Role ('Act as a senior engineer'). 2. Clear Objective & Audience. 3. Structural Constraints (bullet points, word limits). 4. Few-Shot Examples (providing 2-3 sample input/output pairs). Clear context steers the model into specific high-quality probability spaces.",
+            "quiz": {
+              "prompt": "What does 'Few-Shot Prompting' mean in the context of interacting with LLMs?",
+              "option_a": "Running the model on only a few CPU cores",
+              "option_b": "Providing 2–3 concrete input-output demonstration examples inside the prompt to guide formatting and tone",
+              "option_c": "Restricting the prompt length to fewer than 5 words",
+              "option_d": "Allowing the user only three attempts to ask questions",
+              "correct_option": "B",
+              "explanation": "Few-shot prompting provides example pairs directly in context, allowing the model to perform in-context learning to match expected format and nuance without fine-tuning weights.",
+              "kids_hint": "Showing your friend two examples of how you want a drawing done before asking them to draw the third one!"
+            }
+          },
+          {
+            "title": "Hallucinations & Grounding: The Limits of Generative AI",
+            "order": 5,
+            "front_content": "An attorney used an AI tool to write a legal brief. The AI generated eloquent paragraphs citing convincing court cases complete with dates and volume numbers. In court, the judge discovered those cases never existed—the AI fabricated them entirely. Why do LLMs hallucinate?",
+            "back_content": "LLMs do not have a database of 'facts' or internal verification truth sensors—they produce statistically probable sequences of language. When context is missing, the model confidently generates plausible-sounding fiction (Hallucination). To solve this, production systems use Retrieval-Augmented Generation (RAG): they retrieve verified source documents from a database and inject them into the prompt, forcing the LLM to ground its response strictly in factual reference text.",
+            "quiz": {
+              "prompt": "How does Retrieval-Augmented Generation (RAG) mitigate LLM hallucinations in enterprise applications?",
+              "option_a": "By increasing the model's temperature parameter to 2.0",
+              "option_b": "By retrieving relevant factual documents from a verified database and instructing the model to answer based strictly on that retrieved text",
+              "option_c": "By deleting all adjectives from the model's vocabulary",
+              "option_d": "By running the model without any network connection",
+              "correct_option": "B",
+              "explanation": "RAG grounds the LLM by supplying verified factual context alongside the user prompt, transforming the task from memory recall to reading comprehension.",
+              "kids_hint": "Instead of asking the student to guess history dates from memory, you hand them the open textbook page and say: 'Answer using only this page!'"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cybersecurity & Digital Safety",
+    "description": "Protect personal and enterprise data against social engineering, credential theft, malware, and network surveillance.",
+    "icon_class": "fas fa-shield-alt",
+    "topics": [
+      {
+        "title": "Personal Defense & Identity Protection",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "Social Engineering: The Human Vulnerability",
+            "order": 1,
+            "front_content": "Companies spend millions of dollars on enterprise firewalls, encryption algorithms, and biometric scanners. Yet an attacker often breaches the company without writing a single line of malicious code. How? By picking up the phone and tricking an employee.",
+            "back_content": "Social Engineering targets human psychology rather than software vulnerabilities. Attackers exploit urgency, authority, fear, and helpfulness (e.g., impersonating an IT administrator demanding urgent password confirmation to fix a system crash). Phishing emails, pretexting phone calls, and spear-phishing (targeted attacks using personal data from LinkedIn) remain the #1 vector for data breaches. Remember: security is a mindset, not just a software tool.",
+            "quiz": {
+              "prompt": "What psychological triggers are most frequently exploited in social engineering attacks?",
+              "option_a": "Exhaustion, boredom, and curiosity",
+              "option_b": "Urgency, fear of negative consequences, and simulated executive authority",
+              "option_c": "Interest in modern classical literature",
+              "option_d": "Desire for physical exercise",
+              "correct_option": "B",
+              "explanation": "Attackers construct artificial emergencies (e.g. 'Your account will be suspended in 15 minutes!') to bypass deliberate rational analysis and trigger panicked compliance.",
+              "kids_hint": "Someone pretending to be the principal running up and yelling 'Quick, open the gate right now!' to trick you into skipping the safety rules!"
+            }
+          },
+          {
+            "title": "Password Entropy & The Password Manager Fix",
+            "order": 2,
+            "front_content": "Many people still use variations of 'Password123!' or their pet's name across five different websites. When one obscure gaming forum gets breached, hackers test those stolen credentials against Google, PayPal, and banks. Why does password reuse guarantee compromise?",
+            "back_content": "In Credential Stuffing, automated bots test millions of leaked username/password combos across the web. Long passwords have exponentially higher Entropy (unpredictability). An 8-character password can be cracked in minutes by modern GPU rigs; a random 16-character passphrase takes trillions of years. The only sustainable human solution is a Password Manager: it generates and stores unique, high-entropy 20-character passwords for every site, requiring you to remember only one master passphrase.",
+            "quiz": {
+              "prompt": "Why is using a password manager safer than memorizing clever password variations?",
+              "option_a": "It makes your internet connection 10x faster",
+              "option_b": "It generates and stores distinct, high-entropy passwords for every website, preventing credential stuffing cascades",
+              "option_c": "It automatically bypasses login screens without any credentials",
+              "option_d": "It stores passwords openly in your browser bookmarks",
+              "correct_option": "B",
+              "explanation": "Password managers eliminate password reuse. If one service suffers a data leak, none of your other accounts are compromised because every service has a unique password.",
+              "kids_hint": "Instead of using one key that opens your front door, your diary, and your locker, you have a magic keychain with different unbreakable keys for each!"
+            }
+          },
+          {
+            "title": "Multi-Factor Authentication (MFA): Beyond Passwords",
+            "order": 3,
+            "front_content": "Even if an attacker steals your password through a phishing page or database leak, a properly configured account can still block them instantly. How does Multi-Factor Authentication (MFA) create an impassable barrier?",
+            "back_content": "Authentication relies on three categories: 1. Something you know (password). 2. Something you have (authenticator app, hardware FIDO key). 3. Something you are (fingerprint, facial recognition). MFA requires factors from at least two different categories. Prefer Time-based One-Time Passwords (TOTP apps like Google Authenticator) or hardware keys (YubiKey) over SMS text messages, as SMS is vulnerable to SIM-swapping attacks.",
+            "quiz": {
+              "prompt": "Why are TOTP authenticator apps and hardware security keys superior to SMS text message verification codes?",
+              "option_a": "They do not require electricity",
+              "option_b": "They are immune to SIM-swapping attacks and cannot be intercepted over cellular networks",
+              "option_c": "They send codes directly to your social media accounts",
+              "option_d": "They allow unlimited users to share the same password",
+              "correct_option": "B",
+              "explanation": "Attackers can socially engineer mobile carriers to port your phone number to their SIM card (SIM swapping), intercepting SMS codes. Authenticator apps generate codes locally on device without cellular transmission.",
+              "kids_hint": "A text message can be intercepted by a tricky thief with a radio, but an authenticator app is a secret decoder ring right in your pocket!"
+            }
+          },
+          {
+            "title": "HTTPS & Transport Layer Security (TLS)",
+            "order": 4,
+            "front_content": "When you sit at a coffee shop and connect to their free public Wi-Fi, anyone in the room with packet-sniffing software can intercept the radio signals leaving your laptop. Why can't they read your bank passwords or private emails?",
+            "back_content": "HTTPS (HTTP over TLS) encrypts data in transit. Before sending credentials, your browser and the website perform a TLS handshake: they verify the website's digital certificate (issued by a trusted Certificate Authority) and establish an encrypted session using asymmetric and symmetric cryptography. Even if a bad actor on the coffee shop network captures every packet, they see only indecipherable mathematical noise.",
+            "quiz": {
+              "prompt": "What protection does HTTPS provide when browsing on an unsecured public Wi-Fi network?",
+              "option_a": "It hides the physical location of the coffee shop",
+              "option_b": "It encrypts the communication channel between your browser and the server, preventing eavesdropping and tampering",
+              "option_c": "It deletes all cookies after 5 seconds",
+              "option_d": "It guarantees that the website contains zero factual errors",
+              "correct_option": "B",
+              "explanation": "TLS encryption guarantees confidentiality (eavesdroppers cannot read payload data) and integrity (data cannot be altered in transit without detection).",
+              "kids_hint": "HTTPS locks your letter inside an unbreakable metal safe before sending it across the room. Anyone who grabs the safe can't open it without the secret key!"
+            }
+          },
+          {
+            "title": "Public Wi-Fi & VPN Defense Mechanisms",
+            "order": 5,
+            "front_content": "You are at an airport and see two Wi-Fi networks: 'Airport_Free_WiFi' and 'Airport_Guest_HighSpeed'. How do you know one isn't an 'Evil Twin' rogue access point set up by an attacker sitting twenty feet away with a laptop?",
+            "back_content": "In an Evil Twin attack, a rogue hotspot broadcasts a familiar network name. If you connect, all your network traffic flows through the attacker's machine. While HTTPS protects message contents, attackers can still inspect DNS queries to see which domains you visit. A Virtual Private Network (VPN) creates an encrypted tunnel from your device to a secure VPN server, hiding your traffic destinations from local network operators.",
+            "quiz": {
+              "prompt": "What information does a rogue Wi-Fi access point operator see if a user connects to standard websites without a VPN?",
+              "option_a": "The user's bank account passwords and credit card PINs",
+              "option_b": "The domain names and IP addresses being contacted (via DNS and SNI headers), revealing which services are being used",
+              "option_c": "The user's hard drive files and desktop wallpaper",
+              "option_d": "The user's fingerprint biometrics",
+              "correct_option": "B",
+              "explanation": "Even with HTTPS, unencrypted DNS lookups and TLS Server Name Indication (SNI) reveal which hostnames/domains you connect to, exposing browsing activity metadata.",
+              "kids_hint": "Even if a nosy neighbor can't read the letters inside your packages, they can still see the return addresses of every store you ordered from!"
+            }
+          }
+        ]
+      },
+      {
+        "title": "System Security & Incident Defense",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "Malware, Ransomware & Defense-in-Depth",
+            "order": 1,
+            "front_content": "A hospital employee opens an email attachment disguised as an invoice. Within minutes, doctors cannot access patient records—all files on the hospital network have been encrypted with military-grade ciphers, and a countdown timer demands $5 million in Bitcoin. How does ransomware spread?",
+            "back_content": "Ransomware is malicious software that encrypts target files and demands extortion payments for decryption keys. Defeating ransomware requires Defense-in-Depth: layered security so that if one barrier fails, others stop the attack. Layers include email attachment sandboxing, least-privilege user permissions (preventing ordinary users from executing system changes), network segmentation, and automated, immutable off-site backups.",
+            "quiz": {
+              "prompt": "What is the single most effective insurance policy against total data loss from a ransomware attack?",
+              "option_a": "Paying the ransom immediately using cryptocurrency",
+              "option_b": "Maintaining regular, verified, and immutable offline or off-site data backups",
+              "option_c": "Turning the computer monitor off as soon as the alert appears",
+              "option_d": "Changing the desktop background image",
+              "correct_option": "B",
+              "explanation": "If immutable, isolated backups exist, organizations can restore clean systems without paying extortion or suffering permanent data loss.",
+              "kids_hint": "Always keep a duplicate copy of your school project on a separate USB drive stored safely in your desk drawer at home!"
+            }
+          },
+          {
+            "title": "Zero Trust Architecture: 'Never Trust, Always Verify'",
+            "order": 2,
+            "front_content": "In traditional enterprise security, companies built a 'castle and moat': once you entered the corporate office or connected to the internal VPN, you were inside the trusted perimeter and could access internal servers freely. Why has the cybersecurity world abandoned this model?",
+            "back_content": "The castle-and-moat model fails catastrophically if an attacker breaches one minor laptop: they can move laterally across the internal network unimpeded. Zero Trust assumes the network is already hostile. Its core principle: 'Never trust, always verify.' Every single request—even from an internal server or executive laptop—must be explicitly authenticated, authorized, and encrypted based on user identity, device health, and context.",
+            "quiz": {
+              "prompt": "What is the fundamental philosophy of a Zero Trust security architecture?",
+              "option_a": "Trust all internal network traffic once an employee enters the building",
+              "option_b": "Treat every request as if it originates from an open network; verify identity, device, and permissions explicitly every time",
+              "option_c": "Prohibit employees from using any computers or smartphones",
+              "option_d": "Disable software updates on production servers",
+              "correct_option": "B",
+              "explanation": "Zero Trust eliminates implicit trust based on network location. Every access request is continuously evaluated and authenticated.",
+              "kids_hint": "Instead of checking your ticket once at the theme park gate, the ride operators check your ticket at every single roller coaster!"
+            }
+          },
+          {
+            "title": "The Principle of Least Privilege (PoLP)",
+            "order": 3,
+            "front_content": "Why should a web server's database user never connect as 'root' or 'postgres' superuser? If the web application has an SQL injection flaw or remote code execution bug, what happens if the database user has full administrator permissions?",
+            "back_content": "The Principle of Least Privilege states that every user, program, and service should have only the minimum access rights strictly necessary to perform its routine job—and nothing more. A web app database user should only have SELECT, INSERT, UPDATE on application tables—never DROP TABLE or administrative database commands. Restricting permissions contains blast radiuses when breaches inevitably occur.",
+            "quiz": {
+              "prompt": "How does applying the Principle of Least Privilege protect systems during a security breach?",
+              "option_a": "It ensures the attacker's computer runs out of memory",
+              "option_b": "It limits the blast radius, preventing a compromised low-privilege component from seizing full control of the entire system",
+              "option_c": "It makes software license keys free",
+              "option_d": "It removes the need for software testing",
+              "correct_option": "B",
+              "explanation": "Least privilege confines compromised components to limited roles, stopping attackers from escalating privileges to wipe databases or take over hosts.",
+              "kids_hint": "The library helper gets a key to the book cupboard, but NOT the master key to the principal's safe!"
+            }
+          },
+          {
+            "title": "Software Supply Chain & Vulnerability Management",
+            "order": 4,
+            "front_content": "Modern applications are rarely built entirely from scratch. A typical Django or Node.js web app imports dozens of open-source packages from PyPI or npm. What happens when a malicious contributor injects a backdoor into an obscure utility package used by millions of projects?",
+            "back_content": "This is a Software Supply Chain attack (like the famous Log4j and SolarWinds incidents). You inherit the vulnerabilities of every library your project depends on. Protect projects by auditing dependencies using tools like 'pip-audit' and Dependabot, pinning exact version numbers in requirements.txt, checking checksum hashes, and patching outdated libraries promptly when Common Vulnerabilities and Exposures (CVEs) are published.",
+            "quiz": {
+              "prompt": "What automated practice protects web applications from known vulnerabilities in third-party libraries?",
+              "option_a": "Renaming library files to random numbers",
+              "option_b": "Running automated dependency vulnerability scanning (e.g., pip-audit, Dependabot) and applying security patches promptly",
+              "option_c": "Disabling requirements.txt files completely",
+              "option_d": "Installing packages only from unverified personal blogs",
+              "correct_option": "B",
+              "explanation": "Automated security scanners cross-reference your dependency tree against the CVE database, alerting you to known security flaws and available patches.",
+              "kids_hint": "Regularly checking the expiration dates on all the canned food in your pantry so nobody eats spoiled soup!"
+            }
+          },
+          {
+            "title": "Incident Response: What to Do When Breached",
+            "order": 5,
+            "front_content": "You discover suspicious activity: a server is sending unusual outbound traffic, and an unauthorized admin account was created at 3:00 AM. Panic sets in. Do you immediately wipe the server and pull the power cord? How do security teams respond to active incidents?",
+            "back_content": "Incident response follows a structured lifecycle: 1. Preparation (playbooks, backups). 2. Identification (confirming the breach and scope). 3. Containment (isolating affected servers from the network without destroying volatile RAM evidence). 4. Eradication (removing backdoors, malware, and compromised credentials). 5. Recovery (restoring from clean backups, testing). 6. Post-Mortem (documenting lessons learned to prevent recurrence). Methodical response turns panic into controlled recovery.",
+            "quiz": {
+              "prompt": "During security incident containment, why is isolating a server from the network preferred over immediately pulling the power cord?",
+              "option_a": "Power cords are dangerous to touch",
+              "option_b": "Pulling the power wipes volatile RAM memory, destroying critical forensic evidence of the attacker's active processes and memory-resident keys",
+              "option_c": "The server will explode if unplugged while running",
+              "option_d": "Network cables cannot be disconnected safely",
+              "correct_option": "B",
+              "explanation": "Volatile memory (RAM) holds active network sockets, injected memory payloads, and running processes. Pulling the power destroys this indispensable digital evidence.",
+              "kids_hint": "Don't wash the floor immediately! Let the detective dust for fingerprints first so you can catch the burglar."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Git & Collaborative Version Control",
+    "description": "Master collaborative software development, branch workflows, merge conflict resolution, and open source collaboration.",
+    "icon_class": "fab fa-git-alt",
+    "topics": [
+      {
+        "title": "Version Control Foundations",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "Snapshots vs Diffs: How Git Thinks",
+            "order": 1,
+            "front_content": "Older version control systems (like CVS or SVN) tracked file history by recording delta diffs: 'Line 4 added to file.txt'. Git completely revolutionized software engineering by taking a fundamentally different mental approach. What does a Git commit actually represent?",
+            "back_content": "Git does not store a list of file diffs—it stores a timeline of cryptographic Snapshots. Every time you commit, Git takes a snapshot of what all your files look like at that exact moment in time, linking back to the parent commit. For efficiency, if a file hasn't changed, Git doesn't re-copy it; it simply points to the identical file blob already stored. Git's internal object database is a content-addressable directed acyclic graph (DAG).",
+            "quiz": {
+              "prompt": "How does Git fundamentally record project history on each commit?",
+              "option_a": "By recording video screen captures of the developer's monitor",
+              "option_b": "By taking a complete snapshot of project file states, reusing references for unchanged files",
+              "option_c": "By emailing the project folder to GitHub headquarters",
+              "option_d": "By maintaining only the most recent version and deleting older history",
+              "correct_option": "B",
+              "explanation": "Git commits represent snapshots of the entire repository state at a point in time, linking cryptographically via SHA hashes to preceding parent commits.",
+              "kids_hint": "Git takes a magical photo of your entire Lego castle every time you hit save. If you break a tower later, you can travel right back into the photo!"
+            }
+          },
+          {
+            "title": "The Three Trees: Working, Staging, History",
+            "order": 2,
+            "front_content": "Why does Git require two steps to save work—'git add' and then 'git commit'? Why couldn't it just be a single 'git save' command? Understanding Git's three internal areas unlocks precision workflow control.",
+            "back_content": "Git manages three areas: 1. Working Directory (the real files on your hard drive you edit). 2. Staging Area (or Index: the drafting table where you curate exactly which changes belong in the next snapshot). 3. Repository History (the permanent record of committed snapshots). The staging area allows you to craft focused, atomic commits: if you edited 5 files for two different bug fixes, you can stage and commit them as two separate, cleanly documented changes.",
+            "quiz": {
+              "prompt": "What is the primary architectural purpose of Git's Staging Area (Index)?",
+              "option_a": "To compress files into ZIP archives for email transmission",
+              "option_b": "To allow developers to selectively craft and review atomic commits before recording them to permanent history",
+              "option_c": "To run automatic spelling checks on code variable names",
+              "option_d": "To delete uncommitted changes automatically",
+              "correct_option": "B",
+              "explanation": "The staging area acts as a staging ground where you prepare and curate exactly what changes will be included in the next commit snapshot.",
+              "kids_hint": "It's like a packing box before moving: you choose which toys go into the box first, check them, and then tape the box shut!"
+            }
+          },
+          {
+            "title": "Committing with Meaningful Messages",
+            "order": 3,
+            "front_content": "We have all seen repository logs filled with commit messages like 'fixed stuff', 'asdf', or 'updates'. Six months later, when a production bug appears, nobody on the team knows which commit introduced the change or why. How do great engineers write commit messages?",
+            "back_content": "A great commit message explains WHAT changed and WHY, not just how. Follow the conventional standard: a concise imperative summary line under 50 characters (e.g., 'fix: resolve race condition in token refresh'), followed by an optional blank line and paragraph explaining the context. Writing in the imperative mood ('Add feature' rather than 'Added feature') matches Git's internal generated messages (like 'Merge branch'). Good commit messages are letters to your future self.",
+            "quiz": {
+              "prompt": "Which commit message follows professional software engineering best practices?",
+              "option_a": "changes",
+              "option_b": "fix: prevent divide-by-zero crash when progress percentage is calculated with zero capsules",
+              "option_c": "I worked on the website today and fixed some files",
+              "option_d": "WIP final final v2",
+              "correct_option": "B",
+              "explanation": "It uses the conventional commit format, states the specific bug addressed in the imperative mood, and clarifies the problem solved.",
+              "kids_hint": "Label the box clearly: 'Fixed leaky water bottle cap' instead of just 'stuff'!"
+            }
+          },
+          {
+            "title": "Branching: Fearless Experimentation in Isolation",
+            "order": 4,
+            "front_content": "In traditional file folders, experimenting with a major new feature meant duplicating the entire folder: 'Project_Final_v2_TEST'. If you broke things, you had to manually merge changes back. Git branches eliminate this risk entirely. What is a Git branch under the hood?",
+            "back_content": "In Git, a branch is not an expensive copy of all your files—it is an ultra-lightweight 41-byte text pointer pointing to a specific commit hash! When you create a branch ('git checkout -b feature/dark-mode'), Git simply creates a new pointer. As you commit on that branch, the pointer advances. Your main branch remains completely untouched and safe. If the experiment fails, deleting the branch takes 1 millisecond with zero risk to main.",
+            "quiz": {
+              "prompt": "What is a Git branch under the hood in Git's internal architecture?",
+              "option_a": "A separate physical folder on your hard drive with duplicate files",
+              "option_b": "A lightweight movable pointer to a specific commit hash",
+              "option_c": "An encrypted password string",
+              "option_d": "A remote server backup file",
+              "correct_option": "B",
+              "explanation": "A Git branch is simply a named reference pointing to the tip of a commit lineage, making branch creation and switching instantaneous.",
+              "kids_hint": "A branch is a bookmark in your book! You can put a second bookmark on page 20, read ahead to see what happens, and flip right back to your first bookmark anytime."
+            }
+          },
+          {
+            "title": "Merge Conflicts: Resolving Code Collisions",
+            "order": 5,
+            "front_content": "You and your teammate both edit line 14 of 'settings.py' on separate branches. You merge your branch, and then your teammate tries to merge theirs. Git pauses and outputs: 'CONFLICT (content): Merge conflict in settings.py'. Don't panic! What is Git telling you?",
+            "back_content": "A merge conflict occurs when two branches modify the exact same lines of code since their common ancestor, and Git cannot automatically know which human intention is correct. Git inserts conflict markers into the file: '<<<<<<< HEAD' shows your current branch changes, '=======' separates the versions, and '>>>>>>> branch' shows the incoming branch changes. To resolve it, open the file, decide the correct unified logic, delete the markers, and stage/commit the resolved file.",
+            "quiz": {
+              "prompt": "What should a developer do when encountering merge conflict markers ('<<<<<<<', '=======', '>>>>>>>') in a file?",
+              "option_a": "Delete the entire file immediately",
+              "option_b": "Manually edit the code to keep the intended unified logic, remove all conflict markers, stage the file, and commit",
+              "option_c": "Restart the computer to let the operating system resolve it",
+              "option_d": "Ignore the markers and push directly to production",
+              "correct_option": "B",
+              "explanation": "Resolving a conflict requires human judgment: review both versions, integrate the correct code, remove Git's marker annotations, and finalize the commit.",
+              "kids_hint": "Two painters painted the front door different colors! You sit down together, agree on the best color, wipe off the chalk marks, and paint it right."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Workflows & Team Git",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "Remotes: Push, Fetch & Pull Demystified",
+            "order": 1,
+            "front_content": "Your Git repository lives on your local laptop. GitHub (or GitLab) hosts a copy on the cloud called a Remote ('origin'). What is the subtle but vital difference between 'git fetch' and 'git pull' when synchronizing team changes?",
+            "back_content": "'git fetch' downloads new commits and branches from the remote repository to your local machine, updating remote-tracking pointers (like origin/main) without touching your current working files. It is completely safe. 'git pull', on the other hand, performs 'git fetch' followed immediately by 'git merge'. Professional developers often fetch first to inspect incoming changes ('git log origin/main') before deciding how and when to merge.",
+            "quiz": {
+              "prompt": "What does 'git fetch origin' do?",
+              "option_a": "Overwrites your local working directory with the remote code immediately",
+              "option_b": "Downloads new commits and branches from the remote without modifying your working files or current branch",
+              "option_c": "Deletes the remote repository on GitHub",
+              "option_d": "Creates a new pull request on GitHub",
+              "correct_option": "B",
+              "explanation": "Fetch synchronizes your repository's knowledge of the remote state safely, without merging or touching your working directory files.",
+              "kids_hint": "Fetch is picking up the mail from the mailbox and putting it on the hallway table to read whenever you're ready, without tearing open letters immediately!"
+            }
+          },
+          {
+            "title": "Pull Requests & Peer Code Review",
+            "order": 2,
+            "front_content": "In professional software teams, developers almost never push code directly to the 'main' branch. Instead, all work flows through Pull Requests (PRs). Why has the Pull Request become the universal standard for collaborative software delivery?",
+            "back_content": "A Pull Request is a formal proposal: 'Here is my feature branch; please review it and merge it into main.' PRs provide a dedicated forum for code review, where teammates spot edge-case bugs, suggest cleaner patterns, and verify test coverage before code reaches production. Automated CI/CD pipelines run unit tests and linters on the PR automatically. Code review spreads knowledge across the team and elevates quality.",
+            "quiz": {
+              "prompt": "What is the primary engineering purpose of a Pull Request (PR) in modern software teams?",
+              "option_a": "To charge money for code contributions",
+              "option_b": "To facilitate peer code review, discussions, and automated CI test checks before integrating changes into main",
+              "option_c": "To convert Python code into JavaScript",
+              "option_d": "To permanently delete historical commits",
+              "correct_option": "B",
+              "explanation": "Pull requests provide a collaborative review checkpoint where humans review logic and automated tests validate correctness prior to merging.",
+              "kids_hint": "A pull request is showing your completed group project poster to your teammate before handing it in to the teacher!"
+            }
+          },
+          {
+            "title": "Rebase vs Merge: Maintaining Clean History",
+            "order": 3,
+            "front_content": "While you worked on your feature branch for three days, teammates merged 10 new commits into main. Now you need to bring your branch up to date. You have two options: 'git merge main' or 'git rebase main'. How do they differ?",
+            "back_content": "'git merge' creates a new 'merge commit' tying main and your branch together, preserving the exact non-linear chronology of when commits were authored. 'git rebase', however, replays your branch commits on top of the latest commit on main, creating a perfectly linear history as if you wrote your feature today. Rule of thumb: rebase local, unpushed feature branches for clean linear history; NEVER rebase public shared branches.",
+            "quiz": {
+              "prompt": "Why should you avoid running 'git rebase' on public shared branches (like main)?",
+              "option_a": "Rebase creates duplicate files on your hard drive",
+              "option_b": "Rebase rewrites commit hashes, which desynchronizes the history of other teammates collaborating on that branch",
+              "option_c": "Rebase deletes all comments in your code",
+              "option_d": "Git rebase requires a paid GitHub Enterprise plan",
+              "correct_option": "B",
+              "explanation": "Rebasing creates new SHA-1 hashes for replayed commits. Rewriting shared history causes severe divergence for collaborators.",
+              "kids_hint": "Never change the rules of a board game in the middle of a turn when all your friends are already playing!"
+            }
+          },
+          {
+            "title": "Git Stash: Pausing Work Mid-Stream",
+            "order": 4,
+            "front_content": "You are halfway through refactoring a complex function. Your working directory is full of half-written code that doesn't even compile yet. Suddenly, your manager says: 'Production has an emergency bug on main; you need to fix it right now!' You cannot commit broken work, but you cannot lose your progress. What do you do?",
+            "back_content": "Run 'git stash'. Git sweeps all your uncommitted modified files onto a temporary clipboard stack, returning your working directory to a clean, pristine state matching the last commit. You switch to main, fix the production bug, commit, and push. Then switch back to your feature branch and run 'git stash pop'—all your in-progress work reappears exactly where you left it! Stashing prevents messy commits.",
+            "quiz": {
+              "prompt": "What does 'git stash' do to your current working directory?",
+              "option_a": "Deletes all files permanently",
+              "option_b": "Temporarily saves your uncommitted modifications onto a stack and reverts your working directory to the clean HEAD commit",
+              "option_c": "Pushes your uncommitted changes directly to GitHub",
+              "option_d": "Renames your git branch to 'stash'",
+              "correct_option": "B",
+              "explanation": "'git stash' shelves uncommitted modifications so you can switch contexts cleanly, and 'git stash pop' restores them later.",
+              "kids_hint": "It's like putting your half-finished puzzle into a safe drawer so you can clear the kitchen table for dinner, and taking it back out afterward!"
+            }
+          },
+          {
+            "title": "Undoing Mistakes: Reset, Revert & The Reflog",
+            "order": 5,
+            "front_content": "Every developer has experienced that cold knot in the stomach after accidentally running a command that seemed to wipe out hours of work. But here is the secret that seasoned developers know: in Git, it is almost impossible to lose committed data. How does Git safeguard your history?",
+            "back_content": "'git revert <hash>' creates a new commit that safely reverses an old mistake without altering history (safe for shared branches). 'git reset' moves branch pointers locally. And if you accidentally delete a branch or reset to the wrong commit, Git's secret superpower is 'git reflog' (reference log): it records every movement of HEAD on your machine. You can find the lost commit hash in the reflog and restore it instantly.",
+            "quiz": {
+              "prompt": "How does 'git revert' differ from 'git reset' when undoing a past commit?",
+              "option_a": "git revert deletes the repository, while git reset renames it",
+              "option_b": "git revert creates a new commit that inverts the changes of a prior commit, safely preserving history on shared branches",
+              "option_c": "git reset can only run on Windows, while git revert runs on Linux",
+              "option_d": "There is no difference; they are aliases",
+              "correct_option": "B",
+              "explanation": "'git revert' is additive: it appends a new snapshot undoing changes, making it safe for public branches where history should not be altered.",
+              "kids_hint": "git revert doesn't rip out the old diary page—it writes a new note saying 'I changed my mind about yesterday's idea'!"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Data Structures & Algorithmic Thinking",
+    "description": "Build strong algorithmic problem-solving skills with arrays, linked lists, trees, hash tables, and Big-O computational complexity.",
+    "icon_class": "fas fa-project-diagram",
+    "topics": [
+      {
+        "title": "Foundations & Linear Structures",
+        "order": 1,
+        "capsules": [
+          {
+            "title": "Big-O Notation: Measuring Computational Efficiency",
+            "order": 1,
+            "front_content": "A developer writes an algorithm that runs in 0.01 seconds on their laptop with 10 test records. Deployed to production with 1,000,000 records, the server crashes. Measuring speed in seconds is misleading because hardware varies. How do computer scientists measure algorithm efficiency universally?",
+            "back_content": "Big-O notation describes how execution time or memory space scales as input size (n) grows toward infinity. O(1) is constant time (instant, like hash table lookup). O(log n) is logarithmic (binary search). O(n) is linear (inspecting every item once). O(n^2) is quadratic (nested loops, which balloon exponentially). An O(n) algorithm might process 1,000,000 items in 1 second, while an O(n^2) algorithm takes 11 days on the same machine. Big-O is the language of scalability.",
+            "quiz": {
+              "prompt": "If an algorithm's execution time doubles each time the input size (n) doubles, what is its time complexity?",
+              "option_a": "O(1)",
+              "option_b": "O(n) - Linear",
+              "option_c": "O(n^2) - Quadratic",
+              "option_d": "O(2^n) - Exponential",
+              "correct_option": "B",
+              "explanation": "In an O(n) linear algorithm, time scales directly in linear proportion to input size: 2x data takes 2x time.",
+              "kids_hint": "If reading 1 page takes 1 minute, reading 10 pages takes 10 minutes—that's linear time!"
+            }
+          },
+          {
+            "title": "Dynamic Arrays & Contiguous Memory Allocation",
+            "order": 2,
+            "front_content": "In computer hardware, RAM is a vast street of numbered memory slots. When you create an array of 5 integers, the operating system allocates 5 contiguous slots in a row. What architectural superpower does contiguous memory give to arrays?",
+            "back_content": "Contiguous memory enables Random Access in O(1) constant time. Because elements sit back-to-back, jumping to 'array[i]' requires only simple arithmetic: 'memory_address = base_address + (i * element_size)'. The CPU jumps directly to index 999 as fast as index 0. The trade-off: inserting or deleting at the beginning requires shifting all subsequent elements over, taking O(n) time. Dynamic arrays (like Python lists) double their allocated buffer when capacity fills.",
+            "quiz": {
+              "prompt": "Why is accessing an element by index in an array (e.g. array[45]) an O(1) constant-time operation?",
+              "option_a": "Because the CPU guesses the answer randomly",
+              "option_b": "Because contiguous memory allows the CPU to calculate the exact physical memory address with a single multiplication",
+              "option_c": "Because arrays are stored on the hard drive",
+              "option_d": "Because arrays contain zero numbers",
+              "correct_option": "B",
+              "explanation": "Address arithmetic (start_address + index * size) computes the exact memory offset instantly without inspecting prior elements.",
+              "kids_hint": "House #5 on a numbered street is right next to house #4! You don't have to knock on every door to find it."
+            }
+          },
+          {
+            "title": "Linked Lists: Pointer-Chained Dynamic Sequences",
+            "order": 3,
+            "front_content": "What if you cannot allocate a large chunk of contiguous memory because RAM is fragmented into small pockets? Or what if your application constantly inserts and removes elements from the very beginning of a sequence? Enter the Linked List.",
+            "back_content": "A Linked List consists of separate Nodes scattered anywhere in memory. Each node holds data and a Pointer referencing the address of the next node. Inserting or deleting at the head takes O(1) constant time—you simply update a pointer! The trade-off: linked lists lose instant O(1) random index access. To find the 500th element, you must traverse node-by-node from the head in O(n) time. Singly linked lists point forward; doubly linked lists point both forward and backward.",
+            "quiz": {
+              "prompt": "What is the primary advantage of a Singly Linked List over a standard array?",
+              "option_a": "Instant O(1) random index access to any element",
+              "option_b": "Efficient O(1) insertion and deletion at the beginning without shifting existing elements",
+              "option_c": "Uses zero pointer memory overhead",
+              "option_d": "Automatic sorting of elements",
+              "correct_option": "B",
+              "explanation": "Adding a node to the front of a linked list only requires updating the new node's next pointer and head pointer, an O(1) operation.",
+              "kids_hint": "A treasure hunt where each clue tells you where the NEXT clue is hidden! You can easily slip a new clue between two others without moving the whole room."
+            }
+          },
+          {
+            "title": "Stacks: Last-In, First-Out (LIFO) Processing",
+            "order": 4,
+            "front_content": "When you hit 'Undo' (Ctrl+Z) in a text editor, or when you click the browser's 'Back' button, the application restores your most recent action first. Which fundamental data structure powers this behavior?",
+            "back_content": "A Stack operates on a Last-In, First-Out (LIFO) principle. You push items onto the top of the stack, and you pop items off the top of the stack, both in O(1) constant time. Accessing elements buried at the bottom is not permitted. Beyond undo history and browser back navigation, stacks power compiler syntax parsing (matching parentheses) and the CPU's own Function Call Stack managing local variables.",
+            "quiz": {
+              "prompt": "Which operation order governs a Stack data structure?",
+              "option_a": "First-In, First-Out (FIFO)",
+              "option_b": "Last-In, First-Out (LIFO)",
+              "option_c": "Random-In, Random-Out",
+              "option_d": "Lowest-Value, First-Out",
+              "correct_option": "B",
+              "explanation": "Stacks follow LIFO: the last element added is the first one removed.",
+              "kids_hint": "Think of a stack of clean plates: the last plate you place on the top of the pile is the first plate someone picks up to eat dinner!"
+            }
+          },
+          {
+            "title": "Queues: First-In, First-Out (FIFO) Buffers",
+            "order": 5,
+            "front_content": "When 100 people send documents to an office printer at the same time, or when a web server receives thousands of simultaneous requests, how does the system process tasks fairly without dropping anyone's work?",
+            "back_content": "A Queue operates on a First-In, First-Out (FIFO) principle. Tasks enqueue (join the line) at the back, and dequeue (get processed) from the front in O(1) time. Queues act as shock absorbers between fast producers and slower consumers. In web architecture, message brokers (like Celery, Redis, RabbitMQ) use queues to process background jobs like video transcoding, email delivery, and payment verification asynchronously.",
+            "quiz": {
+              "prompt": "What data structure is optimal for handling tasks in the exact chronological order in which they were submitted?",
+              "option_a": "Stack",
+              "option_b": "Queue (FIFO)",
+              "option_c": "Binary Tree",
+              "option_d": "Hash Set",
+              "correct_option": "B",
+              "explanation": "A queue guarantees First-In, First-Out fairness: the earliest submitted task is the first to be processed.",
+              "kids_hint": "Standing in line for movie tickets! Whoever gets in line first gets their ticket first."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Non-Linear Structures & Algorithms",
+        "order": 2,
+        "capsules": [
+          {
+            "title": "Hash Tables & Collision Resolution",
+            "order": 1,
+            "front_content": "Hash tables (Python dicts, JavaScript objects) are the unsung heroes of software engineering. They enable instant O(1) lookups across millions of keys. But what happens when two completely different keys produce the exact same mathematical hash number?",
+            "back_content": "A Hash Function converts an arbitrary key (like 'anaya@email.com') into an array index. When two keys map to the same bucket, a Collision occurs. Hash tables resolve collisions through: 1. Chaining (each bucket holds a linked list of collided key-value pairs). 2. Open Addressing (probing for the next open slot). A good hash function distributes keys uniformly to keep buckets shallow, maintaining blistering O(1) average performance.",
+            "quiz": {
+              "prompt": "What is a 'hash collision' in a hash table data structure?",
+              "option_a": "When the computer runs out of hard drive space",
+              "option_b": "When two distinct keys are evaluated by the hash function to the same array index bucket",
+              "option_c": "When a key is deleted while being read",
+              "option_d": "When two threads write at the exact same clock cycle",
+              "correct_option": "B",
+              "explanation": "A collision occurs when distinct inputs yield the same hash value, requiring collision resolution techniques like separate chaining or linear probing.",
+              "kids_hint": "Two kids arriving at the bowling alley and being assigned the exact same locker number! The locker attendant gives the second kid a little basket right next to it."
+            }
+          },
+          {
+            "title": "Binary Search Trees: Ordered Fast Lookups",
+            "order": 2,
+            "front_content": "If you want to maintain a collection of numbers that supports both fast lookups AND fast retrieval of items in sorted order, arrays and hash tables fall short. Hash tables cannot easily answer: 'Find the closest value below 50'. What hierarchical data structure solves this?",
+            "back_content": "A Binary Search Tree (BST) organizes nodes hierarchically. The BST Invariant: for any node, all values in its left subtree are smaller, and all values in its right subtree are larger. When searching, you compare with the root: if smaller, go left; if larger, go right. Each step cuts the remaining search space in half, achieving O(log n) time. Self-balancing trees (like Red-Black trees and AVL trees) prevent trees from degrading into linear sticks.",
+            "quiz": {
+              "prompt": "In a valid Binary Search Tree (BST), where are values strictly less than the root node located?",
+              "option_a": "In the right subtree",
+              "option_b": "In the left subtree",
+              "option_c": "Scattered randomly across leaf nodes",
+              "option_d": "At the very top of the tree above the root",
+              "correct_option": "B",
+              "explanation": "By definition, the binary search tree property requires all keys in the left subtree to be strictly less than the node's key.",
+              "kids_hint": "At every branch in the tree: if the secret number is smaller, take the left path; if it's bigger, take the right path!"
+            }
+          },
+          {
+            "title": "Graph Representations: Adjacency Lists vs Matrices",
+            "order": 3,
+            "front_content": "How does Google Maps represent roads connecting cities? How does Facebook represent friendships between 2 billion people? These networks are Graphs—collections of Vertices (nodes) connected by Edges. How does a computer store a graph in memory?",
+            "back_content": "Graphs are stored primarily via: 1. Adjacency Matrix: a 2D V x V grid of 1s and 0s indicating whether an edge exists between vertex A and vertex B. Excellent for dense graphs with O(1) edge lookup, but wastes massive O(V^2) memory for sparse networks. 2. Adjacency List: each vertex maintains a list of only its directly connected neighbors. Highly memory-efficient for real-world sparse graphs like social networks, taking O(V + E) space.",
+            "quiz": {
+              "prompt": "Why is an Adjacency List preferred over an Adjacency Matrix for modeling a social network of millions of users?",
+              "option_a": "Because social networks have only 2 users",
+              "option_b": "Because real-world social graphs are sparse; each user connects to only a few hundred friends, making an adjacency matrix wasteful with millions of empty cells",
+              "option_c": "Because adjacency lists are incompatible with internet protocols",
+              "option_d": "Because adjacency lists prevent user account deletions",
+              "correct_option": "B",
+              "explanation": "In a social network with 1,000,000 users, an adjacency matrix requires 1,000,000,000,000 cells (terabytes), whereas an adjacency list stores only actual active friendships.",
+              "kids_hint": "Instead of building a giant chart with every kid in school and drawing mostly empty zeroes, you just write down your personal circle of friends!"
+            }
+          },
+          {
+            "title": "Recursion & The Call Stack",
+            "order": 4,
+            "front_content": "In Russian Matryoshka nesting dolls, you open a doll to find a smaller doll inside, which holds an even smaller doll, until you reach the final solid figurine. Recursion in programming is a function that calls itself to solve smaller sub-problems. When does recursion become dangerous?",
+            "back_content": "Every recursive function requires two parts: 1. Base Case (the stopping condition that returns directly). 2. Recursive Step (calling itself with smaller input). Each recursive call pushes a new frame onto the CPU call stack. If you forget the base case, the function calls itself indefinitely until memory exhausts, crashing with a 'RecursionError: maximum recursion depth exceeded' (Stack Overflow). Recursion elegantly solves tree traversals and divide-and-conquer problems.",
+            "quiz": {
+              "prompt": "What essential component must every recursive function have to prevent infinite recursion and stack overflow crashes?",
+              "option_a": "A while loop",
+              "option_b": "A base case (termination condition)",
+              "option_c": "A database connection",
+              "option_d": "An asynchronous fetch statement",
+              "correct_option": "B",
+              "explanation": "The base case provides the termination condition that returns a value without making further recursive calls, unwinding the call stack safely.",
+              "kids_hint": "You must have the smallest baby doll at the very center—if the nesting dolls never ended, you'd be opening dolls forever!"
+            }
+          },
+          {
+            "title": "Divide & Conquer: The Magic of Merge Sort",
+            "order": 5,
+            "front_content": "Sorting a messy list of 1,000,000 numbers using Bubble Sort (swapping adjacent pairs) takes roughly 1,000,000,000,000 steps—hours of computation. Yet Merge Sort sorts the identical list in under 1 second using just 20,000,000 steps. What makes Divide & Conquer so blisteringly fast?",
+            "back_content": "Merge Sort applies Divide and Conquer: 1. Divide: recursively split the unsorted list in half until you have single-element sub-lists (which are inherently sorted). 2. Conquer & Combine: merge pairs of sorted sub-lists back together by comparing front elements in O(n) linear time. Splitting takes log2(n) levels, and merging each level takes O(n), guaranteeing an optimal O(n log n) runtime under all circumstances. It is the gold standard for reliable, guaranteed-performance sorting.",
+            "quiz": {
+              "prompt": "What is the guaranteed worst-case time complexity of Merge Sort?",
+              "option_a": "O(n^2)",
+              "option_b": "O(n log n)",
+              "option_c": "O(1)",
+              "option_d": "O(n!)",
+              "correct_option": "B",
+              "explanation": "Merge sort divides the problem logarithmically (log n depth) and merges in linear time (n work per level), providing guaranteed O(n log n) efficiency even on worst-case inputs.",
+              "kids_hint": "Instead of sorting a messy pile of 100 cards all at once, split them into two small piles of 50, sort each half with a friend, and zip the two neat piles together!"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

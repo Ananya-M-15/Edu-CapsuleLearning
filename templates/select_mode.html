@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Choose Your Learning Mode — EduCaps{% endblock %}
+
+{% block content %}
+<div class="mode-select-container">
+    <header class="mode-select-header text-center">
+        <span class="mode-step-badge"><i class="fas fa-sliders-h"></i> Personalize Your Journey</span>
+        <h1>Select Your Learning Mentor</h1>
+        <p>Pick the mentor and mode that matches how you learn best. You can change this anytime from your profile menu.</p>
+    </header>
+
+    <form method="post" action="{% url 'select_mode' %}" class="mode-selection-form" id="modeSelectionForm">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <div class="mode-cards-selection-grid">
+            
+            <!-- Standard Mode Card (Anaya) -->
+            <label class="mode-choice-card {% if current_mode == 'standard' %}selected{% endif %}" for="mode-standard" id="card-mode-standard">
+                <input type="radio" name="mode" id="mode-standard" value="standard" class="mode-radio-input" {% if current_mode == 'standard' %}checked{% endif %}>
+                
+                <div class="mode-card-header">
+                    <span class="mode-choice-badge standard-badge"><i class="fas fa-user-tie"></i> Standard Mode</span>
+                    <span class="selection-indicator-icon" aria-hidden="true"><i class="fas fa-check"></i></span>
+                </div>
+
+                <div class="mentor-avatar-frame anaya-avatar-frame">
+                    <img src="{% static 'images/hero-mentors.png' %}" alt="Anaya" class="mode-choice-img anaya-avatar-img">
+                </div>
+
+                <h2 class="mentor-card-name">Anaya</h2>
+                <p class="mentor-subtitle">Strategic Career &amp; Learning Mentor</p>
+                <p class="mode-choice-desc">
+                    Professional, structured, and analytical. Focuses on real-world practical applications, career growth frameworks, and Socratic concept mastery.
+                </p>
+
+                <ul class="mode-perks-list">
+                    <li><i class="fas fa-check"></i> Socratic deep-dive reflections</li>
+                    <li><i class="fas fa-check"></i> Executive takeaways &amp; mental models</li>
+                    <li><i class="fas fa-check"></i> Clean, focused learning flow</li>
+                </ul>
+            </label>
+
+            <!-- Kids Mode Card (Cappy) -->
+            <label class="mode-choice-card {% if current_mode == 'kids' %}selected{% endif %}" for="mode-kids" id="card-mode-kids">
+                <input type="radio" name="mode" id="mode-kids" value="kids" class="mode-radio-input" {% if current_mode == 'kids' %}checked{% endif %}>
+                
+                <div class="mode-card-header">
+                    <span class="mode-choice-badge kids-badge"><i class="fas fa-robot"></i> Kids Mode</span>
+                    <span class="selection-indicator-icon" aria-hidden="true"><i class="fas fa-check"></i></span>
+                </div>
+
+                <div class="mentor-avatar-frame cappy-avatar-frame">
+                    <img src="{% static 'images/hero-mentors.png' %}" alt="Cappy" class="mode-choice-img cappy-avatar-img">
+                </div>
+
+                <h2 class="mentor-card-name">Cappy</h2>
+                <p class="mentor-subtitle">3D Robot Mascot &amp; Learning Guide</p>
+                <p class="mode-choice-desc">
+                    Playful, friendly, and encouraging. Simplifies big ideas into memorable everyday analogies, offers supportive hints, and celebrates achievements.
+                </p>
+
+                <ul class="mode-perks-list">
+                    <li><i class="fas fa-check"></i> Playful analogies &amp; friendly cheers</li>
+                    <li><i class="fas fa-check"></i> Gentle progressive quiz hints</li>
+                    <li><i class="fas fa-check"></i> Cheerful badges &amp; celebrations</li>
+                </ul>
+            </label>
+
+        </div>
+
+        <div class="mode-submit-wrap text-center">
+            <button type="submit" class="btn-confirm-mode" id="confirmModeBtn">
+                <i class="fas fa-check-circle"></i> Confirm &amp; Enter Dashboard
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.mode-choice-card');
+        cards.forEach(card => {
+            const radio = card.querySelector('.mode-radio-input');
+            card.addEventListener('click', function() {
+                cards.forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                if (radio) {
+                    radio.checked = true;
+                }
+            });
+            if (radio) {
+                radio.addEventListener('focus', () => card.classList.add('focused'));
+                radio.addEventListener('blur', () => card.classList.remove('focused'));
+            }
+        });
+    });
+</script>
+{% endblock %}

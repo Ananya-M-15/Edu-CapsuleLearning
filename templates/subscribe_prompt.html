@@ -1,14 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Choose Your Subjects{% endblock %}
+
+{% block title %}Choose Your Subjects — EduCaps{% endblock %}
+
 {% block content %}
-<div class="learn-container" style="text-align: center;">
-    <i class="fas fa-map-signs" style="font-size: 4rem; color: #3498db; margin-bottom: 1rem;"></i>
-    <h1>Let's Get Started!</h1>
-    <p>You haven't selected any learning paths yet.</p>
-    <p>Go to "My Learning" to choose the subjects you're interested in.</p>
-    <br>
-    <a href="{% url 'my_learning' %}" class="btn-start" style="background-color: #3498db;">
-        Choose My Subjects
+<div class="empty-state-card text-center" style="max-width: 620px; margin: 3.5rem auto; padding: 3rem 2rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); backdrop-filter: blur(16px);">
+    <div class="empty-icon-bubble" style="width: 80px; height: 80px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); font-size: 2.2rem;">
+        <i class="fas fa-map-signs" aria-hidden="true"></i>
+    </div>
+    <h1 style="font-family: var(--font-heading); font-size: 1.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Let's Get Started!</h1>
+    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">You haven't enrolled in any courses yet. Select the courses you want to master to unlock your daily capsules, quizzes, and spaced reviews.</p>
+    <a href="{% url 'my_learning' %}" class="btn-hero-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; border-radius: var(--radius-full); text-decoration: none; font-weight: 600;">
+        <i class="fas fa-bookmark" aria-hidden="true"></i> Explore &amp; Choose Courses
     </a>
 </div>
 {% endblock %}

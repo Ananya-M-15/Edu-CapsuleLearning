@@ -11,3 +11,5 @@ __pycache__/
 
 # IDE files (VS Code)
 .vscode/
+# Django collected static files
+/staticfiles/

@@ -1,59 +1,73 @@
 {% extends "auth_base.html" %}
+{% load static %}
 
-{% block title %}Join EduCaps{% endblock %}
+{% block title %}Sign Up — EduCaps{% endblock %}
 
 {% block content %}
 <div class="auth-card">
-    <h1 class="auth-logo">EduCaps</h1>
-    <h2>Create Your Account</h2>
-    <p class="auth-subtitle">Start your daily learning habit today!</p>
+    <div class="auth-brand-badge">
+        <a href="{% url 'home' %}" class="auth-brand-frame" title="Return to EduCaps Home">
+            <img src="{% static 'images/educaps-logo-transparent.png' %}" alt="EduCaps Logo" class="auth-brand-logo-img" width="160" height="96">
+        </a>
+    </div>
+
+    <h1 class="auth-heading">Create Your Account</h1>
+    <p class="auth-subtitle">Start your 5-minute daily micro-learning habit today.</p>
     
-    <form method="post" class="auth-form">
+    <form method="post" class="auth-form" novalidate>
         {% csrf_token %}
         
         {% for field in form.visible_fields %}
-        <div class="form-field-wrapper"> 
-            <div class="form-field">
+        <div class="form-field-group">
+            <label for="{{ field.id_for_label }}" class="sr-only">{{ field.label }}</label>
+            <div class="form-input-wrap">
                 {% if field.name == 'username' %}
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user input-icon" aria-hidden="true"></i>
                 {% else %}
-                    <i class="fas fa-lock"></i>
+                    <i class="fas fa-lock input-icon" aria-hidden="true"></i>
                 {% endif %}
-                
                 {{ field }}
             </div>
 
             {% if field.name == 'password' %}
-                <div id="password-help" class="password-help-text" style="display: none;">
-                    <ul>
-                        <li>Must contain at least 8 characters.</li>
-                        <li>Can't be too similar to your username.</li>
-                        <li>Can't be a commonly used password.</li>
-                        <li>Can't be entirely numeric.</li>
+                <div id="password-help" class="password-help-box" style="display: none;" role="note">
+                    <p class="help-title"><i class="fas fa-shield-alt"></i> Password Guidelines:</p>
+                    <ul class="help-list">
+                        <li>At least 8 characters long</li>
+                        <li>Cannot be commonly used or entirely numeric</li>
+                        <li>Must differ from your username</li>
                     </ul>
                 </div>
             {% elif field.name == 'password2' %}
-                <small class="form-text-help">Enter the same password for verification.</small>
+                <small class="form-text-hint">Re-enter the same password for confirmation.</small>
             {% endif %}
 
+            {% if field.errors %}
+                <div class="field-error-msg" role="alert">
+                    {% for err in field.errors %}
+                        <span><i class="fas fa-exclamation-triangle"></i> {{ err }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
         {% endfor %}
         
-        {% if form.errors %}
-            <div class="form-errors">
-                {% for field, error_list in form.errors.items %}
-                    {% for error in error_list %}
-                        <p>{{ error }}</p>
-                    {% endfor %}
+        {% if form.non_field_errors %}
+            <div class="auth-error-box" role="alert">
+                {% for error in form.non_field_errors %}
+                    <p><i class="fas fa-exclamation-circle"></i> {{ error }}</p>
                 {% endfor %}
             </div>
         {% endif %}
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="btn-auth-submit">
+            <i class="fas fa-rocket" aria-hidden="true"></i> Create Free Account
+        </button>
     </form>
     
-    <div class="auth-switch">
-        <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+    <div class="auth-footer-nav">
+        <p>Already have an account? <a href="{% url 'login' %}" class="auth-switch-link">Log In</a></p>
+        <p class="auth-home-link-wrap"><a href="{% url 'home' %}" class="auth-home-link">&larr; Back to Homepage</a></p>
     </div>
 </div>
 
@@ -64,7 +78,6 @@
 
         if (passwordField && passwordHelp) {
             passwordField.addEventListener('focus', function() {
-                // Show the help text when the user clicks into the password field
                 passwordHelp.style.display = 'block';
             });
         }

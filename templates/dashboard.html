@@ -1,56 +1,182 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Your Dashboard{% endblock %}
+{% block title %}Dashboard — {{ user.username }} | EduCaps{% endblock %}
 
 {% block content %}
-<div class="dashboard-header">
-    <h1>Welcome back, {{ user.username }}!</h1>
-    <p>Ready for your next learning capsule? Let's do this!</p>
-</div>
+<div class="dashboard-wrapper">
+    
+    <!-- Welcome Header & Daily Streak -->
+    <header class="dashboard-hero-header">
+        <div class="user-greeting">
+            <div class="greeting-pretitle">
+                <span class="streak-badge"><i class="fas fa-fire"></i> {{ stats.streak_count|default:"1" }} Day Streak</span>
+            </div>
+            <h1>Welcome back, <span class="highlight-username">{{ user.username }}</span>!</h1>
+            <p class="greeting-subtitle">Your personal micro-learning journey is on track. Master today's focus capsule below.</p>
+        </div>
+    </header>
 
-<!-- Main Dashboard Grid Layout -->
-<div class="dashboard-grid">
+    <!-- AI Mentor Daily Briefing Card -->
+    <section class="mentor-briefing-card {% if is_kids_mode %}cappy-briefing{% else %}anaya-briefing{% endif %}">
+        <div class="mentor-briefing-avatar-wrap">
+            <img src="{% static stats.mentor_image %}" alt="{{ stats.mentor_name }}" class="mentor-briefing-img">
+            <span class="mentor-status-dot" title="Active Mentor"></span>
+        </div>
+        <div class="mentor-briefing-content">
+            <div class="mentor-title-row">
+                <h3>{{ stats.mentor_name }}</h3>
+            </div>
+            <p class="mentor-message-text">
+                "{{ briefing.briefing_text }}"
+            </p>
+            <div class="mentor-quick-stats">
+                <span><i class="fas fa-bullseye"></i> Daily Goal: <strong>{{ stats.daily_goal|default:3 }} Capsules</strong></span>
+                <span><i class="fas fa-award"></i> Quiz Accuracy: <strong>{{ stats.quiz_accuracy|default:"100" }}%</strong></span>
+            </div>
+        </div>
+    </section>
 
-    <!-- Overall Progress Card -->
-    <div class="card">
-        <div class="card__title">Your Overall Progress</div>
-        <div class="card__content">
-            <p>You've completed {{ completed_count }} of {{ total_capsules }} capsules.</p>
-            <div class="progress-bar">
-                <div class="progress-bar__inner" style="width: {{ progress_percentage }}%;">
-                    {{ progress_percentage }}%
+    <!-- Main Dashboard Grid Layout -->
+    <div class="dashboard-grid">
+
+        <!-- Overall Progress Card -->
+        <div class="card progress-overview-card">
+            <div class="card__title">
+                <span><i class="fas fa-chart-line"></i> Overall Progress</span>
+                <span class="progress-badge-number">{{ progress_percentage }}%</span>
+            </div>
+            <div class="card__content">
+                <p class="progress-summary-text">
+                    You've completed <strong>{{ completed_count }}</strong> of <strong>{{ total_capsules }}</strong> capsules in your enrolled subjects.
+                </p>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar__inner" style="width: {{ progress_percentage }}%;">
+                        <span class="sr-only">{{ progress_percentage }}% Complete</span>
+                    </div>
+                </div>
+
+                <div class="stat-pills-row">
+                    <div class="mini-stat">
+                        <i class="fas fa-check-circle stat-icon-green"></i>
+                        <div>
+                            <h4>{{ completed_count }}</h4>
+                            <small>Completed</small>
+                        </div>
+                    </div>
+                    <div class="mini-stat">
+                        <i class="fas fa-hourglass-half stat-icon-amber"></i>
+                        <div>
+                            <h4>{{ remaining_count }}</h4>
+                            <small>Remaining</small>
+                        </div>
+                    </div>
+                    <div class="mini-stat">
+                        <i class="fas fa-percentage stat-icon-purple"></i>
+                        <div>
+                            <h4>{{ stats.quiz_accuracy|default:"0" }}%</h4>
+                            <small>Accuracy</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Primary Call to Action Card: Continue Learning -->
+        <div class="card card--cta continue-learning-card">
+            <div class="card__title">
+                <span><i class="fas fa-bolt"></i> Up Next in Your Journey</span>
+            </div>
+            <div class="card__content">
+                {% if next_capsule %}
+                    <div class="next-capsule-preview">
+                        <span class="capsule-subject-label">
+                            <i class="{{ next_capsule.topic.subject.icon_class|default:'fas fa-book' }}"></i>
+                            {{ next_capsule.topic.subject.name }} &bull; {{ next_capsule.topic.title }}
+                        </span>
+                        <h3 class="next-capsule-title">{{ next_capsule.title }}</h3>
+                        <p class="next-capsule-teaser">{{ next_capsule.front_content|truncatechars:110 }}</p>
+                    </div>
+                    <a href="{% url 'learn' %}?capsule_id={{ next_capsule.id }}" class="btn-start btn-primary-cta">
+                        <i class="fas fa-play"></i> Continue Learning
+                    </a>
+                {% elif no_subscriptions %}
+                    <div class="empty-state-card">
+                        <i class="fas fa-compass empty-icon"></i>
+                        <h3>You haven't enrolled in any courses yet!</h3>
+                        <p>Browse our course catalog to start your 5-minute daily learning habit.</p>
+                        <a href="{% url 'library' %}" class="btn-start btn-secondary-cta">
+                            <i class="fas fa-compass"></i> Explore Course Catalog
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="all-completed-card">
+                        <i class="fas fa-trophy trophy-icon"></i>
+                        <h3>Incredible Work!</h3>
+                        <p>You've completed all capsules in your enrolled courses! Explore new courses or cement your recall with spaced reviews.</p>
+                        <a href="{% url 'reviews' %}" class="btn-start btn-secondary-cta">
+                            <i class="fas fa-history"></i> Practice Spaced Reviews
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
     </div>
 
-    <!-- Stats Cards -->
-    <div class="stat-card">
-        <i class="fas fa-check-circle stat-card__icon--completed"></i>
-        <div class="stat-card__text">
-            <h3>{{ completed_count }}</h3>
-            <p>Capsules Completed</p>
-        </div>
-    </div>
+    <!-- Weakness Detection Section (if topics need review) -->
+    {% if topics_needing_review %}
+        <section class="weakness-detection-section">
+            <div class="section-heading-row">
+                <h2><i class="fas fa-stethoscope"></i> Topics Needing Reinforcement</h2>
+                <span class="badge-flagged">{{ topics_needing_review|length }} Flagged</span>
+            </div>
+            <div class="weakness-cards-grid">
+                {% for item in topics_needing_review %}
+                    <div class="weakness-item-card">
+                        <div class="weakness-header">
+                            <span class="weakness-subject">{{ item.subject.name }}</span>
+                            <span class="accuracy-pill-low">{{ item.accuracy }}% Accuracy</span>
+                        </div>
+                        <h4>{{ item.topic.title }}</h4>
+                        <p>You missed quiz questions in this topic. Strengthen your foundation with a quick review.</p>
+                        <a href="{% url 'learn' %}?topic_id={{ item.topic.id }}" class="btn-review-topic">
+                            <i class="fas fa-redo"></i> Review Topic
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
 
-    <div class="stat-card">
-        <i class="fas fa-rocket stat-card__icon--remaining"></i>
-        <div class="stat-card__text">
-            <h3>{{ remaining_count }}</h3>
-            <p>Capsules to Go</p>
-        </div>
-    </div>
+    <!-- Enrolled Subjects & Progress -->
+    {% if enrolled_subjects %}
+        <section class="dashboard-subjects-section">
+            <div class="section-heading-row">
+                <h2><i class="fas fa-book-reader"></i> Your Enrolled Subjects</h2>
+                <a href="{% url 'my_learning' %}" class="view-all-link">Manage Enrollments &raquo;</a>
+            </div>
+            <div class="enrolled-subjects-grid">
+                {% for subj in enrolled_subjects %}
+                    <div class="enrolled-subject-card">
+                        <div class="enrolled-card-header">
+                            <i class="{{ subj.icon_class|default:'fas fa-graduation-cap' }} subject-card-icon"></i>
+                            <div>
+                                <h4>{{ subj.name }}</h4>
+                                <small>{{ subj.completed_capsules_count|default:0 }} of {{ subj.total_capsules_count|default:0 }} capsules</small>
+                            </div>
+                        </div>
+                        <div class="enrolled-progress-bar">
+                            {% widthratio subj.completed_capsules_count subj.total_capsules_count 100 as subj_pct %}
+                            <div class="enrolled-progress-inner" style="width: {{ subj_pct|default:0 }}%;"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
 
-    <!-- Call to Action Card -->
-    <div class="card card--cta">
-        <div class="card__title">What's Next?</div>
-        <div class="card__content">
-            <p>Your next challenge awaits. Keep the momentum going!</p>
-            <a href="{% url 'learn' %}" class="btn-start">
-                <i class="fas fa-play-circle"></i> Start Next Capsule
-            </a>
-        </div>
-    </div>
+
 
 </div>
 {% endblock %}

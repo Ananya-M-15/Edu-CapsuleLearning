@@ -1,0 +1,2673 @@
+{
+  "version": "1.0",
+  "total_courses": 105,
+  "generated_date": "2026-10-19",
+  "courses": [
+    {
+      "id": "PRG-101",
+      "title": "Python Foundations for Problem Solving",
+      "category": "Programming & Software Development",
+      "description": "Master core computational logic, Python data structures, and script automation from scratch.",
+      "target_audience": "Beginner programmers, career switchers, and non-technical professionals seeking script automation.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. Suitable for complete beginners.",
+      "suggested_topics": 5,
+      "target_capsules": 80,
+      "differentiation": "Focuses on practical problem-solving recipes and execution tracing rather than dry syntax memorization.",
+      "learning_outcomes": [
+        "Write clean, readable Python code adhering to PEP 8 standards.",
+        "Manipulate core data types (strings, lists, dictionaries, sets, tuples).",
+        "Implement control flow logic, loops, and modular functions.",
+        "Handle file I/O operations and exceptions gracefully.",
+        "Build automated scripts to solve everyday data and file management tasks."
+      ],
+      "progression": [
+        "Variables, data types, and memory models as labeled containers.",
+        "Control flow: conditional branching and iterative loops.",
+        "Functions, parameter passing, return values, and scope.",
+        "Data structures: list comprehensions and dictionary mappings.",
+        "File handling, exception handling, and modular script project."
+      ]
+    },
+    {
+      "id": "PRG-102",
+      "title": "JavaScript Core & Modern ES6+",
+      "category": "Programming & Software Development",
+      "description": "Understand the engine of the web: closures, the event loop, asynchronous promises, and modern ES6+ idioms.",
+      "target_audience": "Web learners and developers wanting a deep conceptual grasp of JavaScript behavior.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic understanding of programming variables or completion of PRG-101.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Demystifies the JavaScript runtime, asynchronous event loop, and prototype chain rather than just syntax tricks.",
+      "learning_outcomes": [
+        "Explain scope, execution contexts, hoisting, and lexical closures.",
+        "Master modern ES6+ features (destructuring, arrow functions, modules).",
+        "Handle asynchronous operations cleanly using Promises and async/await.",
+        "Understand the single-threaded event loop and call stack mechanics.",
+        "Manipulate DOM nodes and manage browser events safely."
+      ],
+      "progression": [
+        "Runtime foundations, types, coercion, and variable declarations.",
+        "Lexical scoping, closure mechanics, and higher-order functions.",
+        "Objects, prototypes, ES6 classes, and modern syntax sugar.",
+        "Asynchronous JavaScript: Callbacks, Promises, and async/await.",
+        "The browser event loop, microtasks, and DOM integration patterns."
+      ]
+    },
+    {
+      "id": "PRG-103",
+      "title": "Object-Oriented Design & Clean Code",
+      "category": "Programming & Software Development",
+      "description": "Transform messy procedural scripts into maintainable, modular software using SOLID principles and design patterns.",
+      "target_audience": "Developers who know programming syntax and want to write professional, maintainable codebases.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Familiarity with at least one object-oriented language (Python, Java, C#, or TypeScript).",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Emphasizes composition over inheritance and pragmatic refactoring rather than dogmatic enterprise boilerplate.",
+      "learning_outcomes": [
+        "Apply the SOLID principles to prevent rigid, fragile code architectures.",
+        "Identify and refactor common code smells (long methods, god objects, feature envy).",
+        "Implement essential design patterns (Factory, Strategy, Observer, Decorator).",
+        "Write self-documenting code with clear variable and function naming.",
+        "Design cohesive modules with loose coupling."
+      ],
+      "progression": [
+        "Clean code fundamentals: naming, function purity, and code smells.",
+        "Core OOP mechanics: encapsulation, polymorphism, and composition.",
+        "SOLID principles decoded with real-world refactoring examples.",
+        "Behavioral and structural design patterns in daily engineering.",
+        "Architectural modularity: package boundaries and interface segregation."
+      ]
+    },
+    {
+      "id": "PRG-104",
+      "title": "Rust for Safe & Fast Systems",
+      "category": "Programming & Software Development",
+      "description": "Learn memory safety without a garbage collector through Rust's ownership, borrowing, and concurrency guarantees.",
+      "target_audience": "Intermediate developers seeking high-performance systems programming and bulletproof memory safety.",
+      "difficulty": "Intermediate to Advanced",
+      "prerequisites": "Experience with C, C++, Python, or Go.",
+      "suggested_topics": 5,
+      "target_capsules": 85,
+      "differentiation": "Breaks the notorious Rust learning curve into micro-mental models for the borrow checker.",
+      "learning_outcomes": [
+        "Explain ownership, moves, borrowing, and lifetime mechanics.",
+        "Use pattern matching, enums, and Result/Option for exhaustive error handling.",
+        "Build robust concurrent applications free of data races.",
+        "Leverage Rust traits and generics for zero-cost abstractions.",
+        "Create fast CLI tools and safe systems libraries."
+      ],
+      "progression": [
+        "Rust syntax, tooling (Cargo), and variable mutability.",
+        "The ownership model, borrowing rules, and slice references.",
+        "Custom types: structs, enums, pattern matching, and error handling.",
+        "Traits, generics, lifetimes, and zero-cost abstraction design.",
+        "Concurrency primitives, fear-free threads, and smart pointers."
+      ]
+    },
+    {
+      "id": "PRG-105",
+      "title": "Go for Cloud & Backend Services",
+      "category": "Programming & Software Development",
+      "description": "Build simple, blazing-fast web APIs and microservices using Go's lightweight concurrency and standard library.",
+      "target_audience": "Backend engineers, DevOps professionals, and programmers wanting simplicity and cloud-native velocity.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic understanding of HTTP and programming fundamentals.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on Go's idiomatic simplicity, goroutines, and channels rather than porting OOP habits into Go.",
+      "learning_outcomes": [
+        "Write idiomatic Go following effective Go conventions.",
+        "Design lightweight concurrent architectures with goroutines and channels.",
+        "Build RESTful HTTP microservices using Go's standard net/http package.",
+        "Manage packages, dependencies, and modules using Go tooling.",
+        "Structure clean backend services with interfaces and error handling."
+      ],
+      "progression": [
+        "Go syntax simplicity: types, structs, pointers, and interfaces.",
+        "Error handling patterns, defer, panic, and recover.",
+        "Concurrency mastery: goroutines, channels, and select blocks.",
+        "HTTP servers, middleware, routing, and JSON serialization.",
+        "Testing, benchmarking, and building production container binaries."
+      ]
+    },
+    {
+      "id": "PRG-106",
+      "title": "Automated Testing & Test-Driven Development (TDD)",
+      "category": "Programming & Software Development",
+      "description": "Write bug-resistant code by mastering unit tests, integration tests, mocks, and the red-green-refactor cycle.",
+      "target_audience": "Developers who want to ship code confidently without fearing regressions.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic programming competence in any modern language.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Teaches the testing pyramid and pragmatic test design instead of chasing brittle 100% test coverage metrics.",
+      "learning_outcomes": [
+        "Implement the Red-Green-Refactor cycle in daily feature authoring.",
+        "Differentiate unit, integration, end-to-end, and regression testing.",
+        "Use test doubles (mocks, stubs, fakes, spies) effectively.",
+        "Write maintainable, readable assertions that serve as living documentation.",
+        "Integrate automated test runs into CI/CD pipelines."
+      ],
+      "progression": [
+        "Why software fails: the cost of bugs and the testing pyramid.",
+        "Writing solid unit tests: AAA pattern (Arrange, Act, Assert).",
+        "Mocks, stubs, and isolating external dependencies.",
+        "TDD in practice: test-first development and regression prevention."
+      ]
+    },
+    {
+      "id": "PRG-107",
+      "title": "Git, GitHub & Collaborative Version Control",
+      "category": "Programming & Software Development",
+      "description": "Master branching, merging, rebasing, pull requests, and resolving complex merge conflicts without panic.",
+      "target_audience": "Students, self-taught developers, and teams collaborating on software repositories.",
+      "difficulty": "Beginner",
+      "prerequisites": "Basic command line navigation helpful but not required.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Explains Git's underlying directed acyclic graph (DAG) data model so commands make intuitive sense.",
+      "learning_outcomes": [
+        "Navigate Git's internal mental model (blobs, trees, commits, refs).",
+        "Execute clean branching strategies and merge conflict resolutions.",
+        "Understand when to merge vs. rebase interactively.",
+        "Conduct professional code reviews through GitHub pull requests.",
+        "Rescue lost work using the git reflog and cherry-pick."
+      ],
+      "progression": [
+        "Git mental model: snapshots, the working tree, staging, and history.",
+        "Branching, switching, merging, and conflict resolution tactics.",
+        "Remote collaboration: clones, remotes, pushes, pulls, and PR workflows.",
+        "Advanced recovery: interactive rebase, squashing, stash, and reflog."
+      ]
+    },
+    {
+      "id": "PRG-108",
+      "title": "Debugging & Code Troubleshooting Strategies",
+      "category": "Programming & Software Development",
+      "description": "Develop systematic investigative thinking to diagnose and solve baffling software defects faster.",
+      "target_audience": "Developers at any level who lose hours to trial-and-error debugging.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic programming experience in any language.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Teaches scientific root-cause elimination and cognitive debugging heuristics rather than random print statement guessing.",
+      "learning_outcomes": [
+        "Apply the scientific debugging method (Hypothesize, Reproduce, Isolate, Fix, Verify).",
+        "Use interactive debuggers, conditional breakpoints, and stack traces.",
+        "Diagnose race conditions, memory leaks, and off-by-one boundary bugs.",
+        "Read and interpret cryptic compiler errors and stack traces accurately.",
+        "Write regression tests to ensure fixed bugs never return."
+      ],
+      "progression": [
+        "The psychology of debugging: cognitive traps and systematic isolation.",
+        "Trace tools: debuggers, log levels, inspection, and breakpoints.",
+        "Common failure patterns: state corruption, null pointers, race conditions.",
+        "Writing reproducible bug reports and automated regression guards."
+      ]
+    },
+    {
+      "id": "PRG-109",
+      "title": "API Design with REST & GraphQL",
+      "category": "Programming & Software Development",
+      "description": "Design resilient, intuitive, and versioned APIs that client developers love to consume.",
+      "target_audience": "Backend and full-stack developers designing web services.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Understanding of HTTP requests and basic web architectures.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Directly compares RESTful resource design and GraphQL graph query schemas with real-world trade-offs.",
+      "learning_outcomes": [
+        "Design clean RESTful endpoints using proper HTTP verbs and status codes.",
+        "Implement pagination, filtering, sorting, and idempotent operations.",
+        "Define GraphQL schemas, queries, mutations, and resolvers.",
+        "Manage API versioning, deprecation, and backward compatibility.",
+        "Implement API authentication, rate limiting, and documentation (OpenAPI)."
+      ],
+      "progression": [
+        "HTTP protocol fundamentals: verbs, headers, status codes, and payloads.",
+        "REST resource modeling: URIs, collections, and relations.",
+        "Advanced REST patterns: pagination, caching, idempotency, and HATEOAS.",
+        "GraphQL paradigm: schema definition language, queries, and resolvers.",
+        "Production API concerns: rate limiting, auth tokens, and OpenAPI docs."
+      ]
+    },
+    {
+      "id": "WEB-101",
+      "title": "HTML5 & Modern Semantic Web Architecture",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Construct accessible, SEO-optimized, and standards-compliant web document structures.",
+      "target_audience": "Aspiring web developers and designers building digital foundations.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. Suitable for absolute beginners.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on semantic meaning, accessibility landmarks, and document outline rather than outdated tag lists.",
+      "learning_outcomes": [
+        "Structure semantic web pages using appropriate HTML5 tags.",
+        "Build accessible forms with proper validation and labels.",
+        "Embed responsive images and multimedia with modern attributes.",
+        "Optimize document head metadata for search engines and social sharing.",
+        "Ensure document structure complies with accessibility standards."
+      ],
+      "progression": [
+        "The web document model, DOM tree, and anatomy of an HTML element.",
+        "Semantic structure: header, nav, main, article, section, footer.",
+        "Interactive forms: inputs, labels, validation, and accessibility.",
+        "Media embedding, metadata, OpenGraph tags, and SEO foundations."
+      ]
+    },
+    {
+      "id": "WEB-102",
+      "title": "Modern CSS, Flexbox, Grid & Responsive Systems",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Master CSS layout algorithms, responsive design, custom properties, and fluid typography.",
+      "target_audience": "Web creators who want to style interfaces without fighting the cascade or relying blindly on frameworks.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic understanding of HTML elements.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Demystifies the CSS layout engine (box model, stacking context, flex/grid algorithms) instead of trial-and-error styling.",
+      "learning_outcomes": [
+        "Master the CSS Box Model, specificity calculation, and the cascade.",
+        "Build 1D layouts with Flexbox and 2D responsive grids with CSS Grid.",
+        "Implement responsive breakpoints with modern media and container queries.",
+        "Create reusable design token systems with CSS Custom Properties.",
+        "Add subtle micro-animations and transitions for polished user experience."
+      ],
+      "progression": [
+        "The Cascade, specificity calculations, inheritance, and the box model.",
+        "Flexbox deep-dive: axes, alignment, wrapping, and flex factors.",
+        "CSS Grid: template areas, fractional units, and auto-placement.",
+        "Responsive engineering: mobile-first design, fluid typography, container queries.",
+        "Modern CSS: variables, color models (HSL, OKLCH), and keyframe animations."
+      ]
+    },
+    {
+      "id": "WEB-103",
+      "title": "Full-Stack Web Architecture with Django & Python",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Build complete, secure, database-backed web applications with Django's MVT pattern, ORM, and template engine.",
+      "target_audience": "Developers who know Python and want to engineer robust, full-stack web platforms.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Python fundamentals (PRG-101) and basic HTML/CSS.",
+      "suggested_topics": 5,
+      "target_capsules": 85,
+      "differentiation": "Reflects the exact battle-tested architectural patterns utilized in EduCaps itself.",
+      "learning_outcomes": [
+        "Understand the Model-View-Template (MVT) architectural pattern.",
+        "Design database schemas and execute optimized queries using Django ORM.",
+        "Implement secure authentication, user sessions, and permission checks.",
+        "Build dynamic views, forms, and template inheritance hierarchies.",
+        "Deploy Django applications with production settings, static assets, and WSGI."
+      ],
+      "progression": [
+        "Django project architecture: settings, apps, URL routing, and WSGI.",
+        "Models and Django ORM: migrations, relationships, queries, and indexing.",
+        "Views and Templates: context passing, template tags, filters, and forms.",
+        "Authentication, session management, user profiles, and authorization.",
+        "Production hardening: CSRF, security headers, Whitenoise, and deployment."
+      ]
+    },
+    {
+      "id": "WEB-104",
+      "title": "React & Component-Driven UI Engineering",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Construct reactive user interfaces using components, state hooks, props, and declarative rendering.",
+      "target_audience": "Frontend developers building modern single-page applications.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Proficiency in JavaScript (PRG-102) and modern CSS (WEB-102).",
+      "suggested_topics": 5,
+      "target_capsules": 80,
+      "differentiation": "Emphasizes the mental model of UI as a pure function of state, avoiding common hook anti-patterns.",
+      "learning_outcomes": [
+        "Explain JSX, the Virtual DOM, and React's reconciliation algorithm.",
+        "Manage component state and lifecycle using useState, useEffect, and useRef.",
+        "Share state across component trees using context and custom hooks.",
+        "Optimize re-rendering using memoization techniques (useMemo, useCallback).",
+        "Structure modular, accessible, and testable UI component libraries."
+      ],
+      "progression": [
+        "Mental model of React: declarative UI, JSX, and component hierarchies.",
+        "State and Props: unidirectional data flow and event handling.",
+        "Hooks in depth: useState, useEffect lifecycle, refs, and cleanup.",
+        "State scaling: custom hooks, reducer patterns, and context providers.",
+        "Performance optimization, error boundaries, and component testing."
+      ]
+    },
+    {
+      "id": "WEB-105",
+      "title": "Node.js & Express Backend Architecture",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Build high-throughput web backends, REST APIs, and middleware chains using the Node.js runtime and Express.",
+      "target_audience": "Developers who know JavaScript and want to build server-side backends.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Solid JavaScript foundation (PRG-102).",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on production middleware composition, stream handling, and security hardening.",
+      "learning_outcomes": [
+        "Understand the Node.js event loop, libuv, and non-blocking I/O.",
+        "Build RESTful services with Express routing and middleware pipelines.",
+        "Handle file uploads, streams, and buffer operations efficiently.",
+        "Implement JWT-based authentication and role-based access control.",
+        "Structure enterprise Express apps with services, controllers, and repositories."
+      ],
+      "progression": [
+        "Node.js architecture: V8, event loop, modules, and process management.",
+        "Express fundamentals: routing, request/response cycles, and middleware.",
+        "Database integration, ORMs/ODMs, and async error handling.",
+        "Authentication, token verification, and input validation pipelines.",
+        "Logging, environment configuration, clustering, and health checks."
+      ]
+    },
+    {
+      "id": "WEB-106",
+      "title": "Web Performance Optimization & Core Web Vitals",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Speed up web applications by optimizing asset delivery, rendering pipelines, and Google's Core Web Vitals.",
+      "target_audience": "Frontend engineers, performance engineers, and web developers aiming for sub-second page loads.",
+      "difficulty": "Intermediate to Advanced",
+      "prerequisites": "Working knowledge of HTML, CSS, and JavaScript.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Teaches the browser's critical rendering path from network packet to pixel display.",
+      "learning_outcomes": [
+        "Audit web apps using Lighthouse, Chrome DevTools, and WebPageTest.",
+        "Optimize Google Core Web Vitals: LCP, INP, and CLS.",
+        "Minimize critical rendering path blocking: CSS/JS minification, bundling, and deferral.",
+        "Implement modern image compression (WebP, AVIF) and lazy loading.",
+        "Leverage HTTP caching, CDNs, and resource hints (preconnect, preload)."
+      ],
+      "progression": [
+        "The Critical Rendering Path: DNS, TCP, TLS, DOM, CSSOM, Render Tree, Paint.",
+        "Core Web Vitals deep-dive: Largest Contentful Paint, Interaction to Next Paint, Cumulative Layout Shift.",
+        "Asset optimization: images, fonts, JavaScript tree shaking, and code splitting.",
+        "Network layer: HTTP/2, HTTP/3, CDN caching headers, and service workers."
+      ]
+    },
+    {
+      "id": "WEB-107",
+      "title": "Progressive Web Apps (PWA) & Offline-First Design",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Turn responsive websites into installable, offline-capable mobile and desktop apps with service workers and web manifests.",
+      "target_audience": "Web developers building resilient web apps that function seamlessly on flaky network connections.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Proficiency in JavaScript (PRG-102) and basic web fundamentals.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on battle-tested caching strategies (stale-while-revalidate, network-first) used in real PWA deployments.",
+      "learning_outcomes": [
+        "Configure a Web App Manifest for mobile and desktop installation.",
+        "Understand the Service Worker lifecycle (register, install, activate).",
+        "Implement caching strategies: cache-first, network-first, and stale-while-revalidate.",
+        "Manage background synchronization and client storage via IndexedDB.",
+        "Audit and troubleshoot PWAs using browser developer tools."
+      ],
+      "progression": [
+        "PWA architecture: what makes an application progressive and installable.",
+        "The Service Worker lifecycle: interception, caching, and cache invalidation.",
+        "Caching strategies: Stale-While-Revalidate, Cache First, and Network First.",
+        "Offline state management: IndexedDB, Background Sync, and Push notifications."
+      ]
+    },
+    {
+      "id": "WEB-108",
+      "title": "Web Accessibility (WCAG 2.2) & Inclusive UX",
+      "category": "Web Development & Full-Stack Engineering",
+      "description": "Design and build web interfaces that everyone can use, including keyboard users and people with visual or motor impairments.",
+      "target_audience": "Frontend developers, UI/UX designers, and product managers.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic HTML and CSS knowledge.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Prioritizes native semantic HTML before reaching for ARIA, avoiding the 'bad ARIA is worse than no ARIA' trap.",
+      "learning_outcomes": [
+        "Apply the WCAG 2.2 principles: Perceivable, Operable, Understandable, Robust.",
+        "Ensure full keyboard navigability and visible focus indicator management.",
+        "Use ARIA roles, states, and live regions responsibly when HTML alone is insufficient.",
+        "Validate color contrast ratios and avoid relying on color alone for information.",
+        "Test web applications using screen readers (NVDA, VoiceOver) and automated linters."
+      ],
+      "progression": [
+        "Why accessibility matters: legal, ethical, and universal usability foundations.",
+        "Keyboard navigation: focus order, skip links, and interactive widgets.",
+        "Visual accessibility: color contrast, scalable text, and motion sensitivity.",
+        "ARIA in practice: labels, expanded states, live regions, and screen reader testing."
+      ]
+    },
+    {
+      "id": "AI-101",
+      "title": "Everyday AI Literacy: What AI Can and Cannot Do",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Demystify modern artificial intelligence, separate marketing hype from technical reality, and navigate the AI era with confidence.",
+      "target_audience": "General learners, students, professionals, and curious citizens.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. Zero technical or mathematical background required.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on technical clarity and debunking myths rather than vendor hype or apocalyptic predictions.",
+      "learning_outcomes": [
+        "Define AI, Machine Learning, and Deep Learning without technical jargon.",
+        "Differentiate rule-based systems from statistical pattern-matching systems.",
+        "Identify real-world limitations: hallucinations, bias, and lack of common sense.",
+        "Evaluate AI claims critically in news, software, and marketing.",
+        "Adopt responsible personal productivity habits using generative AI tools."
+      ],
+      "progression": [
+        "Demystifying AI: how machines learn from historical examples.",
+        "From rules to patterns: why computers can now recognize cats and write essays.",
+        "The anatomy of an LLM: token prediction, context windows, and hallucinations.",
+        "AI in society: ethics, copyright, energy usage, and human collaboration."
+      ]
+    },
+    {
+      "id": "AI-102",
+      "title": "Machine Learning Intuition & Core Algorithms",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Build an intuitive mental model of supervised and unsupervised learning algorithms without getting lost in calculus.",
+      "target_audience": "Software developers, product managers, and data enthusiasts entering machine learning.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic high school algebra intuition.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Visualizes decision boundaries, loss functions, and optimization geometrically before presenting mathematical formulas.",
+      "learning_outcomes": [
+        "Differentiate supervised, unsupervised, and reinforcement learning.",
+        "Understand core algorithms: Linear Regression, Logistic Regression, Decision Trees, K-Means.",
+        "Explain overfitting, underfitting, and the bias-variance trade-off.",
+        "Evaluate models using accuracy, precision, recall, F1-score, and ROC curves.",
+        "Structure clean train/test validation splits to prevent data leakage."
+      ],
+      "progression": [
+        "The ML paradigm: features, labels, and finding mathematical mapping functions.",
+        "Regression and classification: drawing best-fit lines and decision boundaries.",
+        "Tree models and ensembles: Random Forests and Gradient Boosting intuition.",
+        "Unsupervised learning: clustering, dimensionality reduction, and PCA.",
+        "Model evaluation: confusion matrices, cross-validation, and metrics that matter."
+      ]
+    },
+    {
+      "id": "AI-103",
+      "title": "Deep Learning & Neural Network Foundations",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Understand how artificial neurons, layers, activation functions, and backpropagation enable machines to learn complex representations.",
+      "target_audience": "Programmers and students wanting to understand the computational engine behind modern AI.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic Python and foundational machine learning intuition (AI-102).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Deconstructs backpropagation and gradient descent into intuitive step-by-step physical analogies.",
+      "learning_outcomes": [
+        "Explain the architecture of an artificial neuron: weights, biases, and activations.",
+        "Trace forward propagation and backpropagation through a network.",
+        "Select appropriate activation functions (ReLU, Sigmoid, Softmax).",
+        "Mitigate vanishing gradients and overfitting using Dropout, Batch Normalization, and Adam.",
+        "Understand the historical shift from shallow perceptrons to deep architectures."
+      ],
+      "progression": [
+        "The Perceptron: inputs, weights, thresholds, and linear separability.",
+        "Multi-layer networks: hidden representations and non-linear activation functions.",
+        "How networks learn: loss functions, gradient descent, and backpropagation.",
+        "Training challenges: learning rates, momentum, vanishing gradients, and regularization.",
+        "From dense networks to specialized architectures (CNNs, RNNs, Transformers)."
+      ]
+    },
+    {
+      "id": "AI-104",
+      "title": "Large Language Models & Prompt Engineering Principles",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Master the transformer architecture, self-attention, context windows, and structured prompt engineering methodologies.",
+      "target_audience": "Developers, technical writers, and knowledge workers integrating LLMs into software and workflows.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None. Suitable for curious technical and non-technical learners.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on foundational transformer mechanics (tokens, attention, temperature) and systematic prompting frameworks.",
+      "learning_outcomes": [
+        "Explain tokenization, embeddings, and self-attention in plain language.",
+        "Differentiate base models, fine-tuned models, and RLHF alignment.",
+        "Apply prompting frameworks: Few-Shot, Chain-of-Thought, and Role-Based prompting.",
+        "Understand context window constraints and retrieval-augmented generation (RAG).",
+        "Mitigate prompt injection and guard against factual hallucinations."
+      ],
+      "progression": [
+        "How LLMs read: tokens, high-dimensional vector spaces, and embeddings.",
+        "The Transformer breakthrough: self-attention and predicting next tokens.",
+        "From raw text to assistants: pre-training, fine-tuning, and RLHF alignment.",
+        "Systematic prompt engineering: clear directives, few-shot examples, and chain-of-thought.",
+        "Building with LLMs: temperature, context limits, RAG architectures, and safety."
+      ]
+    },
+    {
+      "id": "AI-105",
+      "title": "Computer Vision Foundations",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Explore how computers process visual data: image filters, convolutional neural networks (CNNs), and object detection.",
+      "target_audience": "Developers and AI practitioners interested in visual media and autonomous systems.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Understanding of neural networks (AI-103) and Python basics.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Focuses on the spatial intuition of convolutions, kernels, and pooling layers.",
+      "learning_outcomes": [
+        "Represent digital images as numerical matrices and color channels.",
+        "Apply classical image processing filters (edge detection, blurring, thresholding).",
+        "Understand Convolutional Neural Networks: kernels, strides, padding, and pooling.",
+        "Differentiate image classification, object detection, and semantic segmentation.",
+        "Utilize pre-trained vision models via transfer learning."
+      ],
+      "progression": [
+        "Images as numbers: pixel grids, color channels (RGB), and classical matrix filters.",
+        "Convolutional layers: feature detectors, spatial hierarchies, and pooling operations.",
+        "Classic vision architectures: from AlexNet to ResNet and modern Vision Transformers.",
+        "Real-world vision tasks: object detection (YOLO), segmentation, and transfer learning."
+      ]
+    },
+    {
+      "id": "AI-106",
+      "title": "Natural Language Processing (NLP) Essentials",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Learn how computers process, analyze, and generate human language using statistical and semantic models.",
+      "target_audience": "Developers and data scientists building search, sentiment, and text processing pipelines.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic Python and machine learning concepts (AI-102).",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Traces the computational evolution from TF-IDF and word2vec to modern contextual embeddings.",
+      "learning_outcomes": [
+        "Preprocess text: tokenization, lemmatization, stop words, and regex cleaning.",
+        "Implement classical feature extraction: Bag-of-Words and TF-IDF.",
+        "Understand dense word embeddings (Word2Vec) and vector semantic arithmetic.",
+        "Build sentiment analysis and document classification models.",
+        "Explain semantic similarity and vector search using cosine distance."
+      ],
+      "progression": [
+        "The nature of language: ambiguity, syntax, tokenization, and morphological normalization.",
+        "Counting words: Bag-of-Words, TF-IDF, and n-grams for classical text mining.",
+        "Word embeddings: Word2Vec, GloVe, and high-dimensional semantic spaces.",
+        "Modern semantic search: cosine similarity, vector databases, and sentence transformers."
+      ]
+    },
+    {
+      "id": "AI-107",
+      "title": "AI Ethics, Bias & Responsible Machine Intelligence",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Examine the societal footprint of AI: algorithmic bias, deepfakes, copyright, surveillance, and responsible deployment.",
+      "target_audience": "Product builders, policy thinkers, engineers, and everyday digital citizens.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Presents rigorous, balanced case studies on real-world algorithmic fallout rather than sci-fi panic.",
+      "learning_outcomes": [
+        "Identify how historical human biases infiltrate training datasets.",
+        "Evaluate fairness metrics in algorithmic decision-making (hiring, lending, justice).",
+        "Understand the intellectual property, copyright, and consent dilemmas of generative AI.",
+        "Analyze the ecological and computational costs of training frontier models.",
+        "Apply practical checklists for responsible, transparent AI deployment."
+      ],
+      "progression": [
+        "Where bias comes from: historical data, unrepresentative sampling, and proxy variables.",
+        "Algorithmic harms in the wild: facial recognition, lending, and criminal justice audits.",
+        "Generative dilemmas: copyright, synthetic media, deepfakes, and identity theft.",
+        "Responsible AI governance: auditing, explainability, safety guardrails, and transparency."
+      ]
+    },
+    {
+      "id": "AI-108",
+      "title": "Practical Machine Learning with Scikit-Learn",
+      "category": "Artificial Intelligence & Machine Learning",
+      "description": "Write clean, reproducible machine learning code using Python's gold-standard Scikit-Learn library.",
+      "target_audience": "Programmers who want to train, tune, and evaluate machine learning models in Python.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Python fundamentals (PRG-101) and ML intuition (AI-102).",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Emphasizes the unified fit/predict/transform API, robust pipelines, and preventing data leakage.",
+      "learning_outcomes": [
+        "Master the Scikit-Learn estimator, transformer, and predictor API patterns.",
+        "Build automated data preprocessing and feature scaling pipelines.",
+        "Tune model hyperparameters using GridSearchCV and RandomizedSearchCV.",
+        "Prevent data leakage between training and testing datasets.",
+        "Export and serialize trained models for web application deployment."
+      ],
+      "progression": [
+        "The Scikit-Learn philosophy: unified API, datasets, estimators, and predictors.",
+        "Feature engineering: scalers, one-hot encoders, and column transformers.",
+        "Building end-to-end pipelines that eliminate training data leakage.",
+        "Hyperparameter tuning, cross-validation strategies, and learning curves.",
+        "Model serialization (joblib/pickle) and serving predictions via web APIs."
+      ]
+    },
+    {
+      "id": "DAT-101",
+      "title": "SQL Essentials & Relational Database Design",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Query, join, aggregate, and structure relational databases using standard ANSI SQL.",
+      "target_audience": "Data analysts, software engineers, product managers, and business analysts.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None. Suitable for beginners.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Teaches the logical query execution order so learners understand why queries work or fail.",
+      "learning_outcomes": [
+        "Write complex SELECT queries with filtering (WHERE), sorting (ORDER BY), and limits.",
+        "Aggregate data using GROUP BY and filter groups using HAVING.",
+        "Master relational joins: INNER, LEFT, RIGHT, FULL OUTER, and CROSS joins.",
+        "Design normalized relational schemas (1NF, 2NF, 3NF) with primary and foreign keys.",
+        "Write subqueries, Common Table Expressions (CTEs), and window functions."
+      ],
+      "progression": [
+        "Relational data model: tables, rows, columns, keys, and basic SELECT queries.",
+        "Filtering, text pattern matching (LIKE), NULL handling, and sorting.",
+        "Aggregations: COUNT, SUM, AVG, GROUP BY, and HAVING.",
+        "Relational joins: joining multiple tables without Cartesian accidents.",
+        "Advanced querying: subqueries, CTEs (WITH clauses), and database normalization."
+      ]
+    },
+    {
+      "id": "DAT-102",
+      "title": "Data Analysis & Manipulation with Python & Pandas",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Clean, reshape, slice, and analyze messy tabular data using Python's powerful Pandas library.",
+      "target_audience": "Data analysts, scientists, researchers, and Python programmers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Python fundamentals (PRG-101).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Focuses on vectorized operations and chain methods rather than slow, procedural loops.",
+      "learning_outcomes": [
+        "Master Pandas Series and DataFrames: indexing, slicing, and filtering.",
+        "Handle missing data (NaNs), duplicates, and incorrect data types.",
+        "Perform groupby aggregations and multi-level data summaries.",
+        "Merge, concatenate, and reshape datasets using pivot and melt.",
+        "Analyze time-series data with date indexing, resample, and rolling windows."
+      ],
+      "progression": [
+        "Pandas data structures: Series and DataFrames under the hood.",
+        "Selecting and filtering: loc, iloc, boolean indexing, and query methods.",
+        "Data cleansing: dealing with nulls, string manipulation, and type casting.",
+        "Groupby operations, pivot tables, and statistical aggregations.",
+        "Merging datasets (merge/join/concat) and time-series analysis."
+      ]
+    },
+    {
+      "id": "DAT-103",
+      "title": "Data Visualization & Storytelling with Charts",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Turn dry rows of numbers into compelling, honest, and persuasive visual narratives.",
+      "target_audience": "Data analysts, marketers, executives, and anyone who presents data to decision-makers.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic familiarity with charts (bar, line, scatter).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on human visual perception (pre-attentive attributes, color theory) and avoiding chart clutter.",
+      "learning_outcomes": [
+        "Select the right chart type for your data relationship (trend, distribution, comparison).",
+        "Apply pre-attentive visual attributes (color, size, position) to direct audience attention.",
+        "Eliminate chart junk and maximize the data-ink ratio.",
+        "Spot and avoid visual distortion tactics (truncated axes, misleading 3D charts).",
+        "Structure clear visual narratives with actionable headlines and annotations."
+      ],
+      "progression": [
+        "The psychology of human vision: pre-attentive attributes and cognitive load.",
+        "Chart taxonomy: choosing between bars, lines, scatters, histograms, and heatmaps.",
+        "Design discipline: decluttering, typography, color harmony, and accessibility.",
+        "Data storytelling: annotations, framing context, and driving executive decisions."
+      ]
+    },
+    {
+      "id": "DAT-104",
+      "title": "Statistics for Data Analysts & Decision Makers",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Grasp the core statistical concepts needed to interpret data, design A/B tests, and make sound decisions.",
+      "target_audience": "Analysts, product managers, marketers, and developers working with quantitative metrics.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic numerical arithmetic and high school math.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on practical interpretation and common statistical traps rather than manual formula calculation.",
+      "learning_outcomes": [
+        "Distinguish mean, median, mode, variance, and standard deviation.",
+        "Understand distributions: the Normal distribution, skewness, and outliers.",
+        "Formulate hypotheses and interpret p-values and confidence intervals.",
+        "Design and analyze rigorous A/B experiments without sample ratio mismatch.",
+        "Avoid statistical fallacies (survivorship bias, regression to the mean, Simpson's paradox)."
+      ],
+      "progression": [
+        "Descriptive statistics: central tendency, dispersion, percentiles, and IQR.",
+        "Probability distributions: Uniform, Binomial, and Normal curves.",
+        "Sampling and the Central Limit Theorem: why sample sizes matter.",
+        "Inferential statistics: hypothesis testing, null hypothesis, and p-value truth.",
+        "Experimentation in practice: A/B testing design, statistical power, and paradoxes."
+      ]
+    },
+    {
+      "id": "DAT-105",
+      "title": "NoSQL Databases: MongoDB, Redis & Document Stores",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Explore non-relational data modeling: document stores (MongoDB), key-value caches (Redis), and graph databases.",
+      "target_audience": "Backend engineers and web developers architecting scalable applications.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Understanding of relational database basics (DAT-101).",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Directly compares ACID relational consistency with CAP theorem distributed trade-offs.",
+      "learning_outcomes": [
+        "Understand the CAP theorem and BASE consistency models.",
+        "Design nested document schemas in MongoDB using embedding vs. referencing.",
+        "Use Redis for in-memory caching, session storage, and rate limiting.",
+        "Query unstructured and semi-structured JSON datasets efficiently.",
+        "Select the appropriate database paradigm (SQL vs. NoSQL) for specific access patterns."
+      ],
+      "progression": [
+        "Beyond relational: the rise of NoSQL, the CAP theorem, and eventual consistency.",
+        "Document databases: MongoDB CRUD operations, indexing, and aggregation pipelines.",
+        "Key-value and in-memory caches: Redis data structures (strings, hashes, sets, pub/sub).",
+        "Polyglot persistence: combining SQL, document, and cache layers in one architecture."
+      ]
+    },
+    {
+      "id": "DAT-106",
+      "title": "Data Cleaning, Missing Values & Quality Assurance",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Master the unglamorous 80% of data work: profiling datasets, detecting anomalies, and repairing dirty data.",
+      "target_audience": "Data analysts, business intelligence engineers, and data science students.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic spreadsheet or Pandas knowledge (DAT-102).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Teaches systematic data quality validation frameworks rather than ad-hoc one-off fixes.",
+      "learning_outcomes": [
+        "Audit datasets for structural errors, type mismatches, and duplicate records.",
+        "Handle missing data with domain-informed imputation or principled deletion.",
+        "Standardize text data: whitespace, capitalization, date formats, and encodings (UTF-8).",
+        "Detect statistical outliers using z-scores and interquartile ranges.",
+        "Automate data quality validation checks before feeding analytics pipelines."
+      ],
+      "progression": [
+        "The cost of dirty data: garbage in, garbage out in business and ML.",
+        "Missing data taxonomy: MCAR, MAR, and MNAR imputation strategies.",
+        "Text and format standardization: dates, timezones, strings, and categorical mapping.",
+        "Outlier detection, duplicate resolution, and automated schema validation."
+      ]
+    },
+    {
+      "id": "DAT-107",
+      "title": "Business Intelligence & Dashboard Engineering",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Design interactive, performant executive dashboards that monitor business health and guide strategic decisions.",
+      "target_audience": "BI developers, business analysts, and operations managers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic SQL (DAT-101) and visualization principles (DAT-103).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on user-centric dashboard information architecture rather than cramming 50 disconnected charts onto a screen.",
+      "learning_outcomes": [
+        "Define actionable KPIs (Leading vs. Lagging indicators) aligned with business goals.",
+        "Architect the '5-second rule' dashboard visual hierarchy.",
+        "Implement drill-downs, dynamic filtering, and parameterized views.",
+        "Optimize underlying queries and aggregates for fast dashboard rendering.",
+        "Establish user feedback loops to maintain dashboard adoption and relevance."
+      ],
+      "progression": [
+        "The purpose of BI: connecting business questions to metric definitions.",
+        "Information hierarchy: summary KPI cards, comparative trends, and granular drill-downs.",
+        "Interactive design: global filters, cross-filtering, and responsive layouts.",
+        "Data refresh schedules, query caching, and dashboard maintenance rituals."
+      ]
+    },
+    {
+      "id": "DAT-108",
+      "title": "Data Pipelines & ETL Engineering Fundamentals",
+      "category": "Data Science, Analytics & Databases",
+      "description": "Understand how data flows from production transactional databases into analytical data warehouses via ETL/ELT pipelines.",
+      "target_audience": "Aspiring data engineers, software developers, and technical analysts.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic SQL (DAT-101) and programming fundamentals (PRG-101).",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Teaches idempotency, backfilling, and failure recovery as core pipeline design principles.",
+      "learning_outcomes": [
+        "Differentiate ETL (Extract-Transform-Load) and modern ELT paradigms.",
+        "Design idempotent pipeline runs that can safely be retried upon failure.",
+        "Understand batch vs. streaming data ingestion architectures.",
+        "Model dimensional schemas: Star schema, Snowflake schema, Fact and Dimension tables.",
+        "Manage workflow orchestration (DAGs) and data quality checkpoints."
+      ],
+      "progression": [
+        "The data lifecycle: operational databases vs. analytical warehouses (OLTP vs. OLAP).",
+        "Extract and Load: change data capture (CDC), batch dumps, and API extraction.",
+        "Transform: dimensional modeling, facts, slowly changing dimensions (SCD).",
+        "Pipeline resilience: idempotency, retries, dead letter queues, and alerts.",
+        "Modern data stack overview: warehouses (Snowflake/BigQuery), dbt, and orchestrators."
+      ]
+    },
+    {
+      "id": "CS-101",
+      "title": "Data Structures in Daily Programming",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Master arrays, linked lists, hash tables, stacks, queues, trees, and graphs, and know exactly when to use each.",
+      "target_audience": "Programmers preparing for technical interviews or wanting to write high-efficiency code.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Programming fundamentals in any language (PRG-101 or PRG-102).",
+      "suggested_topics": 5,
+      "target_capsules": 80,
+      "differentiation": "Focuses on memory layout and Big-O trade-offs in real production scenarios rather than abstract proofs.",
+      "learning_outcomes": [
+        "Analyze time and space complexity using Big-O notation.",
+        "Understand contiguous vs. linked memory layouts (Arrays vs. Linked Lists).",
+        "Explain hash table internal mechanics, hash functions, and collision handling.",
+        "Use Stacks and Queues to manage execution state and buffers.",
+        "Navigate hierarchical structures: Binary Search Trees, Heaps, and Tries."
+      ],
+      "progression": [
+        "Big-O notation, asymptotic analysis, and computer memory allocation.",
+        "Linear structures: dynamic arrays, linked lists, and memory cache locality.",
+        "Hash tables: hashing algorithms, bucket collisions, and O(1) lookups.",
+        "Stacks and Queues: LIFO, FIFO, call stacks, and message queues.",
+        "Trees and Graphs: BSTs, priority queues (heaps), and adjacency representations."
+      ]
+    },
+    {
+      "id": "CS-102",
+      "title": "Classic Algorithms: Sorting, Searching & Graph Traversal",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Learn the algorithmic strategies that power modern computing: divide-and-conquer, dynamic programming, BFS, and DFS.",
+      "target_audience": "Computer science students and software developers building computational problem-solving muscle.",
+      "difficulty": "Intermediate to Advanced",
+      "prerequisites": "Data structures knowledge (CS-101).",
+      "suggested_topics": 5,
+      "target_capsules": 80,
+      "differentiation": "Builds visual intuition for algorithmic recurrence relations and branch exploration.",
+      "learning_outcomes": [
+        "Implement and compare sorting algorithms (MergeSort, QuickSort, Timsort).",
+        "Execute logarithmic binary search on ordered datasets.",
+        "Traverse networks using Breadth-First Search (BFS) and Depth-First Search (DFS).",
+        "Solve optimization problems with Greedy algorithms and Dynamic Programming (memoization).",
+        "Find shortest paths in weighted networks using Dijkstra's algorithm."
+      ],
+      "progression": [
+        "Algorithmic paradigms: brute force vs. divide-and-conquer.",
+        "Searching and sorting: binary search, divide-and-conquer sorts, stability.",
+        "Graph traversal: BFS (queue) vs. DFS (stack/recursion) and cycle detection.",
+        "Shortest paths: Dijkstra and A* pathfinding intuition.",
+        "Dynamic Programming: overlapping subproblems, memoization, and tabulation."
+      ]
+    },
+    {
+      "id": "CS-103",
+      "title": "Computer Architecture: How Hardware Executes Code",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Journey beneath the software abstraction: transistors, logic gates, the CPU fetch-decode-execute cycle, and memory hierarchy.",
+      "target_audience": "Programmers who want to understand what the physical silicon is actually doing.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None. General curiosity about computer hardware.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Connects high-level programming language code directly to assembly instructions and silicon gates.",
+      "learning_outcomes": [
+        "Explain binary representation, two's complement, and floating-point IEEE 754.",
+        "Trace logic gates (AND, OR, NOT, XOR) and building blocks like ALUs and registers.",
+        "Walk through the CPU instruction cycle: Fetch, Decode, Execute, Write-back.",
+        "Understand the memory hierarchy: L1/L2/L3 caches, RAM, SSDs, and latency numbers.",
+        "Explain how pipelining and branch prediction accelerate execution."
+      ],
+      "progression": [
+        "From electricity to bits: binary, hexadecimal, ASCII, and numbers in silicon.",
+        "Boolean logic, silicon gates, flip-flops, registers, and the ALU.",
+        "The Central Processing Unit: instruction sets, registers, and the clock cycle.",
+        "The memory hierarchy: cache hits, misses, RAM, and the cost of memory latency."
+      ]
+    },
+    {
+      "id": "CS-104",
+      "title": "Operating Systems & Process Concurrency",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Discover how operating systems manage hardware resources: processes, threads, virtual memory, scheduling, and file systems.",
+      "target_audience": "Developers and engineering students building scalable backend systems.",
+      "difficulty": "Intermediate to Advanced",
+      "prerequisites": "Basic programming and computer architecture familiarity (CS-103).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Demystifies the kernel/user boundary, system calls, and concurrency race conditions.",
+      "learning_outcomes": [
+        "Differentiate processes (isolated memory) and threads (shared memory).",
+        "Explain CPU scheduling algorithms and preemption.",
+        "Understand virtual memory, page tables, TLBs, and swapping.",
+        "Prevent concurrency hazards: race conditions, deadlocks, and starvation.",
+        "Use synchronization primitives: mutexes, semaphores, and atomic operations."
+      ],
+      "progression": [
+        "The OS role: kernel space, user space, system calls, and hardware abstraction.",
+        "Processes and Threads: context switches, process control blocks, and memory maps.",
+        "Concurrency challenges: critical sections, race conditions, mutexes, and deadlocks.",
+        "Memory management: virtual addressing, paging, page faults, and cache eviction.",
+        "Storage and I/O: file system structures, inodes, and device controllers."
+      ]
+    },
+    {
+      "id": "CS-105",
+      "title": "Computer Networking & The Internet Protocol Suite",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Understand how data travels across the globe: TCP/IP, UDP, DNS, routing, HTTP, and TLS encryption.",
+      "target_audience": "Web developers, network engineers, and system administrators.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None. General web familiarity.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Uses packet-level mental models and real browser diagnostic traces rather than abstract networking layer memorization.",
+      "learning_outcomes": [
+        "Navigate the 4-layer TCP/IP model and 7-layer OSI conceptual model.",
+        "Explain packet routing, IP addressing (IPv4/IPv6), and CIDR subnets.",
+        "Compare reliable TCP (three-way handshake, congestion control) with fast UDP.",
+        "Trace a complete DNS resolution and TLS handshake lifecycle.",
+        "Troubleshoot network connectivity using ping, traceroute, and curl."
+      ],
+      "progression": [
+        "The networked world: physical links, packets, routers, and switches.",
+        "Network layer: IP addresses, subnets, routing tables, and NAT.",
+        "Transport layer: TCP reliable streams, flow control, and UDP datagrams.",
+        "Application layer protocols: DNS, HTTP/1.1, HTTP/2, HTTP/3, and WebSockets.",
+        "Network security: TLS cryptographic handshakes, certificates, and firewalls."
+      ]
+    },
+    {
+      "id": "CS-106",
+      "title": "Computational Thinking & Algorithmic Problem Solving",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Develop the fundamental problem-solving mindset of computer science: decomposition, pattern recognition, abstraction, and algorithms.",
+      "target_audience": "Beginners, kids, educators, and anyone wanting to think more logically and systematically.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. Suitable for all ages.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Presents language-agnostic logic puzzles and real-world analogies suitable for both Kids Mode and Standard Mode.",
+      "learning_outcomes": [
+        "Decompose complex, overwhelming problems into manageable sub-tasks.",
+        "Recognize recurring patterns across seemingly unrelated domains.",
+        "Apply abstraction to strip away distracting details and isolate core mechanisms.",
+        "Design step-by-step algorithms using pseudocode and flowcharts.",
+        "Test algorithms systematically against extreme edge cases."
+      ],
+      "progression": [
+        "The 4 pillars of computational thinking: decomposition, patterns, abstraction, algorithms.",
+        "Decomposition in action: breaking down complex systems into modular parts.",
+        "Pattern recognition: spotting similarities, rules, and mathematical symmetries.",
+        "Abstraction and algorithm design: creating instructions that never fail."
+      ]
+    },
+    {
+      "id": "CS-107",
+      "title": "System Design Principles for Scalable Applications",
+      "category": "Computer Science Fundamentals & Architecture",
+      "description": "Learn how web giants scale to millions of users: load balancing, horizontal scaling, caching, sharding, and resilience.",
+      "target_audience": "Intermediate to senior developers and system architects.",
+      "difficulty": "Intermediate to Advanced",
+      "prerequisites": "Understanding of databases (DAT-101), networking (CS-105), and backend servers (WEB-103/105).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Focuses on engineering trade-offs (consistency vs. latency) rather than buzzword bingo.",
+      "learning_outcomes": [
+        "Design horizontally scalable web architectures free of single points of failure.",
+        "Configure load balancers (Round Robin, Least Connections, IP Hash).",
+        "Implement multi-tier caching (Client, CDN, Redis) and cache invalidation.",
+        "Scale databases: read replicas, master-slave replication, and database sharding.",
+        "Implement asynchronous queues, microservices, and circuit breaker fault tolerance."
+      ],
+      "progression": [
+        "Scaling foundations: vertical vs. horizontal scaling, stateless servers, and bottlenecks.",
+        "Traffic distribution: DNS routing, reverse proxies, and load balancing algorithms.",
+        "Caching strategies: CDN edge caching, Redis clusters, and the invalidation challenge.",
+        "Data tier scalability: read replicas, master-master replication, and sharding strategies.",
+        "Asynchronous resilience: message brokers (Kafka/RabbitMQ), circuit breakers, and SLAs."
+      ]
+    },
+    {
+      "id": "SEC-101",
+      "title": "Personal Cybersecurity & Digital Defense Essentials",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Protect your digital identity, devices, and data from hackers, scammers, phishing, and identity theft.",
+      "target_audience": "Everyone who uses a smartphone, computer, or online account.",
+      "difficulty": "Beginner",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Provides actionable, zero-jargon security habits that give 99% protection with minimal friction.",
+      "learning_outcomes": [
+        "Create uncrackable, unique passwords using modern password managers.",
+        "Enable and configure robust Multi-Factor Authentication (MFA/2FA) methods.",
+        "Spot and neutralize sophisticated phishing emails, texts (smishing), and calls.",
+        "Secure home Wi-Fi networks and practice safe public Wi-Fi habits.",
+        "Audit personal device permissions and protect mobile hardware from compromise."
+      ],
+      "progression": [
+        "The threat landscape: who attacks everyday people and why credential stuffing works.",
+        "Passwords and Authentication: password managers, passphrases, and 2FA hardware keys.",
+        "Social engineering defense: spotting phishing, urgency triggers, and impostor fraud.",
+        "Device hygiene: OS updates, encrypted backups, screen locks, and Wi-Fi safety."
+      ]
+    },
+    {
+      "id": "SEC-102",
+      "title": "Web Application Security & OWASP Top 10",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Identify, exploit in lab environments, and remediate the most critical web security vulnerabilities.",
+      "target_audience": "Web developers, software engineers, and aspiring security researchers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Web development fundamentals (HTML, JavaScript, basic backend).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Focuses on root-cause code fixes and secure development lifecycles rather than superficial patching.",
+      "learning_outcomes": [
+        "Understand and defend against the OWASP Top 10 web vulnerabilities.",
+        "Prevent SQL Injection through parameterized queries and ORM safety.",
+        "Defend against Cross-Site Scripting (XSS) with context-aware escaping and Content Security Policy (CSP).",
+        "Mitigate Cross-Site Request Forgery (CSRF) with anti-forgery tokens and SameSite cookies.",
+        "Implement secure cryptographic storage for passwords (bcrypt, Argon2)."
+      ],
+      "progression": [
+        "Security mindset: trust boundaries, attack surfaces, and defense-in-depth.",
+        "Injection attacks: SQLi, command injection, and parameterized prevention.",
+        "Client-side vulnerabilities: Reflected, Stored, and DOM XSS, plus CSP mitigation.",
+        "Session and authentication flaws: CSRF, broken access control, and cookie flags.",
+        "Security headers, dependency scanning, and automated security testing in CI."
+      ]
+    },
+    {
+      "id": "SEC-103",
+      "title": "Cryptography Fundamentals: Ciphers, Hashes & Keys",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Understand the mathematical pillars of digital trust: symmetric encryption, public-key cryptography, hashing, and digital signatures.",
+      "target_audience": "Developers, technical enthusiasts, and security students.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic algebra and computer science concepts.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Explains cryptographic mechanisms visually and intuitively without burying learners in number theory.",
+      "learning_outcomes": [
+        "Differentiate encoding, hashing, symmetric encryption, and asymmetric encryption.",
+        "Explain cryptographic hash functions (SHA-256) and collision resistance.",
+        "Understand AES symmetric block ciphers, initialization vectors, and Galois/Counter Mode (GCM).",
+        "Walk through public-key cryptography (RSA, Elliptic Curves) and key exchange (Diffie-Hellman).",
+        "Verify digital signatures and Certificate Authorities (PKI)."
+      ],
+      "progression": [
+        "The goal of cryptography: Confidentiality, Integrity, Authentication, and Non-repudiation.",
+        "Hashing: one-way functions, checksums, rainbow tables, and salting.",
+        "Symmetric encryption: shared secrets, stream ciphers, and AES block modes.",
+        "Asymmetric encryption: public/private key pairs, RSA, and Diffie-Hellman key exchange.",
+        "Digital signatures, X.509 certificates, and the Public Key Infrastructure (PKI)."
+      ]
+    },
+    {
+      "id": "SEC-104",
+      "title": "Network Security & Firewall Defense",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Defend networks against intrusions: packet inspection, firewalls, VPNs, IDS/IPS, and zero-trust architecture.",
+      "target_audience": "Network administrators, cloud engineers, and IT professionals.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Computer networking fundamentals (CS-105).",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Focuses on modern Zero-Trust architecture ('never trust, always verify') rather than legacy castle-and-moat models.",
+      "learning_outcomes": [
+        "Configure stateful inspection firewalls and packet-filtering rules.",
+        "Differentiate VPN protocols (WireGuard, OpenVPN, IPsec) and their encryption.",
+        "Understand Intrusion Detection and Prevention Systems (IDS/IPS).",
+        "Mitigate Distributed Denial of Service (DDoS) attacks with rate limiting and scrubbers.",
+        "Implement Zero-Trust network segmentation."
+      ],
+      "progression": [
+        "Network attack vectors: port scanning, ARP spoofing, man-in-the-middle, and DDoS.",
+        "Firewalls: packet filtering, stateful inspection, and application-layer gateways.",
+        "Secure tunneling: VPN protocols, WireGuard, and encrypted overlays.",
+        "Zero Trust Architecture: micro-segmentation, identity-aware proxies, and continuous validation."
+      ]
+    },
+    {
+      "id": "SEC-105",
+      "title": "Ethical Hacking & Defensive Vulnerability Assessment",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Learn the methodology of ethical penetration testing to discover and patch vulnerabilities before malicious attackers strike.",
+      "target_audience": "Security practitioners, system administrators, and software engineers.",
+      "difficulty": "Intermediate to Advanced",
+      "prerequisites": "Networking (CS-105) and web application fundamentals (SEC-102).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Strictly defensive and authorized scope; focuses on systematic remediation workflows.",
+      "learning_outcomes": [
+        "Understand the ethical and legal boundaries of penetration testing and vulnerability disclosure.",
+        "Conduct reconnaissance and footprinting using passive OSINT and active port scanning.",
+        "Identify unpatched CVEs and misconfigured network services.",
+        "Perform vulnerability assessments using automated tools and manual validation.",
+        "Write clear, actionable remediation reports for software engineering teams."
+      ],
+      "progression": [
+        "Ethical boundaries: laws, scope of engagement, rules of engagement, and authorization.",
+        "Reconnaissance: OSINT, DNS interrogation, and network mapping (Nmap).",
+        "Vulnerability discovery: scanning, banner grabbing, and identifying known CVEs.",
+        "Exploitation verification in controlled sandboxes and privilege escalation concepts.",
+        "Defensive remediation: patch management, configuration hardening, and vulnerability reporting."
+      ]
+    },
+    {
+      "id": "SEC-106",
+      "title": "Identity & Access Management (OAuth, JWT, 2FA)",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Master modern authentication and authorization protocols: OAuth 2.0, OpenID Connect, JSON Web Tokens, and RBAC.",
+      "target_audience": "Backend developers and full-stack engineers building secure user systems.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Web API fundamentals (PRG-109) and basic web security.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Clarifies the crucial difference between authentication (who you are) and authorization (what you can do).",
+      "learning_outcomes": [
+        "Distinguish Authentication (AuthN) from Authorization (AuthZ).",
+        "Implement OAuth 2.0 grant types (Authorization Code with PKCE).",
+        "Use OpenID Connect (OIDC) for single sign-on (SSO) identity federation.",
+        "Structure, sign, verify, and safely store JSON Web Tokens (JWTs).",
+        "Implement Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC)."
+      ],
+      "progression": [
+        "Authentication vs. Authorization: sessions, cookies, and tokens.",
+        "JSON Web Tokens (JWT): structure, signing algorithms, claims, and storage pitfalls.",
+        "OAuth 2.0 and OIDC: authorization servers, scopes, tokens, and PKCE.",
+        "Enterprise access control: RBAC hierarchies, ABAC policies, and session revocation."
+      ]
+    },
+    {
+      "id": "SEC-107",
+      "title": "Digital Privacy, Data Tracking & Surveillance Protection",
+      "category": "Cybersecurity, Privacy & Digital Safety",
+      "description": "Learn how web tracking, behavioral fingerprinting, and data brokers operate, and how to minimize your digital footprint.",
+      "target_audience": "Privacy-conscious individuals, journalists, researchers, and everyday citizens.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Provides practical, daily browser and device privacy configurations without demanding that you disconnect entirely from modern life.",
+      "learning_outcomes": [
+        "Explain how browser fingerprinting, cookies, and tracking pixels follow users across the web.",
+        "Understand the data broker industry and commercial profiling mechanics.",
+        "Configure privacy-respecting browsers, DNS over HTTPS, and ad-blocking tools.",
+        "Manage mobile app telemetry, location permissions, and ad IDs.",
+        "Understand the principles of legal privacy frameworks like GDPR and CCPA."
+      ],
+      "progression": [
+        "The surveillance economy: cookies, trackers, data brokers, and device fingerprinting.",
+        "Browser defense: content blockers, anti-fingerprinting, and container tabs.",
+        "Network privacy: DNS leaks, Encrypted Client Hello, and Tor network intuition.",
+        "Mobile privacy: permissions, sensor access, background telemetry, and regulatory rights."
+      ]
+    },
+    {
+      "id": "MTH-101",
+      "title": "Mental Math & Practical Numerical Intuition",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Overcome math anxiety and develop rapid mental estimation, percentage math, and order-of-magnitude numerical intuition.",
+      "target_audience": "Anyone wanting to make fast, accurate calculations in daily life, shopping, and business meetings.",
+      "difficulty": "Beginner",
+      "prerequisites": "Basic arithmetic (addition, subtraction, multiplication).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on mental chunking, rounding tricks, and Fermi estimates rather than tedious pencil-and-paper formulas.",
+      "learning_outcomes": [
+        "Calculate percentages, discounts, and tips in your head in seconds.",
+        "Use decomposition to multiply two-digit numbers effortlessly.",
+        "Perform Fermi estimations and order-of-magnitude sanity checks.",
+        "Spot misleading statistics and impossible numerical claims instantly.",
+        "Estimate compound growth and doubling times using the Rule of 72."
+      ],
+      "progression": [
+        "Mental math foundations: friendly numbers, complement addition, and breaking apart sums.",
+        "Rapid multiplication: distribution tricks, doubling-and-halving, and squares.",
+        "Percentages and proportions: the 10% and 1% method, tips, discounts, and markups.",
+        "Fermi estimation: solving impossible order-of-magnitude questions with confident intuition."
+      ]
+    },
+    {
+      "id": "MTH-102",
+      "title": "Discrete Mathematics for Computer Science",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Master sets, relations, propositional logic, graph theory, and combinatorics—the mathematical bedrock of software engineering.",
+      "target_audience": "Computer science students and self-taught developers wanting theoretical engineering depth.",
+      "difficulty": "Intermediate",
+      "prerequisites": "High school algebra.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Directly links discrete mathematical theorems to actual data structures and algorithmic implementations.",
+      "learning_outcomes": [
+        "Manipulate mathematical sets, subsets, unions, intersections, and Cartesian products.",
+        "Evaluate propositional logic expressions and predicate calculus.",
+        "Understand mathematical induction and recursive proofs.",
+        "Calculate permutations, combinations, and binomial coefficients.",
+        "Apply graph theory principles (degrees, paths, cycles, trees) to computational problems."
+      ],
+      "progression": [
+        "Set theory: sets, Venn diagrams, power sets, and relations.",
+        "Formal logic: propositions, truth tables, logical equivalence, and quantifiers.",
+        "Proof techniques: direct proof, contradiction, and mathematical induction.",
+        "Combinatorics: counting principles, permutations, combinations, and the Pigeonhole Principle.",
+        "Graph theory fundamentals: vertices, edges, paths, isomorphism, and Euler circuits."
+      ]
+    },
+    {
+      "id": "MTH-103",
+      "title": "Probability & Risk in Everyday Decisions",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Learn to calculate odds, understand expected value, and make rational bets in an uncertain world.",
+      "target_audience": "Decision makers, investors, poker players, and everyday critical thinkers.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic arithmetic.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on cognitive probability traps (gambler's fallacy, base rate neglect) and calculating expected value.",
+      "learning_outcomes": [
+        "Calculate basic and compound probabilities (AND vs. OR rules).",
+        "Understand conditional probability and apply Bayes' Theorem intuitively.",
+        "Calculate Expected Value (EV) to determine whether a risk is mathematically favorable.",
+        "Recognize the Gambler's Fallacy and the Hot Hand illusion.",
+        "Apply probabilistic thinking to medical tests, insurance policies, and investments."
+      ],
+      "progression": [
+        "Probability foundations: sample spaces, independent events, and the law of large numbers.",
+        "Compound probability: union, intersection, and mutual exclusivity.",
+        "Conditional probability and Bayes' Theorem: updating beliefs based on new evidence.",
+        "Expected value, variance, and the mathematics of insurance and lotteries.",
+        "Cognitive probability fallacies: base rate neglect, clustering illusion, and risk calibration."
+      ]
+    },
+    {
+      "id": "MTH-104",
+      "title": "Linear Algebra for Machine Learning & Graphics",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Understand vectors, matrices, dot products, transformations, and eigenvalues as geometric transformations.",
+      "target_audience": "Aspiring machine learning practitioners, game developers, and graphics programmers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "High school algebra and coordinate geometry.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Teaches linear algebra geometrically (spaces stretching, rotating, and projecting) rather than as mechanical matrix arithmetic.",
+      "learning_outcomes": [
+        "Visualize vectors as arrows and coordinates in multi-dimensional space.",
+        "Understand dot products (projection/similarity) and cross products (orientation).",
+        "Interpret matrix multiplication as linear transformations of space.",
+        "Calculate determinants and understand matrix invertibility.",
+        "Explain eigenvalues and eigenvectors and their role in Principal Component Analysis (PCA)."
+      ],
+      "progression": [
+        "Vectors in space: magnitude, direction, vector addition, and linear combinations.",
+        "Dot products and cosine similarity: measuring alignment in high dimensions.",
+        "Matrices as geometric transformations: scaling, rotation, shearing, and the basis vectors.",
+        "Matrix multiplication, systems of linear equations, and determinants.",
+        "Eigenvalues and Eigenvectors: invariant axes and dimensionality reduction."
+      ]
+    },
+    {
+      "id": "MTH-105",
+      "title": "Formal Logic, Truth Tables & Fallacy Detection",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Sharpen your reasoning: master deductive and inductive logic, construct truth tables, and spot logical fallacies in arguments.",
+      "target_audience": "Debaters, critical thinkers, law students, and programmers.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Applies formal logic directly to analyzing real-world political speeches, advertisements, and debate transcripts.",
+      "learning_outcomes": [
+        "Differentiate valid vs. invalid, sound vs. unsound deductive arguments.",
+        "Construct and evaluate truth tables for complex conditional statements.",
+        "Identify formal logical fallacies (affirming the consequent, denying the antecedent).",
+        "Spot informal fallacies (straw man, ad hominem, false dichotomy, slippery slope).",
+        "Structure clear, logically rigorous arguments in writing and debate."
+      ],
+      "progression": [
+        "Argument structure: premises, conclusions, and validity vs. truth.",
+        "Propositional operators: AND, OR, NOT, IMPLIES, and truth tables.",
+        "Formal syllogisms and deductive inference rules (Modus Ponens, Modus Tollens).",
+        "Informal fallacy field guide: cognitive distortions and emotional debate manipulation."
+      ]
+    },
+    {
+      "id": "MTH-106",
+      "title": "Game Theory: Strategic Decision Making",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Analyze multi-player strategic interactions: the Prisoner's Dilemma, Nash Equilibrium, zero-sum games, and cooperative strategies.",
+      "target_audience": "Business strategists, economists, negotiators, and competitive game players.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic probability and logical reasoning (MTH-103).",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Focuses on the evolution of trust and cooperative strategies (Tit-for-Tat) in repeated human interactions.",
+      "learning_outcomes": [
+        "Model strategic dilemmas using payoff matrices and decision trees.",
+        "Identify dominant strategies and calculate the Nash Equilibrium.",
+        "Analyze the Prisoner's Dilemma and mechanisms for sustaining cooperation.",
+        "Differentiate zero-sum games from positive-sum collaborative games.",
+        "Apply signaling, commitment, and deterrence tactics in negotiations."
+      ],
+      "progression": [
+        "What is a game: players, strategies, payoffs, and information rules.",
+        "The Prisoner's Dilemma: individual rationality vs. collective ruin.",
+        "Nash Equilibrium: finding stable outcomes where no player regrets their choice.",
+        "Repeated games, the evolution of trust (Tit-for-Tat), and credible commitments."
+      ]
+    },
+    {
+      "id": "MTH-107",
+      "title": "Calculus Intuition for Science and Modeling",
+      "category": "Mathematics, Logic & Algorithmic Reasoning",
+      "description": "Understand differentiation as rate of change and integration as accumulation without drowning in algebraic drill.",
+      "target_audience": "Students and programmers seeking intuitive calculus comprehension for machine learning and physics.",
+      "difficulty": "Intermediate",
+      "prerequisites": "High school algebra and functions.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Builds geometric, visual intuition for limits, derivatives, and integrals inspired by 3Blue1Brown's pedagogical style.",
+      "learning_outcomes": [
+        "Explain limits and instantaneous rate of change as slopes of tangent lines.",
+        "Understand the derivative as a sensitivity measure (how output changes with input).",
+        "Apply basic differentiation rules (power, product, chain rule) intuitively.",
+        "Understand the definite integral as the accumulation of infinitely thin slices.",
+        "Explain the Fundamental Theorem of Calculus linking derivatives and integrals."
+      ],
+      "progression": [
+        "The paradox of the instant: speedometers, limits, and zooming in until curves look straight.",
+        "The Derivative: slopes, tangents, and sensitivity analysis.",
+        "Optimization: finding peaks, valleys, and local minima via gradient zeroing.",
+        "The Integral: area under curves, Riemann sums, and cumulative accumulation.",
+        "The Fundamental Theorem of Calculus and multivariable partial derivatives preview."
+      ]
+    },
+    {
+      "id": "FIN-101",
+      "title": "Money Psychology — Master Your Financial Mindset",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Learn how your emotions, habits and hidden biases shape your money decisions — and how you can outsmart them.",
+      "target_audience": "General adult learners and young professionals seeking emotional and behavioral money clarity.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. (Existing EduCaps Subject ID 1).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses strictly on internal behavioral scripts, mental accounting, and emotional triggers rather than financial spreadsheets.",
+      "learning_outcomes": [
+        "Identify personal money scripts and emotional spending triggers.",
+        "Differentiate structural wealth decisions from minor micro-expenses.",
+        "Implement automated savings using the 'Pay Yourself First' principle.",
+        "Resist social comparison and financial FOMO.",
+        "Align spending habits with genuine core values."
+      ],
+      "progression": [
+        "The hidden psychology of money: biases, dopamine spending, and mental accounting.",
+        "Social comparison: financial FOMO, lifestyle creep, and identity scripts.",
+        "Behavioral guardrails: Pay Yourself First, friction rules, and delayed gratification.",
+        "Mindset synthesis: aligning capital allocation with life satisfaction."
+      ]
+    },
+    {
+      "id": "FIN-102",
+      "title": "Practical Budgeting & Cash Flow Management",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Design a realistic cash flow system: zero-based budgeting, emergency funds, tracking expenses, and sinking funds.",
+      "target_audience": "Anyone wanting to gain control of their monthly income and stop living paycheck-to-paycheck.",
+      "difficulty": "Beginner",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on sustainable, low-friction budgeting systems (zero-based, 50/30/20) that don't require tracking every single penny manually.",
+      "learning_outcomes": [
+        "Audit personal cash flow to identify fixed, variable, and discretionary expenses.",
+        "Implement a zero-based or percentage-based (50/30/20) budget.",
+        "Build an emergency buffer fund calibrated to household risk.",
+        "Set up sinking funds to eliminate the shock of irregular, annual expenses.",
+        "Automate banking workflows between checking, savings, and investment accounts."
+      ],
+      "progression": [
+        "Where did the money go: tracking cash flow without shame or burnout.",
+        "Budget frameworks: Zero-Based Budgeting vs. 50/30/20 vs. Pay-Yourself-First.",
+        "The Safety Net: calculating and funding a 3-to-6 month liquid emergency reserve.",
+        "Sinking funds and banking automation: putting personal finance on autopilot."
+      ]
+    },
+    {
+      "id": "FIN-103",
+      "title": "Investing Fundamentals: Stocks, Bonds & Index Funds",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Learn how the financial markets work: broad index funds, asset allocation, diversification, and long-term compound wealth.",
+      "target_audience": "Beginner investors wanting to build long-term wealth without gambling or stock picking.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic cash flow stability and an emergency fund (FIN-102 recommended).",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Advocates the Nobel-prize-winning passive index fund philosophy (Bogleheads approach) over speculative active trading.",
+      "learning_outcomes": [
+        "Explain what stocks, bonds, mutual funds, and ETFs actually represent.",
+        "Understand market risk, volatility, and historical asset class returns.",
+        "Apply modern portfolio theory through broad-market low-cost index funds.",
+        "Evaluate the destructive impact of high expense ratios and hidden advisory fees.",
+        "Implement a dollar-cost averaging strategy and avoid the market-timing trap."
+      ],
+      "progression": [
+        "Why invest: inflation as an invisible tax and the power of compound interest.",
+        "Asset classes decoded: what owning a stock vs. holding a bond really means.",
+        "The Index Fund revolution: why picking individual stocks fails 90% of pros.",
+        "Asset allocation, diversification, and rebalancing across life stages.",
+        "Executing the strategy: brokerage accounts, index ETFs, and emotional discipline in bear markets."
+      ]
+    },
+    {
+      "id": "FIN-104",
+      "title": "Understanding Debt, Credit Scores & Loan Strategy",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Master credit score mechanics, conquer high-interest consumer debt, and navigate mortgages and student loans strategically.",
+      "target_audience": "Consumers carrying debt or planning major borrowing (mortgages, auto loans, student loans).",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Directly compares mathematical debt elimination (Avalanche) vs. psychological momentum (Snowball) strategies.",
+      "learning_outcomes": [
+        "Demystify credit scoring algorithms (FICO/VantageScore) and utilization ratios.",
+        "Compare the Debt Avalanche (highest interest) and Debt Snowball (smallest balance) methods.",
+        "Understand APR, compound interest drag, and amortization schedules.",
+        "Distinguish productive low-interest debt from predatory high-interest consumer debt.",
+        "Evaluate refinancing options and loan consolidation risks."
+      ],
+      "progression": [
+        "The mathematics of debt: APR, daily compounding, and minimum payment traps.",
+        "Credit scores decoded: payment history, credit utilization, and credit age.",
+        "Debt elimination playbooks: Snowball vs. Avalanche and negotiating interest rates.",
+        "Strategic borrowing: fixed vs. adjustable rate mortgages and student loan management."
+      ]
+    },
+    {
+      "id": "FIN-105",
+      "title": "Everyday Economics: Supply, Demand & Inflation",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Understand the economic forces shaping your daily life: supply and demand, central bank interest rates, inflation, and market cycles.",
+      "target_audience": "Curious citizens and professionals wanting to understand financial headlines.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Explains macroeconomic mechanisms using clear everyday supermarket and housing examples rather than dry mathematical models.",
+      "learning_outcomes": [
+        "Explain market equilibrium through supply, demand, and price elasticity.",
+        "Understand inflation drivers (demand-pull, cost-push) and purchasing power erosion.",
+        "Explain how central banks use interest rates to control economic cycles.",
+        "Understand GDP, unemployment metrics, and recession indicators.",
+        "Evaluate the trade-offs of price controls, tariffs, and government subsidies."
+      ],
+      "progression": [
+        "The economic engine: scarcity, opportunity cost, and the invisible hand.",
+        "Supply and Demand: market equilibrium, price elasticity, and shortages.",
+        "Money and Inflation: what causes prices to rise and why deflation is feared.",
+        "Central banks and monetary policy: interest rates, quantitative easing, and cycles.",
+        "Global trade, currency exchange rates, and macroeconomic indicators."
+      ]
+    },
+    {
+      "id": "FIN-106",
+      "title": "Retirement Planning & Compound Interest Dynamics",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Plan your financial independence: compound growth horizons, tax-advantaged accounts, withdrawal rates, and pension systems.",
+      "target_audience": "Adults at any career stage planning for retirement or financial independence (FIRE).",
+      "difficulty": "Intermediate",
+      "prerequisites": "Investing fundamentals (FIN-103).",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Focuses on safe withdrawal rates (the 4% rule) and sequence of returns risk rather than arbitrary savings targets.",
+      "learning_outcomes": [
+        "Model retirement needs using target withdrawal rates and the Trinity Study (4% rule).",
+        "Optimize contributions to tax-advantaged accounts (401k, IRA, Roth equivalents).",
+        "Understand sequence of returns risk during early retirement years.",
+        "Calculate your 'Financial Independence Number' based on annual expenditure.",
+        "Plan health insurance and long-term care contingencies in later life."
+      ],
+      "progression": [
+        "The retirement reality check: longevity risk, healthcare, and state pensions.",
+        "Tax-advantaged vehicles: traditional pre-tax vs. Roth post-tax account mathematics.",
+        "Safe withdrawal rates: the 4% rule, dynamic spending, and sequence-of-returns risk.",
+        "The FIRE movement: milestones to financial independence and lifestyle design."
+      ]
+    },
+    {
+      "id": "FIN-107",
+      "title": "Tax Fundamentals for Freelancers & Employees",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Demystify taxes: marginal tax brackets, deductions vs. credits, self-employment taxes, and legal tax minimization.",
+      "target_audience": "Freelancers, gig workers, and salaried professionals seeking tax literacy.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Dispels the dangerous myth that 'moving up a tax bracket reduces your total take-home pay'.",
+      "learning_outcomes": [
+        "Explain how marginal tax brackets and effective tax rates actually work.",
+        "Distinguish above-the-line tax deductions from dollar-for-dollar tax credits.",
+        "Manage quarterly estimated taxes and self-employment deductions for freelancers.",
+        "Keep clean business expense records to withstand audit scrutiny.",
+        "Differentiate legal tax avoidance/optimization from illegal tax evasion."
+      ],
+      "progression": [
+        "Taxes demystified: marginal brackets, effective rates, and common bracket myths.",
+        "Deductions vs. Credits: standard deduction, itemizing, and high-value tax credits.",
+        "Freelance and self-employment taxes: Schedule C, write-offs, and quarterly estimates.",
+        "Tax-smart life habits: record keeping, audit hygiene, and year-end planning."
+      ]
+    },
+    {
+      "id": "FIN-108",
+      "title": "Financial Safety: Scams, Fraud & Risk Prevention",
+      "category": "Financial Literacy, Economics & Wealth Management",
+      "description": "Protect your life savings: detect Ponzi schemes, crypto scams, identity theft, credit card skimming, and social engineering fraud.",
+      "target_audience": "Everyone wanting to protect their hard-earned money and help elderly relatives avoid scams.",
+      "difficulty": "Beginner",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Analyzes the psychological persuasion techniques (urgency, authority, isolation) scammers use to bypass logic.",
+      "learning_outcomes": [
+        "Identify the anatomical red flags of Ponzi and pyramid schemes.",
+        "Recognize modern financial scams: crypto recovery, advance-fee fraud, romance scams.",
+        "Protect bank accounts with account alerts, credit freezes, and virtual credit cards.",
+        "Take immediate emergency action if personal financial credentials are compromised.",
+        "Help vulnerable family members safeguard their retirement savings."
+      ],
+      "progression": [
+        "The psychology of the scam: fear, greed, urgency, and artificial authority.",
+        "Investment scams: guaranteed returns, affinity fraud, and crypto pump-and-dumps.",
+        "Direct theft: wire fraud, check fraud, account takeover, and synthetic identity theft.",
+        "Emergency defense protocol: freezing credit, reporting fraud, and securing compromised accounts."
+      ]
+    },
+    {
+      "id": "COM-101",
+      "title": "The Art of Speaking & Influence",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Learn how to speak powerfully, persuade ethically and express your ideas with confidence.",
+      "target_audience": "Professionals, students, and speakers delivering presentations, pitches, or meeting updates.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None. (Existing EduCaps Subject ID 4).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on verbal delivery, vocal resonance, the rule of three, and converting nervousness into charisma.",
+      "learning_outcomes": [
+        "Master vocal presence, pacing, pitch modulation, and strategic pausing.",
+        "Structure memorable remarks using the Rule of Three.",
+        "Convert stage fright and adrenaline into engaging vocal energy.",
+        "Answer challenging audience Q&A with poise and structure.",
+        "Distill complex arguments into an unforgettable one-sentence takeaway."
+      ],
+      "progression": [
+        "Voice and body: posture, diaphragmatic breathing, and intentional pausing.",
+        "Message architecture: the narrative arc, hooks, and the Rule of Three.",
+        "Handling pressure: reframing nerves, executive presence, and spontaneous answers.",
+        "Ethical influence: combining ethos, pathos, and logos for lasting impact."
+      ]
+    },
+    {
+      "id": "COM-102",
+      "title": "Clear Writing for the Workplace & Remote Teams",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Write crisp emails, clear Slack messages, concise memos, and executive updates that save time and get results.",
+      "target_audience": "Knowledge workers, managers, and remote professionals.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on asynchronous reading habits—using the BLUF (Bottom Line Up Front) model to respect busy colleagues' time.",
+      "learning_outcomes": [
+        "Apply the BLUF (Bottom Line Up Front) framework to all business communications.",
+        "Eliminate corporate buzzwords, passive voice, and unnecessary filler sentences.",
+        "Format emails with clear calls-to-action (CTAs) and explicit deadlines.",
+        "Calibrate tone across asynchronous channels (Slack vs. formal proposal).",
+        "Write executive summaries that leadership can digest in under 60 seconds."
+      ],
+      "progression": [
+        "The reader's reality: cognitive overload and why people skim.",
+        "Structure first: BLUF, scannable formatting, bullet points, and headers.",
+        "Sentence-level craft: cutting dead weight, active voice, and eliminating hedge words.",
+        "Asynchronous collaboration: meeting-free updates, project briefs, and executive memos."
+      ]
+    },
+    {
+      "id": "COM-103",
+      "title": "Persuasive Storytelling & Narrative Structure",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Hook your audience, build emotional resonance, and drive action using timeless narrative storytelling frameworks.",
+      "target_audience": "Marketers, founders pitching investors, leaders, and creative writers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic communication skills.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Translates Hollywood screenwriting structures (Hero's Journey, 3-Act Structure) into business and product narratives.",
+      "learning_outcomes": [
+        "Structure presentations around a clear protagonist, conflict, turning point, and resolution.",
+        "Use sensory details and specific vignettes to make abstract data memorable.",
+        "Build tension and contrast between 'what is' and 'what could be'.",
+        "Pitch startups or internal initiatives using the problem-solution-vision narrative.",
+        "Craft an authentic personal leadership narrative."
+      ],
+      "progression": [
+        "Why human brains crave stories: neurochemistry, oxytocin, and memory retention.",
+        "Classic narrative anatomy: character, desire, obstacle, crisis, and transformation.",
+        "The Business Narrative: contrasting pain points with future possibilities.",
+        "Storycraft in action: crafting origin stories, case study victories, and vision pitches."
+      ]
+    },
+    {
+      "id": "COM-104",
+      "title": "Active Listening & Non-Defensive Dialogue",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Master the rarest conversational superpower: listening to understand rather than listening to reply.",
+      "target_audience": "Leaders, managers, team members, and partners navigating difficult conversations.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Teaches psychological reflecting techniques (looping, labeling) from hostage negotiation to disarm defensiveness.",
+      "learning_outcomes": [
+        "Identify the 4 levels of listening (internal, focused, global, empathetic).",
+        "Mirror and summarize the speaker's emotional state without agreeing with their premise.",
+        "Ask open-ended, non-judgmental exploratory questions.",
+        "Recognize internal defensiveness triggers before interrupting.",
+        "Create psychological safety in high-stakes one-on-one conversations."
+      ],
+      "progression": [
+        "The listening crisis: why most people only reload while the other person speaks.",
+        "Active listening mechanics: mirroring, paraphrasing, and emotional labeling.",
+        "The art of powerful questions: shifting from interrogation to open discovery.",
+        "Non-defensive composure: staying grounded when hearing criticism or emotional complaints."
+      ]
+    },
+    {
+      "id": "COM-105",
+      "title": "Presentation Design & Slide Delivery",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Design clean, persuasive slides and deliver presentations that captivate audiences without teleprompter reading.",
+      "target_audience": "Professionals, students, and executives presenting to clients, boards, or conferences.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Adheres to the 'one idea per slide' principle, banning paragraphs of bullet points and cluttered templates.",
+      "learning_outcomes": [
+        "Apply the 'One Idea Per Slide' design rule.",
+        "Design clean slide hierarchies using typography, whitespace, and high-impact imagery.",
+        "Present complex charts and data tables without overwhelming viewers.",
+        "Deliver slides seamlessly using speaker notes and audience eye contact.",
+        "Handle unexpected projector crashes and technical presentation failures."
+      ],
+      "progression": [
+        "Slide design philosophy: slides are billboards for your voice, not teleprompter scripts.",
+        "Visual composition: typography, whitespace, color contrast, and photographic focus.",
+        "Data presentation: highlighting the single takeaway in complex charts.",
+        "Stagecraft: transitions, body positioning, clicking without breaking eye contact."
+      ]
+    },
+    {
+      "id": "COM-106",
+      "title": "Negotiation Essentials: Reaching Win-Win Outcomes",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Negotiate salary, contracts, and everyday agreements with confidence, emotional control, and principled strategy.",
+      "target_audience": "Job seekers, freelancers, procurement specialists, and professionals seeking fair value.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Builds on Harvard's 'Getting to Yes' principled negotiation framework rather than adversarial high-pressure haggling.",
+      "learning_outcomes": [
+        "Separate the people from the problem in high-stakes negotiations.",
+        "Identify your BATNA (Best Alternative to a Negotiated Agreement) and reservation price.",
+        "Shift from positional bargaining to interest-based mutual value creation.",
+        "Anchor negotiations strategically and handle low-ball offers calmly.",
+        "Negotiate job offers and compensation packages ethically."
+      ],
+      "progression": [
+        "Negotiation mindsets: competitive zero-sum haggling vs. principled collaborative value creation.",
+        "Preparation is power: determining your BATNA, reservation price, and target aspiration.",
+        "Tactical execution: anchoring, framing trades, and the power of strategic silence.",
+        "Overcoming impasses: expanding the pie, package deals, and managing difficult counterparties.",
+        "Career negotiation: handling salary discussions, equity, and workplace benefits."
+      ]
+    },
+    {
+      "id": "COM-107",
+      "title": "Technical Writing & Documentation for Developers",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Write API docs, READMEs, architectural decision records (ADRs), and user guides that developers love reading.",
+      "target_audience": "Software engineers, DevOps practitioners, open-source maintainers, and technical writers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic understanding of code or developer tools.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Applies the Diátaxis documentation framework (Tutorials, How-to Guides, Reference, Explanation).",
+      "learning_outcomes": [
+        "Apply the Diátaxis framework to organize technical documentation.",
+        "Write exceptional project README files that onboard developers in under 5 minutes.",
+        "Document REST and GraphQL APIs with accurate parameter tables and curl examples.",
+        "Draft Architectural Decision Records (ADRs) to capture context and trade-offs.",
+        "Maintain living documentation that stays updated as the codebase evolves."
+      ],
+      "progression": [
+        "Why technical documentation fails: outdated wikis, cognitive blind spots, and lack of audience empathy.",
+        "The Diátaxis framework: Tutorials (learning-oriented) vs. How-to (task-oriented).",
+        "Reference vs. Explanation: writing clean API specs and architectural context.",
+        "Living docs: docs-as-code, Markdown linting, and automated documentation workflows."
+      ]
+    },
+    {
+      "id": "COM-108",
+      "title": "Cross-Cultural Communication & Global Collaboration",
+      "category": "Communication, Writing & Public Speaking",
+      "description": "Navigate international business cultures, direct vs. indirect feedback styles, and high-context communication.",
+      "target_audience": "Remote workers, international teams, multinational leaders, and global collaborators.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Based on Erin Meyer's Culture Map framework across 8 behavioral communication scales.",
+      "learning_outcomes": [
+        "Differentiate high-context and low-context communication styles across cultures.",
+        "Navigate direct vs. indirect negative feedback without causing offense or misunderstanding.",
+        "Understand cultural attitudes toward hierarchy, authority, and consensus decision-making.",
+        "Manage time perception differences (linear vs. flexible time) in international project planning.",
+        "Lead inclusive meetings with non-native language speakers."
+      ],
+      "progression": [
+        "The invisible lens of culture: why well-intentioned emails trigger cross-border outrage.",
+        "Communication styles: low-context explicit clarity vs. high-context nuanced reading between lines.",
+        "Feedback and authority: giving critique across egalitarian vs. hierarchical team cultures.",
+        "Time and trust: task-based vs. relationship-based trust in distributed global teams."
+      ]
+    },
+    {
+      "id": "EQ-101",
+      "title": "Emotional Intelligence & Human Behaviour",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Understand yourself and others better — communicate, lead and connect with more ease.",
+      "target_audience": "Aspiring leaders, team members, and individuals navigating complex human dynamics.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None. (Existing EduCaps Subject ID 3).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on the 4 classic pillars of Goleman's EQ: self-awareness, self-management, social awareness, and relationship management.",
+      "learning_outcomes": [
+        "Identify physiological and emotional triggers before reacting impulsively.",
+        "Cultivate the 'sacred pause' between stimulus and response.",
+        "Read non-verbal cues and assess team emotional climates.",
+        "Build authentic rapport and set healthy boundaries.",
+        "Lead others through steady, grounded emotional presence."
+      ],
+      "progression": [
+        "Foundations of EQ: the 4 pillars and why emotional competence outperforms raw IQ.",
+        "Self-Awareness and Self-Regulation: catching the amygdala hijack before exploding.",
+        "Social Awareness: empathy, reading rooms, and perspective taking.",
+        "Relationship Management: setting boundaries, resolving tension, and emotional leadership."
+      ]
+    },
+    {
+      "id": "EQ-102",
+      "title": "Conflict Resolution & De-escalation Techniques",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "De-escalate workplace clashes, disarm hostility, and turn heated arguments into productive collaborations.",
+      "target_audience": "Managers, customer support leads, team collaborators, and mediators.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Provides verbatim verbal de-escalation scripts and tactical breathing techniques to stay calm under fire.",
+      "learning_outcomes": [
+        "Identify the root causes of conflict (scarce resources, misaligned values, wounded ego).",
+        "Apply psychological de-escalation scripts to calm an enraged counterpart.",
+        "Separate the problem from the person during heated disputes.",
+        "Use the Thomas-Kilmann Conflict Mode Instrument to select the right approach (Collaborating vs. Compromising).",
+        "Establish collaborative agreements that prevent future friction."
+      ],
+      "progression": [
+        "The anatomy of conflict: why minor disagreements spiral into personal warfare.",
+        "De-escalation tactics: voice tone, lowering volume, acknowledging feelings, and venting.",
+        "Mediation frameworks: problem reframing, finding common ground, and separating interests.",
+        "Post-conflict repair: rebuilding team trust and establishing working agreements."
+      ]
+    },
+    {
+      "id": "EQ-103",
+      "title": "Empathy & Perspective Taking in High-Stress Environments",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Cultivate genuine cognitive empathy without taking on emotional exhaustion or burning out.",
+      "target_audience": "Healthcare workers, managers, educators, customer advocates, and team leaders.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Distinguishes cognitive empathy (understanding another's view) from emotional contagion (absorbing their distress).",
+      "learning_outcomes": [
+        "Differentiate cognitive empathy, emotional empathy, and compassionate action.",
+        "Practice perspective-taking exercises to understand seemingly irrational behavior.",
+        "Protect against compassion fatigue and emotional exhaustion.",
+        "Validate another person's feelings without agreeing to unrealistic demands.",
+        "Build empathetic workplace cultures during organizational crises."
+      ],
+      "progression": [
+        "The mechanics of empathy: mirror neurons, perspective taking, and cognitive versus emotional empathy.",
+        "The obstacle of judgment: how ego, exhaustion, and in-group bias kill empathy.",
+        "Compassion without burnout: boundaries, emotional differentiation, and active compassion.",
+        "Leading with empathy in crisis: validating reality while maintaining organizational resolve."
+      ]
+    },
+    {
+      "id": "EQ-104",
+      "title": "Cognitive Biases: How Our Brains Mislead Us",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Examine the systematic errors in human thinking: confirmation bias, anchoring, sunk cost fallacy, and availability heuristic.",
+      "target_audience": "Investors, developers, managers, journalists, and everyday critical thinkers.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Grounds behavioral economics (Kahneman & Tversky) in modern daily software, career, and purchasing decisions.",
+      "learning_outcomes": [
+        "Explain System 1 (fast, intuitive) and System 2 (slow, deliberate) thinking modes.",
+        "Recognize Confirmation Bias and intentionally seek disconfirming evidence.",
+        "Break free from the Sunk Cost Fallacy in failing projects or relationships.",
+        "Neutralize Anchoring and Framing effects in pricing and salary discussions.",
+        "Implement institutional decision checklists that protect teams from collective bias."
+      ],
+      "progression": [
+        "System 1 and System 2: heuristics as evolutionary shortcuts and their modern blind spots.",
+        "Confirmation bias and belief perseverance: why smart people cling to wrong ideas.",
+        "Value distortions: Sunk Cost, Loss Aversion, and the Endowment Effect.",
+        "Social biases: In-group favoritism, the Halo Effect, and Fundamental Attribution Error.",
+        "De-biasing strategies: pre-mortems, red-teaming, and structured decision checklists."
+      ]
+    },
+    {
+      "id": "EQ-105",
+      "title": "Resilience, Burnout Prevention & Stress Regulation",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Regulate autonomic nervous system stress, build durable psychological resilience, and recover from professional burnout.",
+      "target_audience": "High-achieving professionals, founders, caregivers, and students facing intense chronic pressure.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Integrates physiological nervous system regulation (polyvagal theory, physiological sigh) with psychological cognitive reframing.",
+      "learning_outcomes": [
+        "Understand the physiological biology of chronic stress and cortisol elevation.",
+        "Use breathing protocols (physiological sigh) to down-regulate acute anxiety in 60 seconds.",
+        "Identify the 3 stages of burnout: emotional exhaustion, cynicism, and reduced efficacy.",
+        "Reframe catastrophic self-talk using cognitive behavioral therapy (CBT) ABCDE models.",
+        "Construct an environment that supports sustainable high performance without self-destruction."
+      ],
+      "progression": [
+        "The neurobiology of stress: sympathetic fight-or-flight vs. parasympathetic rest-and-digest.",
+        "Burnout anatomy: identifying the clinical difference between normal fatigue and chronic depletion.",
+        "Somatic regulation: breathwork, movement, sleep hygiene, and physiological resets.",
+        "Cognitive resilience: reframing setbacks, internal locus of control, and realistic optimism."
+      ]
+    },
+    {
+      "id": "EQ-106",
+      "title": "Modern Leadership: Leading Without Authority",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Inspire teams, build alignment, and drive high-impact initiatives even when you have zero official managerial title.",
+      "target_audience": "Individual contributors, project leads, product managers, and ambitious team members.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on building social capital, strategic reciprocity, and competence trust rather than relying on top-down authority.",
+      "learning_outcomes": [
+        "Differentiate positional authority from genuine earned leadership.",
+        "Build relational capital through competence, dependability, and generosity.",
+        "Align diverse stakeholders around a shared mission using lateral influence.",
+        "Conduct productive 1-on-1 alignment discussions across departments.",
+        "Lead meetings that conclude with clear ownership and enthusiasm."
+      ],
+      "progression": [
+        "The new leadership landscape: matrixed teams, remote work, and the death of command-and-control.",
+        "Currency of influence: competence, character, consistency, and social capital.",
+        "Lateral persuasion: understanding other department heads' incentives and KPIs.",
+        "Mobilizing action: running democratic brainstorms and driving collective consensus."
+      ]
+    },
+    {
+      "id": "EQ-107",
+      "title": "Team Dynamics & Building Psychological Safety",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Foster an environment where team members take risks, speak up about mistakes, and collaborate with fearless trust.",
+      "target_audience": "Engineering managers, team leads, Agile coaches, and executives.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Brings Amy Edmondson's Harvard research on psychological safety and Google's Project Aristotle into daily team rituals.",
+      "learning_outcomes": [
+        "Define psychological safety and measure it on your team.",
+        "Replace blame-and-shame reactions with blameless post-mortem investigations.",
+        "Model vulnerability and acknowledge personal gaps as a team leader.",
+        "Encourage divergent perspectives and productive dissent during brainstorms.",
+        "Establish team working agreements that prevent toxic passive-aggressive behavior."
+      ],
+      "progression": [
+        "What makes high-performing teams tick: Google's Project Aristotle and Edmondson's research.",
+        "The fear factor: why smart people stay silent when they spot critical project flaws.",
+        "Leader behaviors that build safety: acknowledging fallibility, asking curious questions, responding productively.",
+        "Team rituals: blameless retrospectives, failure celebrations, and psychological safety check-ins."
+      ]
+    },
+    {
+      "id": "EQ-108",
+      "title": "Self-Compassion & Overcoming Imposter Syndrome",
+      "category": "Emotional Intelligence, Leadership & Psychology",
+      "description": "Silence your toxic inner critic, embrace realistic self-compassion, and overcome feelings of being a fraud.",
+      "target_audience": "High-achievers, junior developers, career switchers, and perfectionists.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Draws on Dr. Kristin Neff's self-compassion empirical research to prove self-kindness drives higher resilience than self-flagellation.",
+      "learning_outcomes": [
+        "Understand the roots of Imposter Phenomenon and recognize its typical triggers.",
+        "Differentiate destructive self-criticism from constructive self-compassion.",
+        "Apply the 3 components of self-compassion (Mindfulness, Common Humanity, Self-Kindness).",
+        "Keep an objective 'Evidence File' of completed achievements and skills.",
+        "Embrace the 'beginner's mindset' without shame when tackling novel challenges."
+      ],
+      "progression": [
+        "The Imposter trap: feeling like a fraud despite documented success.",
+        "The myth of self-criticism: why beating yourself up degrades cognitive performance.",
+        "The 3 pillars of self-compassion: self-kindness, shared humanity, and mindful acceptance.",
+        "Rewriting internal narratives: practical habits to celebrate progress and embrace healthy imperfection."
+      ]
+    },
+    {
+      "id": "PROD-101",
+      "title": "Digital Habits & Focus in the Smartphone Age",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Learn how to master your attention, avoid distraction and reclaim your time in a connected world.",
+      "target_audience": "Students, knowledge workers, and digital citizens struggling with phone screen time.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. (Existing EduCaps Subject ID 2).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on device minimalism, the attention economy, and escaping variable reward dopamine loops.",
+      "learning_outcomes": [
+        "Understand how tech apps monetize attention via intermittent variable rewards.",
+        "Declutter smartphone notifications, badges, and toxic infinite feeds.",
+        "Practice single-tasking and avoid attention residue from task switching.",
+        "Embrace intentional boredom to spark deep creative problem solving.",
+        "Establish morning and evening phone-free sanctuary rituals."
+      ],
+      "progression": [
+        "The Attention Economy: notification feeds, dopamine traps, and attention residue.",
+        "Deep Work vs. Shallow Work: why distraction destroys high-value output.",
+        "Digital Minimalism: notification pruning, grayscale mode, and app audits.",
+        "Sustainable focus habits: single-tasking rituals, boredom tolerance, and the attention dividend."
+      ]
+    },
+    {
+      "id": "PROD-102",
+      "title": "Time Architecture & Energy Management",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Manage your energy rather than just your time: chronotypes, ultradian rhythms, calendar time-blocking, and boundary defense.",
+      "target_audience": "Overwhelmed professionals, students, and freelancers managing busy schedules.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Prioritizes biological energy curves (ultradian 90-minute focus cycles) over rigid to-do list packing.",
+      "learning_outcomes": [
+        "Audit personal chronotype and identify peak daily cognitive energy hours.",
+        "Implement calendar time-blocking for priority deep-work commitments.",
+        "Defend schedule boundaries against non-essential meeting creep.",
+        "Structure intentional recovery breaks following 90-minute ultradian cycles.",
+        "Eliminate 'calendar confetti' to secure uninterrupted focus blocks."
+      ],
+      "progression": [
+        "The energy paradox: why managing minutes fails if your battery is drained.",
+        "Biological rhythms: chronotypes, circadian peaks, and ultradian 90-minute focus waves.",
+        "Calendar architecture: time-blocking, buffer days, and theme days.",
+        "Defending the calendar: saying no gracefully and auditing recurring commitments."
+      ]
+    },
+    {
+      "id": "PROD-103",
+      "title": "Habit Formation & Behavioral Change Science",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Build atomic habits that stick and dismantle unwanted routines using neuroscience and behavioral design.",
+      "target_audience": "Anyone seeking permanent positive lifestyle, fitness, learning, or career habit transformation.",
+      "difficulty": "Beginner",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Brings the cue-routine-reward loop and habit-stacking into micro-learning applications.",
+      "learning_outcomes": [
+        "Explain the neurological Habit Loop: Cue, Craving, Response, and Reward.",
+        "Apply the 4 Laws of Behavior Change to make good habits inevitable.",
+        "Implement 'Habit Stacking' by anchoring new habits onto existing routines.",
+        "Design environmental choice architecture that reduces friction for good habits.",
+        "Recover gracefully when a habit streak is broken using the 'Never Miss Twice' rule."
+      ],
+      "progression": [
+        "The neuroscience of automaticity: basal ganglia wiring and the 4-part habit loop.",
+        "Making it obvious and attractive: environment design, cues, and temptation bundling.",
+        "Making it easy: reducing friction, the 2-minute rule, and habit scaling.",
+        "Making it satisfying: tracking, accountability, and the 'Never Miss Twice' recovery rule."
+      ]
+    },
+    {
+      "id": "PROD-104",
+      "title": "Deep Work & Cognitive Ergonomics",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Cultivate the rare and valuable ability to focus without distraction on cognitively demanding tasks.",
+      "target_audience": "Knowledge workers, writers, software developers, researchers, and creators.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic focus literacy (PROD-101).",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Operationalizes Cal Newport's Deep Work philosophy with practical workspace and scheduling playbooks.",
+      "learning_outcomes": [
+        "Differentiate Deep Work from shallow administrative busywork.",
+        "Select a deep work scheduling philosophy (Bimodal, Rhythmic, Monastic, Journalistic).",
+        "Construct a physical and digital focus cockpit that eliminates micro-interruptions.",
+        "Build shutdown rituals that free your mind from work anxiety during evenings.",
+        "Measure and increase daily deep work capacity over time."
+      ],
+      "progression": [
+        "The Deep Work thesis: why focused attention is the superpower of the 21st century.",
+        "Scheduling philosophies: finding the deep work rhythm that matches your career reality.",
+        "The focus ritual: location, environmental design, focus triggers, and warmups.",
+        "The daily shutdown ritual: offloading open cognitive loops for guilt-free evening rest."
+      ]
+    },
+    {
+      "id": "PROD-105",
+      "title": "Information Overload: Curation & Personal Knowledge Management",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Build a 'Second Brain': capture insights, organize knowledge with the PARA method, and turn reading into output.",
+      "target_audience": "Researchers, students, writers, developers, and information workers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Implements Tiago Forte's CODE (Capture, Organize, Distill, Express) and PARA (Projects, Areas, Resources, Archives).",
+      "learning_outcomes": [
+        "Overcome digital hoarding by adopting the CODE knowledge curation pipeline.",
+        "Organize digital files and notes actionable by project using the PARA method.",
+        "Practice progressive summarization to distill long articles into executive highlights.",
+        "Shift focus from passive content consumption to active creative output.",
+        "Create a resilient personal knowledge repository that compounds over decades."
+      ],
+      "progression": [
+        "The digital hoarder's trap: why bookmarking 1,000 articles changes nothing.",
+        "The CODE framework: Capture what resonates, Organize for action, Distill essence, Express output.",
+        "The PARA method: structuring digital life by Projects, Areas, Resources, and Archives.",
+        "Progressive summarization and knowledge retrieval: turning past reading into instant assets."
+      ]
+    },
+    {
+      "id": "PROD-106",
+      "title": "Procrastination Decoded: Action Triggers & Momentum",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Understand the true emotional roots of procrastination and use behavioral momentum tactics to get started effortlessly.",
+      "target_audience": "Chronic delayers, perfectionists, students, and workers paralyzed by looming deadlines.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Treats procrastination as an emotional regulation problem (fear of failure, boredom, overwhelm) rather than poor time management.",
+      "learning_outcomes": [
+        "Deconstruct procrastination into emotional avoidance rather than laziness.",
+        "Overcome perfectionism paralysis with the 'permission to write junk' heuristic.",
+        "Use the 5-Minute Rule to shatter task initiation friction.",
+        "Break monolithic intimidating projects into micro-executable next actions.",
+        "Eliminate self-blame cycles that perpetuate delayed action."
+      ],
+      "progression": [
+        "The psychology of delay: why procrastination is an emotional defense mechanism, not laziness.",
+        "The perfectionism trap: all-or-nothing thinking, fear of judgment, and avoidance.",
+        "Action triggers: the 5-minute rule, micro-stepping, and lowering activation energy.",
+        "Momentum engineering: harnessing dopamine through visible micro-wins."
+      ]
+    },
+    {
+      "id": "PROD-107",
+      "title": "Sleep, Rest & Cognitive Recovery for Peak Performance",
+      "category": "Productivity, Focus & Digital Wellbeing",
+      "description": "Unlock the biological foundation of memory and focus: sleep cycles, circadian light, non-sleep deep rest (NSDR), and mental recovery.",
+      "target_audience": "Anyone suffering from brain fog, afternoon crashes, and insomnia.",
+      "difficulty": "Beginner",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Grounds sleep architecture in peer-reviewed neuroscience (Huberman, Matthew Walker) with practical evening protocols.",
+      "learning_outcomes": [
+        "Explain sleep architecture: NREM slow-wave sleep, REM dreaming, and memory consolidation.",
+        "Anchor circadian rhythms using morning sunlight and evening light dimming.",
+        "Optimize sleep temperature, caffeine cutoff windows, and sleep environment.",
+        "Practice Non-Sleep Deep Rest (NSDR) or Yoga Nidra for rapid midday cognitive recovery.",
+        "Establish restorative weekend habits that prevent Monday morning grogginess."
+      ],
+      "progression": [
+        "The science of sleep: what the brain does at night (glymphatic wash, memory filing).",
+        "Circadian biology: photons, melatonin, adenosine accumulation, and caffeine mechanics.",
+        "The ultimate sleep environment: darkness, temperature drop, soundscapes, and rituals.",
+        "Active daytime rest: power naps, NSDR protocols, and cognitive decompression."
+      ]
+    },
+    {
+      "id": "BUS-101",
+      "title": "Startup Fundamentals: From Idea to Customer Discovery",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Validate ideas, interview prospective customers without bias, build MVPs, and achieve problem-solution fit.",
+      "target_audience": "Aspiring entrepreneurs, indie hackers, intrapreneurs, and product creators.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on 'The Mom Test' customer interview methodology to avoid false-positive encouragement.",
+      "learning_outcomes": [
+        "Evaluate business ideas using problem severity, market size, and founder-market fit.",
+        "Conduct customer discovery interviews that extract honest historical facts.",
+        "Define a Minimum Viable Product (MVP) that tests core assumptions with minimal code.",
+        "Recognize true Problem-Solution fit and Product-Market fit indicators.",
+        "Pivot product hypotheses based on customer data without emotional attachment."
+      ],
+      "progression": [
+        "Idea generation: finding expensive, hair-on-fire problems worth solving.",
+        "Customer discovery: The Mom Test rules for interviewing without seeking approval.",
+        "The MVP mindset: building the simplest artifact to validate demand.",
+        "Early traction: finding your first 10 paying customers manually.",
+        "Iterating toward Product-Market fit and knowing when to pivot."
+      ]
+    },
+    {
+      "id": "BUS-102",
+      "title": "Product Management: Defining What to Build and Why",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Bridge engineering, design, and business: master PRDs, prioritization matrices (RICE), user stories, and roadmaps.",
+      "target_audience": "Product managers, technical founders, and developers transitioning to product roles.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic understanding of software development workflows.",
+      "suggested_topics": 5,
+      "target_capsules": 75,
+      "differentiation": "Prioritizes outcome-focused roadmaps over output-focused feature factory velocity.",
+      "learning_outcomes": [
+        "Define the product manager's role at the intersection of UX, tech, and business.",
+        "Draft clear Product Requirement Documents (PRDs) that empower engineering teams.",
+        "Prioritize feature backlogs using frameworks like RICE, Kano, and Value vs. Effort.",
+        "Write user stories with unambiguous acceptance criteria.",
+        "Track product success using North Star metrics and leading indicators."
+      ],
+      "progression": [
+        "The PM role: discovery vs. delivery, outcomes over feature outputs.",
+        "Framing the problem: user personas, journey mapping, and value propositions.",
+        "Prioritization science: RICE scoring, MoSCoW, and saying no to executive pet projects.",
+        "Execution artifacts: writing great PRDs, user stories, and acceptance criteria.",
+        "Product analytics: cohorts, retention curves, funnel drop-offs, and feature adoption."
+      ]
+    },
+    {
+      "id": "BUS-103",
+      "title": "Customer Research & User Interview Techniques",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Uncover what customers truly need through ethnographic observation, usability testing, and qualitative interviews.",
+      "target_audience": "UX researchers, product designers, marketers, and startup founders.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on past behavioral evidence over hypothetical future customer promises.",
+      "learning_outcomes": [
+        "Formulate research plans with specific falsifiable learning goals.",
+        "Recruit representative users without skewing toward friendly cheerleaders.",
+        "Ask neutral, open-ended non-leading interview questions.",
+        "Conduct think-aloud usability testing to spot interface friction points.",
+        "Synthesize qualitative interview transcripts into actionable thematic affinity maps."
+      ],
+      "progression": [
+        "Why qualitative research matters: metrics tell you what; interviews tell you why.",
+        "The interview craft: building rapport, embracing silence, and probing past behavior.",
+        "Usability testing: the think-aloud protocol and watching where users stumble.",
+        "Synthesis: affinity diagramming, customer journey maps, and presenting insights to teams."
+      ]
+    },
+    {
+      "id": "BUS-104",
+      "title": "Modern Marketing Fundamentals: Organic, Search & Social",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Understand modern growth: SEO mechanics, content marketing, distribution loops, and audience building.",
+      "target_audience": "Marketers, creators, founders, and small business owners.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on building sustainable distribution flywheels rather than wasting money on random paid ad experiments.",
+      "learning_outcomes": [
+        "Understand the classic marketing funnel: Awareness, Consideration, Conversion, Retention.",
+        "Master on-page SEO fundamentals (search intent, keywords, technical health).",
+        "Create high-value content marketing assets that attract inbound traffic.",
+        "Build distribution flywheels where customer usage drives organic referrals.",
+        "Calculate conversion rates across marketing touchpoints."
+      ],
+      "progression": [
+        "Marketing foundations: positioning, target audience segmentation, and the value proposition.",
+        "Search Engine Optimization (SEO): search intent, keywords, authority, and backlinks.",
+        "Content and community: creating educational assets that build trust and inbound demand.",
+        "Social distribution: tailoring narratives to platform algorithms and building an email list.",
+        "Growth flywheels: viral loops, referral mechanisms, and conversion funnel optimization."
+      ]
+    },
+    {
+      "id": "BUS-105",
+      "title": "Career Navigation: Interviewing, Portfolios & Salary Negotiation",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Accelerate your professional trajectory: build standout portfolios, ace behavioral interviews, and negotiate market-rate pay.",
+      "target_audience": "Job seekers, graduating students, and professionals aiming for career advancement.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Focuses on the hiring manager's perspective: de-risking the hire and demonstrating business impact.",
+      "learning_outcomes": [
+        "Craft high-signal resumes that pass automated screening and catch recruiter attention.",
+        "Build project portfolios that highlight real business outcomes and problem solving.",
+        "Master the STAR method (Situation, Task, Action, Result) for behavioral interviews.",
+        "Conduct reverse interviews to evaluate company culture and manager competence.",
+        "Negotiate base salary, equity, bonuses, and remote flexibility professionally."
+      ],
+      "progression": [
+        "The hiring manager's mind: how hiring decisions are actually made behind closed doors.",
+        "High-signal artifacts: modern resume formatting, LinkedIn optimization, and case-study portfolios.",
+        "Interview mastery: behavioral storytelling with the STAR method and technical screening poise.",
+        "Offer evaluation and negotiation: scripts, anchoring, counter-offers, and total compensation math."
+      ]
+    },
+    {
+      "id": "BUS-106",
+      "title": "Freelancing & Independent Consulting Mastery",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Build a thriving independent business: client acquisition, value-based pricing, bulletproof contracts, and pipeline management.",
+      "target_audience": "Freelancers, agency founders, consultants, and developers going solo.",
+      "difficulty": "Intermediate",
+      "prerequisites": "A marketable technical, creative, or business skill.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Transitions independent professionals from trading hours for money to value-based pricing and recurring retainers.",
+      "learning_outcomes": [
+        "Define a profitable consulting niche with high willingness-to-pay.",
+        "Transition from hourly billing to value-based project pricing and retainers.",
+        "Draft clear client proposals, scopes of work, and protective contracts.",
+        "Build an inbound client pipeline that prevents the 'feast-and-famine' cycle.",
+        "Manage client expectations and eliminate scope creep gracefully."
+      ],
+      "progression": [
+        "Going independent: choosing a specialized niche and positioning yourself as an expert.",
+        "Pricing strategies: why hourly billing caps income and how to price on client value.",
+        "Client acquisition: warm outreach, case studies, referrals, and inbound content.",
+        "Operations and protection: contracts, milestone billing, scope creep defense, and retainers."
+      ]
+    },
+    {
+      "id": "BUS-107",
+      "title": "Financial Metrics for Businesses: CAC, LTV & Unit Economics",
+      "category": "Business, Entrepreneurship & Career Readiness",
+      "description": "Understand how businesses make or lose money: Customer Acquisition Cost, Lifetime Value, Gross Margins, and Churn.",
+      "target_audience": "Startup founders, product managers, investors, and business analysts.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic arithmetic.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on SaaS and digital business unit economics with intuitive cash-multiplier spreadsheets.",
+      "learning_outcomes": [
+        "Calculate Customer Acquisition Cost (CAC) and Customer Lifetime Value (LTV).",
+        "Evaluate unit economic health using the LTV:CAC ratio and payback period.",
+        "Measure customer churn (logo churn vs. net revenue churn).",
+        "Read Income Statements, Balance Sheets, and Cash Flow Statements.",
+        "Analyze gross margins and operating leverage in business models."
+      ],
+      "progression": [
+        "Unit economics 101: does a single customer make you money or lose you money?",
+        "Acquisition and Retention metrics: CAC, payback period, churn rate, and expansion revenue.",
+        "SaaS metrics deep-dive: MRR, ARR, Net Revenue Retention (NRR), and runway.",
+        "Financial statements for operators: P&L statements, gross margins, and burn rates."
+      ]
+    },
+    {
+      "id": "SCI-101",
+      "title": "Sustainable Living in Everyday Life",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Simple habits to live greener, save resources and protect our planet — without extremes.",
+      "target_audience": "Everyday citizens, households, and environmentally conscious learners.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. (Existing EduCaps Subject ID 5).",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on achievable household eco-habits (food waste, energy savers, transit) without eco-anxiety or moral shaming.",
+      "learning_outcomes": [
+        "Calculate and reduce personal household ecological and carbon footprints.",
+        "Apply the 3 R's: prioritizing Refusing and Reducing over passive recycling.",
+        "Eliminate single-use plastics and microplastic contamination in domestic settings.",
+        "Optimize home energy and water usage to reduce environmental strain and bills.",
+        "Adopt sustainable seasonal dietary habits that cut food waste."
+      ],
+      "progression": [
+        "Why sustainability matters: ecological footprints and individual leverage.",
+        "Household resource efficiency: energy, water, heating, and phantom power.",
+        "Conscious consumption: single-use plastics, mindful shopping, and sustainable food.",
+        "Waste management: composting, recycling reality, and sustaining green habits."
+      ]
+    },
+    {
+      "id": "SCI-102",
+      "title": "Climate Science Essentials: What the Data Shows",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Understand atmospheric science, greenhouse gases, historical climate data, feedback loops, and IPCC emissions scenarios.",
+      "target_audience": "Citizens, students, policymakers, and professionals seeking empirical climate literacy.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Grounds climate mechanisms directly in empirical temperature records, ice core data, and greenhouse physics without political spin.",
+      "learning_outcomes": [
+        "Explain the greenhouse effect and how CO2 and methane trap infrared radiation.",
+        "Read and interpret paleoclimate ice core data and Keeling curve CO2 records.",
+        "Understand climate feedback loops (albedo effect, permafrost thaw, ocean acidification).",
+        "Differentiate climate mitigation (reducing emissions) from adaptation (building resilience).",
+        "Evaluate global decarbonization pathways across energy, industry, and agriculture."
+      ],
+      "progression": [
+        "The physical greenhouse effect: solar radiation, infrared absorption, and planetary heat balances.",
+        "The historical record: ice cores, tree rings, and the Industrial Revolution inflection point.",
+        "Systemic climate feedback loops: ice-albedo, ocean currents, and methane tipping points.",
+        "Impacts: sea level rise, extreme weather events, biodiversity, and ocean acidification.",
+        "The path to Net Zero: mitigation, carbon budgets, adaptation, and renewable transitions."
+      ]
+    },
+    {
+      "id": "SCI-103",
+      "title": "Renewable Energy Systems: Solar, Wind & Storage",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Explore the technological revolution powering the clean energy transition: photovoltaics, wind turbines, grid batteries, and hydrogen.",
+      "target_audience": "Engineers, investors, environmentalists, and clean-tech enthusiasts.",
+      "difficulty": "Intermediate",
+      "prerequisites": "Basic high school physics.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Examines the engineering economics (Levelized Cost of Energy - LCOE) and grid storage balancing challenges.",
+      "learning_outcomes": [
+        "Explain how photovoltaic solar cells convert photons into electrical current.",
+        "Understand aerodynamic lift and mechanical generation in wind turbines.",
+        "Analyze grid storage solutions: Lithium-ion, flow batteries, and pumped-storage hydro.",
+        "Evaluate Levelized Cost of Electricity (LCOE) trends between fossil and clean sources.",
+        "Understand smart grid modernization and intermittency management."
+      ],
+      "progression": [
+        "The global power grid: AC/DC transmission, base load, peaking plants, and the intermittency puzzle.",
+        "Solar photovoltaics: semiconductor bandgaps, solar panel efficiency, and rooftop systems.",
+        "Wind energy: turbine aerodynamics, Betz limit, offshore wind farms, and capacity factors.",
+        "Energy storage: battery chemistry, pumped hydro, hydrogen carriers, and grid integration."
+      ]
+    },
+    {
+      "id": "SCI-104",
+      "title": "Everyday Physics: How the Modern World Works",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Understand the physical laws shaping daily life: gravity, thermodynamics, electricity, radio waves, and microwave ovens.",
+      "target_audience": "Curious learners of all ages who look at modern technology and wonder 'How does that work?'.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. Suitable for both Kids and Standard modes.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Answers concrete everyday questions: why airplanes fly, how microwaves heat food, why the sky is blue, and how GPS works.",
+      "learning_outcomes": [
+        "Explain Newton's Laws of Motion through cars, sports, and rockets.",
+        "Understand the laws of thermodynamics: why heat flows from hot to cold and why entropy rises.",
+        "Explain the electromagnetic spectrum: visible light, radio, Wi-Fi, and X-rays.",
+        "Understand aerodynamics: Bernoulli's principle, lift, and drag.",
+        "Explain the everyday physics behind household appliances (refrigerators, induction stoves)."
+      ],
+      "progression": [
+        "Forces in motion: inertia, friction, gravity, momentum, and action-reaction pairs.",
+        "Thermodynamics and heat: conduction, convection, radiation, and refrigeration cycles.",
+        "Electricity and magnetism: circuits, electromagnetic induction, motors, and generators.",
+        "Waves and light: reflection, refraction, optics, radio signals, and why the sky is blue.",
+        "Everyday wonders: the physics of GPS time dilation, flight, and smartphone touchscreens."
+      ]
+    },
+    {
+      "id": "SCI-105",
+      "title": "Human Biology & Nutrition Literacy",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Understand your body: macronutrients, metabolism, the gut microbiome, insulin mechanics, and cardiovascular health.",
+      "target_audience": "Anyone wanting to make science-backed nutrition and health choices without falling for fad diets.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Focuses on human physiology and metabolic pathways rather than dogmatic dietary branding or commercial supplement marketing.",
+      "learning_outcomes": [
+        "Differentiate the metabolic functions of carbohydrates, proteins, and fats.",
+        "Explain insulin response, blood glucose regulation, and metabolic flexibility.",
+        "Understand the role of the gut microbiome in digestion, immunity, and mood.",
+        "Read nutrition food labels critically and identify hidden ultra-processed ingredients.",
+        "Evaluate cardiovascular health markers (cholesterol, blood pressure) objectively."
+      ],
+      "progression": [
+        "The human engine: cellular respiration, ATP generation, and basal metabolic rate.",
+        "Macronutrients decoded: protein synthesis, carbohydrate glycogen storage, and essential fatty acids.",
+        "Hormonal regulation: insulin, glucagon, ghrelin, and leptin hunger cues.",
+        "Gut health and micronutrients: the microbiome, vitamins, minerals, and whole foods."
+      ]
+    },
+    {
+      "id": "SCI-106",
+      "title": "Scientific Literacy: Evaluating Claims, Studies & Statistics",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Learn to think like a scientist: peer review, p-hacking, randomized controlled trials (RCTs), and spotting bogus health claims.",
+      "target_audience": "Critical thinkers, consumers, journalists, and students navigating conflicting health and science news.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Teaches how to read scientific abstracts and detect media sensationalism ('Coffee cures cancer / Coffee causes cancer').",
+      "learning_outcomes": [
+        "Understand the hierarchy of scientific evidence (case studies vs. RCTs vs. meta-analyses).",
+        "Differentiate causation from mere statistical correlation.",
+        "Spot p-hacking, publication bias, and small sample size anomalies in reported studies.",
+        "Critique sensationalized science headlines using primary study findings.",
+        "Evaluate conflict-of-interest disclosures and corporate-funded research claims."
+      ],
+      "progression": [
+        "The scientific method: hypotheses, falsifiability, and controlled experimentation.",
+        "The evidence pyramid: from anecdotal opinion to randomized trials and systematic reviews.",
+        "Statistical traps in science: p-hacking, correlation vs. causation, and publication bias.",
+        "The media translation filter: how preliminary mouse studies become sensational headlines."
+      ]
+    },
+    {
+      "id": "SCI-107",
+      "title": "Circular Economy, Recycling & Waste Reduction",
+      "category": "Science, Everyday Technology & Sustainability",
+      "description": "Explore the shift from linear 'take-make-waste' manufacturing to regenerative circular design, repair, and closed-loop material cycles.",
+      "target_audience": "Designers, business operators, environmentalists, and product creators.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on industrial design and systemic supply chain redesign rather than putting the entire burden on consumer recycling bins.",
+      "learning_outcomes": [
+        "Differentiate linear economic models from regenerative circular loops.",
+        "Explain the technical cycle (metals, polymers) vs. biological cycle (compostables).",
+        "Understand Design for Disassembly and Right-to-Repair principles.",
+        "Analyze Extended Producer Responsibility (EPR) regulations and corporate take-back schemes.",
+        "Identify business opportunities in product-as-a-service and refurbishment."
+      ],
+      "progression": [
+        "The linear trap: resource extraction, built-in obsolescence, and landfill accumulation.",
+        "The Circular Butterfly Diagram: biological nutrients vs. technical materials.",
+        "Design for disassembly: modular electronics, repairability, and material passports.",
+        "Business models in circularity: Product-as-a-Service, remanufacturing, and industrial symbiosis."
+      ]
+    },
+    {
+      "id": "CRT-101",
+      "title": "Design Thinking: Human-Centered Problem Solving",
+      "category": "Creative Thinking, Problem Solving & Design",
+      "description": "Solve complex, ambiguous challenges using the 5-stage Stanford d.school Design Thinking framework.",
+      "target_audience": "Designers, product teams, educators, founders, and innovators.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Emphasizes hands-on rapid low-fidelity prototyping and user empathy over polished committee presentations.",
+      "learning_outcomes": [
+        "Apply the 5 phases of Design Thinking: Empathize, Define, Ideate, Prototype, Test.",
+        "Synthesize user observations into compelling 'How Might We' (HMW) opportunity statements.",
+        "Lead divergent brainstorming sessions that generate novel creative possibilities.",
+        "Build low-fidelity paper and digital prototypes in hours instead of weeks.",
+        "Conduct user testing sessions to iterate on prototypes based on direct feedback."
+      ],
+      "progression": [
+        "What is Design Thinking: why analytical logic fails for human-centered wicked problems.",
+        "Phase 1 & 2: Empathizing with users and defining the point-of-view problem statement.",
+        "Phase 3: Ideation, divergent thinking, and framing 'How Might We' prompts.",
+        "Phase 4: Rapid prototyping: paper models, roleplay, and wireframe mockups.",
+        "Phase 5: User testing, feedback integration, and continuous iterative refinement."
+      ]
+    },
+    {
+      "id": "CRT-102",
+      "title": "First Principles Thinking: Reasoning from the Ground Up",
+      "category": "Creative Thinking, Problem Solving & Design",
+      "description": "Break down complex problems into fundamental physical truths and reason upward to discover breakthrough innovations.",
+      "target_audience": "Entrepreneurs, scientists, engineers, and ambitious problem solvers.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Directly contrasts reasoning by analogy (copying others with slight tweaks) against reasoning from foundational first principles.",
+      "learning_outcomes": [
+        "Differentiate reasoning by analogy from reasoning by first principles.",
+        "Use Socratic questioning to strip away untested assumptions and conventions.",
+        "Boil complex cost or engineering problems down to their fundamental material limits.",
+        "Reconstruct novel solutions upward from basic components.",
+        "Apply first-principles thinking to personal career and business dilemmas."
+      ],
+      "progression": [
+        "The trap of analogy: why copying industry conventions blinds creators to breakthroughs.",
+        "The Socratic method: interrogating assumptions, clarifying terms, and seeking proof.",
+        "Deconstructing problems to bedrock: physical laws, fundamental materials, and true constraints.",
+        "Rebuilding from scratch: novel combinations, counter-intuitive designs, and innovation case studies."
+      ]
+    },
+    {
+      "id": "CRT-103",
+      "title": "Creative Ideation & Divergent Thinking Techniques",
+      "category": "Creative Thinking, Problem Solving & Design",
+      "description": "Break mental blocks and generate hundreds of novel ideas using SCAMPER, lateral thinking, and constraint inversion.",
+      "target_audience": "Writers, designers, marketers, engineers, and creative thinkers.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Focuses on systematic creative heuristics rather than waiting passively for an unpredictable 'muse' to strike.",
+      "learning_outcomes": [
+        "Differentiate divergent ideation (generating options) from convergent evaluation (selecting winners).",
+        "Apply the SCAMPER creative tool (Substitute, Combine, Adapt, Modify, Put to other use, Eliminate, Reverse).",
+        "Use deliberate constraints to unlock breakthrough creative ingenuity.",
+        "Conduct lateral thinking exercises (random entry, provocative operations).",
+        "Filter and refine raw brainstormed lists into viable, high-potential concepts."
+      ],
+      "progression": [
+        "The anatomy of creativity: associative memory, neuro-connections, and deferring judgment.",
+        "Divergence vs. Convergence: why mixing ideation with critique destroys innovation.",
+        "The SCAMPER framework in practice: systematic transformation of existing concepts.",
+        "Constraint manipulation, lateral thinking jumps, and evaluating final concept viability."
+      ]
+    },
+    {
+      "id": "CRT-104",
+      "title": "User Experience (UX) & User Interface (UI) Design Principles",
+      "category": "Creative Thinking, Problem Solving & Design",
+      "description": "Design intuitive, delightful digital interfaces: Jakob's Law, Fitts's Law, visual hierarchy, wireframing, and micro-interactions.",
+      "target_audience": "Developers, aspiring product designers, and web creators.",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 5,
+      "target_capsules": 70,
+      "differentiation": "Focuses on cognitive usability laws (Nielsen Norman heuristics, psychology of affordances) over trendy visual styling.",
+      "learning_outcomes": [
+        "Apply fundamental UX laws: Jakob's Law, Fitts's Law, Hick's Law, and Miller's Law.",
+        "Establish clear visual hierarchy using scale, contrast, proximity, and spacing.",
+        "Design clear interface affordances, signifiers, and immediate system feedback.",
+        "Construct low-fidelity wireframes and user flow diagrams.",
+        "Audit web and mobile screens against Nielsen's 10 Usability Heuristics."
+      ],
+      "progression": [
+        "What makes good design: affordances, signifiers, mental models, and Norman doors.",
+        "Psychological UX laws: Jakob's law of familiarity, Fitts's law of target sizes, and Hick's law of choices.",
+        "UI visual fundamentals: typography scales, spacing grids, color systems, and contrast.",
+        "Interaction states: hover, focus, active, loading, error, and empty states.",
+        "Usability heuristics: Nielsen's 10 principles and conducting a UX expert audit."
+      ]
+    },
+    {
+      "id": "CRT-105",
+      "title": "Systems Thinking: Mapping Feedback Loops & Side Effects",
+      "category": "Creative Thinking, Problem Solving & Design",
+      "description": "Understand complex systems: stocks, flows, reinforcing feedback, balancing feedback, delayed effects, and unintended consequences.",
+      "target_audience": "Leaders, policymakers, engineers, software architects, and strategic analysts.",
+      "difficulty": "Intermediate",
+      "prerequisites": "None.",
+      "suggested_topics": 4,
+      "target_capsules": 65,
+      "differentiation": "Brings Donella Meadows' 'Thinking in Systems' concepts to life through real corporate, ecological, and software examples.",
+      "learning_outcomes": [
+        "Deconstruct systems into stocks, inflows, outflows, and feedback loops.",
+        "Identify Reinforcing loops (exponential growth/collapse) and Balancing loops (homeostasis).",
+        "Understand why time delays cause massive overshoot and oscillation in systems.",
+        "Spot systemic archetypes (Tragedy of the Commons, Shifting the Burden, Fixes that Fail).",
+        "Identify high-leverage intervention points to transform systemic performance."
+      ],
+      "progression": [
+        "Beyond linear cause-and-effect: introducing stocks, flows, and systemic interconnectivity.",
+        "Feedback dynamics: reinforcing loops (growth engines) and balancing loops (stabilizing limits).",
+        "Delays and oscillations: why immediate intuitive fixes frequently worsen systemic problems.",
+        "Leverage points: Meadows' 12 places to intervene in a system to produce lasting change."
+      ]
+    },
+    {
+      "id": "CRT-106",
+      "title": "Visual Thinking & Sketch-Noting for Complex Ideas",
+      "category": "Creative Thinking, Problem Solving & Design",
+      "description": "Synthesize and communicate abstract concepts using simple hand-drawn shapes, arrows, visual metaphors, and layout frameworks.",
+      "target_audience": "Thinkers, speakers, managers, students, and engineers who struggle to explain ideas with text alone.",
+      "difficulty": "Beginner",
+      "prerequisites": "None. Zero artistic drawing talent required.",
+      "suggested_topics": 4,
+      "target_capsules": 60,
+      "differentiation": "Teaches functional visual thinking ('drawing to think and communicate') rather than fine art illustration.",
+      "learning_outcomes": [
+        "Draw the 5 basic visual alphabet shapes (circle, square, triangle, line, dot).",
+        "Combine visual primitives to represent everyday abstract concepts (lightbulb for ideas, gears for processes).",
+        "Structure sketch-note layouts: linear, path, radial, and modular container grids.",
+        "Use visual connectors, arrows, and spatial grouping to illustrate causal relationships.",
+        "Facilitate live whiteboard sessions that align cross-functional teams."
+      ],
+      "progression": [
+        "Visual thinking fundamentals: the basic visual alphabet and overcoming the 'I can't draw' fear.",
+        "Visual vocabulary: translating abstract words (growth, challenge, connection) into simple icons.",
+        "Spatial organization: layouts, visual hierarchy, containers, and color accents.",
+        "Visual communication in practice: live whiteboarding, sketch-noting meetings, and visual summaries."
+      ]
+    }
+  ]
+}
